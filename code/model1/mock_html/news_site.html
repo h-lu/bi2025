@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日科技新闻</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            margin: 0 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main-content {
+            display: flex;
+        }
+        .news-section {
+            flex: 2;
+            margin-right: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .news-item {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .featured-news {
+            margin-bottom: 30px;
+        }
+        .featured-news img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-content {
+            padding: 20px;
+        }
+        .news-title {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+        }
+        .featured-news .news-title {
+            font-size: 24px;
+        }
+        .news-meta {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .news-category {
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .news-category.tech {
+            background-color: #3498db;
+        }
+        .news-category.business {
+            background-color: #2ecc71;
+        }
+        .news-category.ai {
+            background-color: #9b59b6;
+        }
+        .news-category.gadgets {
+            background-color: #e74c3c;
+        }
+        .news-excerpt {
+            line-height: 1.6;
+            color: #555;
+        }
+        .read-more {
+            display: inline-block;
+            color: #3498db;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .popular-posts h3,
+        .categories h3 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .popular-post {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .popular-post img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .popular-post-title {
+            font-size: 14px;
+            margin: 0;
+        }
+        .popular-post-meta {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        .categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .categories li {
+            margin-bottom: 10px;
+        }
+        .categories a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+        }
+        .categories a:hover {
+            color: #3498db;
+        }
+        .category-count {
+            background-color: #eee;
+            border-radius: 10px;
+            padding: 2px 8px;
+            font-size: 12px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">每日科技新闻</div>
+        <p>及时掌握最新科技动态</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">科技</a></li>
+            <li><a href="#">商业</a></li>
+            <li><a href="#">人工智能</a></li>
+            <li><a href="#">产品评测</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="featured-news news-item" id="article1">
+            <img src="https://via.placeholder.com/800x400?text=AI革命" alt="人工智能革命">
+            <div class="news-content">
+                <span class="news-category ai">人工智能</span>
+                <h2 class="news-title">人工智能革命：GPT-4如何改变我们的工作方式</h2>
+                <div class="news-meta">
+                    <span class="news-author">作者: 张明</span> | 
+                    <span class="news-date">2023-09-15</span> | 
+                    <span class="news-views">阅读量: 2458</span>
+                </div>
+                <div class="news-excerpt">
+                    <p>随着GPT-4的发布，人工智能技术再次取得了突破性进展。这款先进的语言模型不仅能够生成高质量的文本内容，还能理解图像、进行复杂推理，甚至能够编写代码。本文将深入探讨GPT-4如何改变各行各业的工作方式，从内容创作到客户服务，从医疗诊断到法律咨询，人工智能正在重塑我们的职业世界。</p>
+                    <p>专家预测，到2025年，全球将有超过75%的企业将人工智能技术应用到日常业务中。这一趋势不仅提高了生产效率，也创造了新的就业机会和职业路径。然而，这也带来了一系列伦理和社会问题，包括工作岗位替代、数据隐私和算法偏见等。</p>
+                </div>
+                <a href="#" class="read-more">阅读全文 &raquo;</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="news-section">
+                <div class="news-item" id="article2">
+                    <img src="https://via.placeholder.com/600x300?text=新款iPhone" alt="苹果发布新款iPhone">
+                    <div class="news-content">
+                        <span class="news-category gadgets">数码产品</span>
+                        <h2 class="news-title">苹果发布新款iPhone 15：创新还是小幅升级？</h2>
+                        <div class="news-meta">
+                            <span class="news-author">作者: 李华</span> | 
+                            <span class="news-date">2023-09-14</span> | 
+                            <span class="news-views">阅读量: 1893</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>苹果公司昨日正式发布了iPhone 15系列，包括标准版、Plus、Pro和Pro Max四款机型。新机型采用了全新的A17芯片，拥有更强的性能和更低的功耗。摄像系统也得到了升级，Pro版本支持8K视频录制和更先进的夜间模式。</p>
+                            <p>然而，不少评论者认为，这次更新更像是小幅升级而非革命性创新。与此同时，苹果还宣布全系列采用USB-C接口，这被认为是受欧盟法规影响的结果。</p>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="news-item" id="article3">
+                    <img src="https://via.placeholder.com/600x300?text=SpaceX发射" alt="SpaceX成功发射星链卫星">
+                    <div class="news-content">
+                        <span class="news-category tech">航天科技</span>
+                        <h2 class="news-title">SpaceX成功发射60颗星链卫星，全球网络覆盖计划进入新阶段</h2>
+                        <div class="news-meta">
+                            <span class="news-author">作者: 王强</span> | 
+                            <span class="news-date">2023-09-12</span> | 
+                            <span class="news-views">阅读量: 1457</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>SpaceX公司昨日成功发射了一枚携带60颗星链卫星的猎鹰9号火箭，这是该公司今年第35次发射任务。随着这批卫星的部署，星链卫星互联网服务的覆盖范围将进一步扩大，特别是在偏远地区和发展中国家。</p>
+                            <p>据SpaceX公司透露，目前已有超过100万用户使用星链服务，这一数字有望在明年翻倍。同时，该公司还在积极推进与航空公司和邮轮公司的合作，为更多场景提供高速互联网服务。</p>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="news-item" id="article4">
+                    <img src="https://via.placeholder.com/600x300?text=元宇宙发展" alt="元宇宙发展现状">
+                    <div class="news-content">
+                        <span class="news-category tech">前沿科技</span>
+                        <h2 class="news-title">元宇宙热度减退？投资金额同比下降40%，行业如何突破瓶颈</h2>
+                        <div class="news-meta">
+                            <span class="news-author">作者: 陈静</span> | 
+                            <span class="news-date">2023-09-10</span> | 
+                            <span class="news-views">阅读量: 1025</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>最新数据显示，2023年上半年全球元宇宙相关企业的风险投资金额同比下降约40%，这表明市场对这一概念的热情正在降温。分析认为，这种变化部分源于宏观经济环境的变化，但更重要的是元宇宙技术和应用尚未达到普通用户的期望水平。</p>
+                            <p>然而，一些领先企业仍在积极布局，微软、Meta和索尼等公司继续投入大量资金开发相关技术。专家预测，元宇宙将在教育、医疗和工业设计等领域率先实现突破性应用。</p>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &raquo;</a>
+                    </div>
+                </div>
+
+                <div class="news-item" id="article5">
+                    <img src="https://via.placeholder.com/600x300?text=特斯拉新车" alt="特斯拉自动驾驶技术升级">
+                    <div class="news-content">
+                        <span class="news-category business">汽车科技</span>
+                        <h2 class="news-title">特斯拉推出全新自动驾驶系统，马斯克称可实现L4级自动驾驶</h2>
+                        <div class="news-meta">
+                            <span class="news-author">作者: 赵芳</span> | 
+                            <span class="news-date">2023-09-08</span> | 
+                            <span class="news-views">阅读量: 1876</span>
+                        </div>
+                        <div class="news-excerpt">
+                            <p>特斯拉日前发布了全新版本的全自动驾驶(FSD)系统，CEO埃隆·马斯克表示，这一版本在特定条件下可以实现L4级自动驾驶能力。新系统采用了改进的神经网络架构和更强大的车载计算平台，能够处理更复杂的道路情况和交通场景。</p>
+                            <p>然而，监管机构和安全专家对这一说法持谨慎态度，强调真正的L4级自动驾驶需要更严格的测试和验证。目前特斯拉的系统仍要求驾驶员时刻保持注意力并准备接管车辆控制。</p>
+                        </div>
+                        <a href="#" class="read-more">阅读全文 &raquo;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="popular-posts">
+                    <h3>热门文章</h3>
+                    <div class="popular-post">
+                        <img src="https://via.placeholder.com/70x70?text=AI" alt="AI应用">
+                        <div>
+                            <h4 class="popular-post-title">人工智能在医疗领域的十大突破性应用</h4>
+                            <div class="popular-post-meta">2023-09-11 | 阅读量: 1856</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <img src="https://via.placeholder.com/70x70?text=5G" alt="5G技术">
+                        <div>
+                            <h4 class="popular-post-title">5G技术如何改变智慧城市建设的未来方向</h4>
+                            <div class="popular-post-meta">2023-09-09 | 阅读量: 1532</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <img src="https://via.placeholder.com/70x70?text=创业" alt="科技创业">
+                        <div>
+                            <h4 class="popular-post-title">2023年最值得关注的十家人工智能创业公司</h4>
+                            <div class="popular-post-meta">2023-09-05 | 阅读量: 1489</div>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <img src="https://via.placeholder.com/70x70?text=云计算" alt="云计算">
+                        <div>
+                            <h4 class="popular-post-title">云计算巨头季度财报分析：增长点与挑战</h4>
+                            <div class="popular-post-meta">2023-09-03 | 阅读量: 1298</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories">
+                    <h3>分类目录</h3>
+                    <ul>
+                        <li><a href="#">人工智能 <span class="category-count">142</span></a></li>
+                        <li><a href="#">科技产业 <span class="category-count">98</span></a></li>
+                        <li><a href="#">数码产品 <span class="category-count">87</span></a></li>
+                        <li><a href="#">航天科技 <span class="category-count">56</span></a></li>
+                        <li><a href="#">网络安全 <span class="category-count">43</span></a></li>
+                        <li><a href="#">前沿科技 <span class="category-count">38</span></a></li>
+                        <li><a href="#">科技评论 <span class="category-count">31</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2023 每日科技新闻 - 模拟网站（仅供学习使用）</p>
+    </footer>
+</body>
+</html> 

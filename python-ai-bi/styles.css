@@ -1,0 +1,77 @@
+/* Custom CSS for Python与AI驱动的现代商务智能 */
+
+body {
+  font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 600;
+  color: #0066cc;
+}
+
+.sidebar-title {
+  font-weight: 600;
+}
+
+pre, code {
+  font-family: "Source Code Pro", "Fira Code", Consolas, "Courier New", monospace;
+}
+
+/* 重要内容高亮 */
+.important {
+  background-color: #fff9e6;
+  border-left: 4px solid #ffcc00;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+
+/* 代码示例高亮 */
+.example {
+  background-color: #e6f5ff;
+  border-left: 4px solid #0099ff;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+
+/* 实践任务高亮 */
+.task {
+  background-color: #e6fff0;
+  border-left: 4px solid #00cc66;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+
+/* 提示与技巧高亮 */
+.tip {
+  background-color: #f0e6ff;
+  border-left: 4px solid #9966ff;
+  padding: 10px 15px;
+  margin: 15px 0;
+}
+
+/* 表格样式 */
+table {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+/* 图片样式 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+} 

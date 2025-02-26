@@ -1,0 +1,442 @@
+# 动态网页抓取
+
+在现代网络中，越来越多的网站采用JavaScript动态加载内容的方式构建，传统的爬虫方法往往无法获取这些动态生成的内容。本章将介绍如何使用Selenium和Playwright等工具爬取动态加载的网页内容。
+
+## 动态网页的特点与挑战
+
+动态网页通常具有以下特点：
+
+:::{.important}
+1. **内容由JavaScript生成**：页面初始HTML中不包含完整数据
+2. **异步加载**：通过AJAX请求在浏览后加载数据
+3. **交互触发**：某些内容需要点击、滚动等交互操作才会显示
+4. **单页应用(SPA)**：整个应用只有一个HTML页面，通过JS动态切换视图
+:::
+
+传统爬虫面临的挑战：
+
+1. Requests和Scrapy等工具只能获取初始HTML，无法执行JavaScript
+2. 无法处理交互操作触发的内容加载
+3. 网站可能检测爬虫行为并拒绝服务
+
+## Selenium介绍
+
+Selenium是一个用于Web应用程序测试的工具，它可以驱动浏览器执行操作，非常适合用来爬取动态网页。
+
+### 安装Selenium
+
+```python
+pip install selenium
+```
+
+除了安装Python库外，还需要安装对应浏览器的驱动：
+
+- Chrome: [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)
+- Firefox: [GeckoDriver](https://github.com/mozilla/geckodriver/releases)
+- Edge: [EdgeDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+
+### Selenium基本用法
+
+```python
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+import time
+
+# 设置ChromeDriver路径
+webdriver_service = Service('/path/to/chromedriver')
+
+# 配置Chrome选项
+chrome_options = Options()
+chrome_options.add_argument('--headless')  # 无头模式，不显示浏览器窗口
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--window-size=1920,1080')
+
+# 初始化浏览器
+driver = webdriver.Chrome(service=webdriver_service, options=chrome_options)
+
+# 打开网页
+driver.get('https://www.example.com')
+
+# 等待页面加载（显式等待）
+time.sleep(2)
+
+# 查找元素
+elements = driver.find_elements(By.CSS_SELECTOR, 'div.product')
+
+# 提取数据
+for element in elements:
+    title = element.find_element(By.CSS_SELECTOR, 'h2.title').text
+    price = element.find_element(By.CSS_SELECTOR, 'span.price').text
+    print(f"产品: {title}, 价格: {price}")
+
+# 执行点击操作
+button = driver.find_element(By.ID, 'load-more')
+button.click()
+
+# 等待新内容加载
+time.sleep(2)
+
+# 关闭浏览器
+driver.quit()
+```
+
+### 等待策略
+
+Selenium提供了两种等待策略，用于处理异步加载的内容：
+
+#### 1. 显式等待
+
+明确等待某个条件满足：
+
+```python
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# 等待某个元素可见，最多等待10秒
+element = WebDriverWait(driver, 10).until(
+    EC.visibility_of_element_located((By.ID, "myElement"))
+)
+
+# 等待某个元素可点击
+element = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.ID, "myButton"))
+)
+```
+
+#### 2. 隐式等待
+
+设置全局等待时间：
+
+```python
+# 设置隐式等待时间为10秒
+driver.implicitly_wait(10)
+# 之后的所有find_element操作都会等待元素出现，最多等待10秒
+```
+
+### 处理常见交互场景
+
+#### 1. 滚动页面
+
+```python
+# 滚动到页面底部
+driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+# 滚动到特定元素
+element = driver.find_element(By.ID, "my-element")
+driver.execute_script("arguments[0].scrollIntoView();", element)
+```
+
+#### 2. 处理弹窗和警告
+
+```python
+# 切换到弹窗
+alert = driver.switch_to.alert
+print(alert.text)
+alert.accept()  # 点击确定
+# alert.dismiss()  # 点击取消
+```
+
+#### 3. 处理iframe
+
+```python
+# 切换到iframe
+iframe = driver.find_element(By.TAG_NAME, "iframe")
+driver.switch_to.frame(iframe)
+
+# 在iframe中操作
+element = driver.find_element(By.ID, "element-in-iframe")
+print(element.text)
+
+# 切回主文档
+driver.switch_to.default_content()
+```
+
+#### 4. 处理下拉菜单
+
+```python
+from selenium.webdriver.support.ui import Select
+
+# 处理select元素
+select_element = driver.find_element(By.ID, "my-select")
+select = Select(select_element)
+
+# 选择选项
+select.select_by_visible_text("Option Text")  # 通过文本选择
+select.select_by_value("value1")  # 通过值选择
+select.select_by_index(1)  # 通过索引选择
+```
+
+## Playwright介绍
+
+Playwright是微软开发的新一代自动化测试工具，相比Selenium有更好的性能和更现代的API设计，支持多种浏览器，包括Chromium, Firefox和WebKit。
+
+### 安装Playwright
+
+```bash
+pip install playwright
+playwright install  # 安装浏览器
+```
+
+### Playwright基本用法
+
+```python
+import asyncio
+from playwright.async_api import async_playwright
+
+async def main():
+    async with async_playwright() as p:
+        # 启动浏览器
+        browser = await p.chromium.launch(headless=True)
+        
+        # 创建新页面
+        page = await browser.new_page()
+        
+        # 访问网站
+        await page.goto('https://www.example.com')
+        
+        # 等待元素加载
+        await page.wait_for_selector('div.product')
+        
+        # 获取数据
+        product_elements = await page.query_selector_all('div.product')
+        
+        for product in product_elements:
+            title = await product.query_selector('h2.title')
+            price = await product.query_selector('span.price')
+            
+            title_text = await title.inner_text()
+            price_text = await price.inner_text()
+            
+            print(f"产品: {title_text}, 价格: {price_text}")
+        
+        # 点击加载更多
+        await page.click('#load-more')
+        
+        # 等待新内容加载
+        await page.wait_for_timeout(2000)
+        
+        # 关闭浏览器
+        await browser.close()
+
+# 运行异步函数
+asyncio.run(main())
+```
+
+### Playwright的优势
+
+1. **更强大的选择器**：支持CSS、XPath和文本选择器
+2. **自动等待**：自动等待元素准备好后再操作
+3. **网络拦截**：可以拦截和修改网络请求
+4. **多浏览器支持**：同一套代码可用于Chromium、Firefox和WebKit
+5. **设备模拟**：内置移动设备模拟
+6. **更好的异步支持**：基于异步API设计
+
+### 拦截网络请求获取数据
+
+有时候，我们可以直接拦截网页的XHR请求，获取JSON数据，而不需要解析HTML：
+
+```python
+import asyncio
+import json
+from playwright.async_api import async_playwright
+
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page()
+        
+        # 存储捕获的请求数据
+        api_data = []
+        
+        # 监听网络请求
+        async def handle_response(response):
+            if "api/products" in response.url:
+                try:
+                    data = await response.json()
+                    api_data.append(data)
+                except:
+                    pass
+                
+        page.on("response", handle_response)
+        
+        # 访问网站
+        await page.goto('https://www.example.com/products')
+        
+        # 等待数据加载
+        await page.wait_for_timeout(3000)
+        
+        # 处理捕获的数据
+        for data in api_data:
+            print(json.dumps(data, indent=2))
+        
+        await browser.close()
+
+asyncio.run(main())
+```
+
+## 实践任务：爬取电商网站动态加载的商品数据
+
+:::{.task}
+使用Selenium或Playwright爬取某电商网站(如京东、亚马逊等)的商品数据，实现以下功能：
+
+1. 搜索特定关键词
+2. 等待商品列表加载
+3. 提取商品标题、价格、评价数等信息
+4. 点击"下一页"按钮，获取多页数据
+5. 将数据保存到CSV文件
+
+以下是使用Playwright的示例代码：
+
+```python
+import asyncio
+import csv
+from playwright.async_api import async_playwright
+
+async def scrape_products(keyword, pages=3):
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=False)  # 设置为True可隐藏浏览器
+        page = await browser.new_page()
+        
+        # 访问电商网站
+        await page.goto('https://www.example.com')
+        
+        # 搜索商品
+        await page.fill('input[name="q"]', keyword)
+        await page.press('input[name="q"]', 'Enter')
+        
+        # 等待搜索结果加载
+        await page.wait_for_selector('.product-item')
+        
+        all_products = []
+        
+        # 遍历多页
+        for i in range(pages):
+            print(f"正在抓取第 {i+1} 页...")
+            
+            # 等待确保页面完全加载
+            await page.wait_for_timeout(2000)
+            
+            # 提取商品信息
+            products = await page.query_selector_all('.product-item')
+            
+            for product in products:
+                title_elem = await product.query_selector('.product-title')
+                price_elem = await product.query_selector('.product-price')
+                rating_elem = await product.query_selector('.product-rating')
+                
+                title = await title_elem.inner_text() if title_elem else "N/A"
+                price = await price_elem.inner_text() if price_elem else "N/A"
+                rating = await rating_elem.inner_text() if rating_elem else "N/A"
+                
+                all_products.append({
+                    'title': title,
+                    'price': price,
+                    'rating': rating
+                })
+            
+            # 检查是否有下一页
+            next_button = await page.query_selector('a.next-page')
+            if not next_button or i == pages - 1:
+                break
+                
+            # 点击下一页
+            await next_button.click()
+            
+        # 保存到CSV
+        with open(f'{keyword}_products.csv', 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=['title', 'price', 'rating'])
+            writer.writeheader()
+            writer.writerows(all_products)
+            
+        print(f"已抓取 {len(all_products)} 个商品信息，保存到 {keyword}_products.csv")
+        
+        await browser.close()
+
+# 运行爬虫，搜索"笔记本电脑"并抓取3页
+asyncio.run(scrape_products("笔记本电脑", 3))
+```
+:::
+
+## 反爬虫策略与绕过方法
+
+动态网页爬取通常会面临更强的反爬虫措施，以下是一些常见的反爬策略和绕过方法：
+
+### 1. 浏览器指纹识别
+
+许多网站通过收集浏览器特征来识别爬虫。
+
+**绕过方法**：
+```python
+# Selenium设置
+options = Options()
+options.add_argument('--disable-blink-features=AutomationControlled')
+options.add_experimental_option('excludeSwitches', ['enable-automation'])
+options.add_experimental_option('useAutomationExtension', False)
+
+# Playwright设置
+browser = await p.chromium.launch(
+    headless=True, 
+    args=['--disable-blink-features=AutomationControlled']
+)
+```
+
+### 2. 验证码
+
+**绕过方法**：
+- 使用验证码识别服务如2Captcha、Anti-Captcha
+- 对于复杂验证码，可能需要人工干预
+
+```python
+# 使用2Captcha服务示例
+import requests
+
+def solve_captcha(site_key, page_url):
+    api_key = 'YOUR_2CAPTCHA_API_KEY'
+    url = f'https://2captcha.com/in.php?key={api_key}&method=userrecaptcha&googlekey={site_key}&pageurl={page_url}'
+    response = requests.get(url)
+    
+    # 获取验证码ID
+    captcha_id = response.text.split('|')[1]
+    
+    # 等待验证码解决
+    while True:
+        time.sleep(5)
+        result_url = f'https://2captcha.com/res.php?key={api_key}&action=get&id={captcha_id}'
+        response = requests.get(result_url)
+        if 'CAPCHA_NOT_READY' not in response.text:
+            return response.text.split('|')[1]
+```
+
+### 3. IP限制
+
+**绕过方法**：
+- 使用代理IP轮换
+- 控制请求频率
+
+```python
+# Playwright使用代理
+browser = await p.chromium.launch(
+    proxy={
+        'server': 'http://proxy-server-address:port',
+        'username': 'username',
+        'password': 'password'
+    }
+)
+```
+
+## 动态网页爬取的最佳实践
+
+1. **减少不必要的浏览器操作**：浏览器自动化比较慢，尽量只用于必要场景
+2. **优先尝试API**：很多动态网页的数据其实来自API，可以直接调用API获取数据
+3. **合理使用等待**：使用智能等待策略，避免固定时间等待
+4. **错误处理**：增加重试机制和错误恢复流程
+5. **资源管理**：长时间运行的爬虫要注意释放浏览器资源
+6. **遵守网站规则**：尊重robots.txt和网站使用条款
+
+## 总结
+
+本章介绍了使用Selenium和Playwright爬取动态网页的方法。相比传统爬虫，这些工具可以真实模拟浏览器行为，执行JavaScript，处理各种交互操作，是爬取现代Web应用的有力工具。
+
+在下一章中，我们将学习数据清洗与预处理技术，将爬取的原始数据转化为适合分析的格式。 

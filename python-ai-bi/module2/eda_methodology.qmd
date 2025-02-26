@@ -1,0 +1,327 @@
+---
+title: "探索性数据分析方法论"
+---
+
+# 探索性数据分析方法论
+
+## 什么是探索性数据分析
+
+探索性数据分析（Exploratory Data Analysis，简称EDA）是一种数据分析方法，旨在通过对数据进行初步探索和可视化，发现数据中的模式、异常、关系和趋势。EDA是数据科学项目中不可或缺的一步，它帮助我们了解数据的基本特征，指导后续的数据处理和建模工作。
+
+EDA的核心理念是：
+- 保持开放的态度，让数据"说话"
+- 重视数据的图形化表示
+- 注重数据质量和异常值的识别
+- 发现数据中的结构和规律
+- 形成数据洞察，指导后续分析
+
+## EDA的主要步骤
+
+### 1. 数据获取与理解
+
+在开始EDA之前，我们需要：
+- 了解数据的来源和采集方法
+- 明确业务背景和分析目标
+- 理解数据字典，熟悉每个变量的含义和类型
+
+### 2. 数据质量检查
+
+数据质量检查是EDA的第一步，主要包括：
+
+```python
+# 数据概览
+import pandas as pd
+import numpy as np
+
+# 读取数据
+df = pd.read_csv('data.csv')
+
+# 查看数据基本信息
+print(df.info())
+print(df.shape)
+
+# 查看数据前几行
+print(df.head())
+
+# 检查缺失值
+print(df.isnull().sum())
+missing_percentage = df.isnull().mean() * 100
+print(missing_percentage[missing_percentage > 0])
+
+# 检查重复值
+print(f"重复行数量: {df.duplicated().sum()}")
+
+# 检查异常值
+numeric_cols = df.select_dtypes(include=[np.number]).columns
+for col in numeric_cols:
+    print(f"\n{col}的统计摘要:")
+    print(df[col].describe())
+    # 可视化异常值
+    import matplotlib.pyplot as plt
+    plt.figure(figsize=(8, 4))
+    plt.boxplot(df[col].dropna())
+    plt.title(f"{col}的箱线图")
+    plt.show()
+```
+
+### 3. 描述性统计分析
+
+描述性统计为我们提供数据的集中趋势和离散程度：
+
+```python
+# 数值型变量的描述性统计
+print(df.describe())
+
+# 分类变量的频率统计
+categorical_cols = df.select_dtypes(include=['object', 'category']).columns
+for col in categorical_cols:
+    print(f"\n{col}的频率分布:")
+    print(df[col].value_counts())
+    print(f"{col}的占比分布:")
+    print(df[col].value_counts(normalize=True) * 100)
+```
+
+### 4. 数据分布分析
+
+了解变量的分布特征是EDA的重要部分：
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 单变量分布分析
+for col in numeric_cols:
+    plt.figure(figsize=(10, 4))
+    
+    # 直方图
+    plt.subplot(121)
+    sns.histplot(df[col].dropna(), kde=True)
+    plt.title(f"{col}的分布")
+    
+    # QQ图检验正态性
+    from scipy import stats
+    plt.subplot(122)
+    stats.probplot(df[col].dropna(), plot=plt)
+    plt.title(f"{col}的QQ图")
+    
+    plt.tight_layout()
+    plt.show()
+
+# 分类变量分布
+for col in categorical_cols[:5]:  # 限制为前5个分类变量
+    plt.figure(figsize=(10, 6))
+    sns.countplot(y=col, data=df)
+    plt.title(f"{col}的分布")
+    plt.tight_layout()
+    plt.show()
+```
+
+### 5. 关系探索与模式发现
+
+EDA的核心任务是发现变量间的关系：
+
+```python
+# 相关性分析
+corr_matrix = df[numeric_cols].corr()
+plt.figure(figsize=(12, 10))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('相关性热图')
+plt.show()
+
+# 散点图矩阵
+sns.pairplot(df[numeric_cols[:5]])  # 选择前5个数值变量
+plt.suptitle('散点图矩阵', y=1.02)
+plt.show()
+
+# 分组分析
+target_col = 'target'  # 假设有一个目标变量
+if target_col in df.columns:
+    # 数值变量与目标变量的关系
+    for col in numeric_cols:
+        if col != target_col:
+            plt.figure(figsize=(10, 6))
+            sns.boxplot(x=target_col, y=col, data=df)
+            plt.title(f"{target_col}与{col}的关系")
+            plt.show()
+    
+    # 分类变量与目标变量的关系
+    for col in categorical_cols:
+        if col != target_col:
+            plt.figure(figsize=(12, 6))
+            cross_tab = pd.crosstab(df[col], df[target_col], normalize='index') * 100
+            cross_tab.plot(kind='bar', stacked=True)
+            plt.title(f"{col}与{target_col}的关系")
+            plt.ylabel('百分比')
+            plt.show()
+```
+
+### 6. 时序模式分析
+
+对于包含时间维度的数据：
+
+```python
+# 假设数据包含一个日期列 'date'
+if 'date' in df.columns:
+    # 确保日期列是datetime类型
+    df['date'] = pd.to_datetime(df['date'])
+    
+    # 提取时间特征
+    df['year'] = df['date'].dt.year
+    df['month'] = df['date'].dt.month
+    df['day'] = df['date'].dt.day
+    df['dayofweek'] = df['date'].dt.dayofweek
+    
+    # 时间序列可视化
+    time_series_var = 'sales'  # 假设有销售额变量
+    if time_series_var in df.columns:
+        # 按月聚合
+        monthly_data = df.groupby(df['date'].dt.to_period('M'))[time_series_var].mean()
+        
+        plt.figure(figsize=(12, 6))
+        monthly_data.plot()
+        plt.title(f"{time_series_var}的月度趋势")
+        plt.xlabel('月份')
+        plt.ylabel(time_series_var)
+        plt.grid(True)
+        plt.show()
+        
+        # 按星期几分析
+        plt.figure(figsize=(10, 6))
+        sns.boxplot(x='dayofweek', y=time_series_var, data=df)
+        plt.title(f"{time_series_var}在一周内的分布")
+        plt.xlabel('星期(0=周一)')
+        plt.show()
+```
+
+## EDA的方法与技巧
+
+### 数据预处理技巧
+
+```python
+# 处理缺失值
+# 方法1：删除缺失值
+df_clean = df.dropna()
+
+# 方法2：填充缺失值
+df['numeric_col'] = df['numeric_col'].fillna(df['numeric_col'].mean())
+df['categorical_col'] = df['categorical_col'].fillna(df['categorical_col'].mode()[0])
+
+# 处理异常值
+# 使用IQR方法识别异常值
+def identify_outliers(df, column):
+    Q1 = df[column].quantile(0.25)
+    Q3 = df[column].quantile(0.75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    outliers = df[(df[column] < lower_bound) | (df[column] > upper_bound)][column]
+    return outliers
+
+# 应用于所有数值列
+for col in numeric_cols:
+    outliers = identify_outliers(df, col)
+    print(f"{col}中的异常值数量: {len(outliers)}")
+```
+
+### 特征工程技巧
+
+```python
+# 创建新特征
+# 例如：比率特征
+if 'income' in df.columns and 'expense' in df.columns:
+    df['savings_ratio'] = (df['income'] - df['expense']) / df['income']
+
+# 分箱处理
+# 将连续变量转换为分类变量
+if 'age' in df.columns:
+    df['age_group'] = pd.cut(df['age'], bins=[0, 18, 30, 45, 60, 100], 
+                             labels=['0-18', '19-30', '31-45', '46-60', '60+'])
+    
+    # 查看分箱结果
+    print(df['age_group'].value_counts())
+```
+
+### 高级可视化技巧
+
+```python
+# 使用Seaborn进行高级可视化
+import seaborn as sns
+
+# 核密度估计图
+if 'income' in df.columns and 'gender' in df.columns:
+    plt.figure(figsize=(10, 6))
+    sns.kdeplot(data=df, x='income', hue='gender', fill=True, common_norm=False, alpha=.5)
+    plt.title('不同性别的收入分布')
+    plt.xlabel('收入')
+    plt.ylabel('密度')
+    plt.show()
+
+# 小提琴图
+if 'category' in df.columns and 'value' in df.columns:
+    plt.figure(figsize=(12, 7))
+    sns.violinplot(x='category', y='value', data=df)
+    plt.title('不同类别的值分布')
+    plt.xticks(rotation=45)
+    plt.show()
+
+# 平行坐标图
+if len(numeric_cols) >= 3:
+    from pandas.plotting import parallel_coordinates
+    # 选择部分特征和样本
+    features = numeric_cols[:5]  # 前5个数值特征
+    sample_df = df.sample(min(1000, len(df)))  # 抽样
+    
+    if 'target' in df.columns:
+        plt.figure(figsize=(15, 8))
+        parallel_coordinates(sample_df[features + ['target']], 'target')
+        plt.title('平行坐标图')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.show()
+```
+
+## EDA的案例分析
+
+### 销售数据案例
+
+以零售销售数据为例，EDA可能包括：
+
+1. 分析销售额的时间趋势
+2. 识别最畅销和最滞销的产品
+3. 探索销售额与客户特征的关系
+4. 分析促销活动的效果
+5. 挖掘产品间的关联规则
+
+### 用户行为数据案例
+
+以网站用户行为数据为例，EDA可能包括：
+
+1. 分析用户访问频率和时间模式
+2. 识别用户流失的关键节点
+3. 探索用户画像与购买行为的关系
+4. 分析页面停留时间和跳出率
+5. 挖掘用户浏览路径和转化漏斗
+
+## EDA的挑战与最佳实践
+
+### 常见挑战
+
+1. **数据质量问题**：缺失值、异常值、不一致性等
+2. **大数据处理**：如何有效处理和可视化大规模数据
+3. **变量选择**：如何从众多变量中识别关键因素
+4. **多维数据可视化**：如何在二维平面上展示高维数据
+5. **与业务目标的结合**：如何将数据发现与业务问题联系起来
+
+### 最佳实践
+
+1. **明确目标**：EDA应围绕业务问题进行
+2. **迭代探索**：通过不断的探索和假设验证，逐步深入
+3. **结合领域知识**：利用业务理解指导数据探索
+4. **注重故事性**：用数据讲述有意义的故事
+5. **平衡广度和深度**：既要全面了解数据，也要深入挖掘关键点
+
+## 小结
+
+探索性数据分析是数据科学项目的关键环节，它不仅帮助我们了解数据，还能指导后续的特征工程和建模策略。好的EDA过程应该是系统化的，结合了数据分析技术和业务洞察，能够发现有价值的模式和洞察。
+
+无论是使用Python、R还是其他工具，EDA的核心在于保持开放、好奇的心态，让数据讲述其中蕴含的故事，从而为决策提供支持。 

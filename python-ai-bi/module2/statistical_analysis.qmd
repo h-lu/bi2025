@@ -1,0 +1,505 @@
+---
+title: "统计分析与描述性统计"
+---
+
+# 统计分析与描述性统计
+
+在数据探索分析的基础上，统计分析帮助我们进一步理解数据、检验假设、揭示变量间的关系，从而为商业决策提供更有力的支持。本章将介绍描述性统计和推断统计的基本概念和方法，以及如何使用Python实现这些分析。
+
+## 描述性统计概述
+
+描述性统计是对数据集进行汇总和概括的方法，帮助我们了解数据的核心特征。
+
+:::{.important}
+描述性统计的主要目的：
+1. **集中趋势测量**：确定数据的"中心"位置
+2. **离散程度测量**：了解数据的分散程度
+3. **分布形状描述**：检查数据的对称性和峰度
+4. **异常值识别**：发现显著偏离主体的观测值
+5. **变量关系探索**：初步了解变量间的关联性
+:::
+
+### 集中趋势测量
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy import stats
+
+# 加载示例数据
+df = pd.read_csv('sales_data.csv')
+
+# 计算集中趋势指标
+numeric_cols = df.select_dtypes(include=['int64', 'float64']).columns
+
+for col in numeric_cols:
+    mean_val = df[col].mean()
+    median_val = df[col].median()
+    mode_val = df[col].mode()[0]  # 众数可能有多个，取第一个
+    
+    print(f"\n{col}的集中趋势指标:")
+    print(f"均值: {mean_val:.2f}")
+    print(f"中位数: {median_val:.2f}")
+    print(f"众数: {mode_val:.2f}")
+    
+    # 可视化三种指标在数据分布中的位置
+    plt.figure(figsize=(10, 6))
+    sns.histplot(df[col], kde=True)
+    plt.axvline(mean_val, color='red', linestyle='--', label=f'均值: {mean_val:.2f}')
+    plt.axvline(median_val, color='green', linestyle='-.', label=f'中位数: {median_val:.2f}')
+    plt.axvline(mode_val, color='blue', linestyle=':', label=f'众数: {mode_val:.2f}')
+    plt.legend()
+    plt.title(f"{col}的分布与集中趋势")
+    plt.tight_layout()
+    plt.show()
+```
+
+### 离散程度测量
+
+```python
+for col in numeric_cols:
+    # 计算离散程度指标
+    range_val = df[col].max() - df[col].min()
+    var_val = df[col].var()
+    std_val = df[col].std()
+    iqr_val = df[col].quantile(0.75) - df[col].quantile(0.25)
+    cv_val = std_val / df[col].mean() if df[col].mean() != 0 else np.nan
+    
+    print(f"\n{col}的离散程度指标:")
+    print(f"全距: {range_val:.2f}")
+    print(f"方差: {var_val:.2f}")
+    print(f"标准差: {std_val:.2f}")
+    print(f"四分位距(IQR): {iqr_val:.2f}")
+    print(f"变异系数(CV): {cv_val:.2f}")
+    
+    # 箱线图可视化
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(x=df[col])
+    plt.title(f"{col}的箱线图")
+    plt.tight_layout()
+    plt.show()
+```
+
+### 分布形状描述
+
+```python
+for col in numeric_cols:
+    # 计算偏度和峰度
+    skewness = df[col].skew()
+    kurtosis = df[col].kurt()
+    
+    print(f"\n{col}的分布形状:")
+    print(f"偏度: {skewness:.2f} ({'正偏' if skewness > 0 else '负偏' if skewness < 0 else '对称'})")
+    print(f"峰度: {kurtosis:.2f} ({'尖峰' if kurtosis > 0 else '平峰' if kurtosis < 0 else '正态'})")
+    
+    # 可视化分布
+    plt.figure(figsize=(12, 5))
+    
+    # 直方图和密度曲线
+    plt.subplot(1, 2, 1)
+    sns.histplot(df[col], kde=True)
+    plt.title(f"{col}的分布")
+    
+    # QQ图
+    plt.subplot(1, 2, 2)
+    stats.probplot(df[col], plot=plt)
+    plt.title(f"{col}的QQ图")
+    
+    plt.tight_layout()
+    plt.show()
+```
+
+## 推断统计基础
+
+推断统计使用样本数据对总体进行推断，帮助我们做出科学决策。
+
+### 抽样分布与中心极限定理
+
+```python
+# 模拟中心极限定理
+np.random.seed(42)
+
+# 创建非正态分布数据
+data = np.random.exponential(scale=1.0, size=10000)
+
+plt.figure(figsize=(12, 8))
+
+# 原始分布
+plt.subplot(2, 2, 1)
+plt.hist(data, bins=50, density=True, alpha=0.7)
+plt.title('原始指数分布')
+
+# 不同样本量的均值分布
+sample_sizes = [5, 30, 100]
+
+for i, n in enumerate(sample_sizes, 2):
+    sample_means = []
+    for _ in range(1000):
+        sample = np.random.choice(data, size=n)
+        sample_means.append(sample.mean())
+    
+    plt.subplot(2, 2, i)
+    plt.hist(sample_means, bins=50, density=True, alpha=0.7)
+    plt.title(f'样本大小n={n}的均值分布')
+    
+    # 添加正态分布曲线进行比较
+    x = np.linspace(min(sample_means), max(sample_means), 100)
+    plt.plot(x, stats.norm.pdf(x, np.mean(sample_means), np.std(sample_means)), 'r-')
+
+plt.tight_layout()
+plt.show()
+```
+
+### 置信区间
+
+```python
+# 计算均值的置信区间
+def mean_confidence_interval(data, confidence=0.95):
+    a = 1.0 * np.array(data)
+    n = len(a)
+    m, se = np.mean(a), stats.sem(a)
+    h = se * stats.t.ppf((1 + confidence) / 2., n-1)
+    return m, m-h, m+h
+
+for col in numeric_cols:
+    mean, ci_lower, ci_upper = mean_confidence_interval(df[col])
+    print(f"\n{col}的95%置信区间:")
+    print(f"均值: {mean:.2f}")
+    print(f"95%置信区间: ({ci_lower:.2f}, {ci_upper:.2f})")
+    
+    # 可视化置信区间
+    plt.figure(figsize=(10, 6))
+    sns.histplot(df[col], kde=True)
+    plt.axvline(mean, color='red', linestyle='-', label=f'均值: {mean:.2f}')
+    plt.axvline(ci_lower, color='green', linestyle='--', label=f'下限: {ci_lower:.2f}')
+    plt.axvline(ci_upper, color='green', linestyle='--', label=f'上限: {ci_upper:.2f}')
+    plt.fill_betweenx(y=[0, plt.gca().get_ylim()[1]], x1=ci_lower, x2=ci_upper, color='green', alpha=0.2)
+    plt.legend()
+    plt.title(f"{col}的均值和95%置信区间")
+    plt.tight_layout()
+    plt.show()
+```
+
+## 假设检验
+
+假设检验是用于决定是否拒绝关于总体的假设的统计方法。
+
+### 单样本 t 检验
+
+```python
+# 单样本 t 检验
+def perform_ttest(data, popmean, alpha=0.05):
+    t_stat, p_value = stats.ttest_1samp(data, popmean)
+    print(f"t统计量: {t_stat:.4f}")
+    print(f"p值: {p_value:.4f}")
+    print(f"样本均值: {data.mean():.4f}")
+    print(f"假设总体均值: {popmean:.4f}")
+    if p_value < alpha:
+        print(f"结论: 在{alpha}的显著性水平下，拒绝原假设")
+    else:
+        print(f"结论: 在{alpha}的显著性水平下，不能拒绝原假设")
+
+# 假设我们想检验销售额的均值是否显著大于某个目标值
+target_sales = 1000  # 假设的目标值
+print("\n单样本t检验 - 销售额")
+perform_ttest(df['sales_amount'], target_sales)
+```
+
+### 独立样本 t 检验
+
+```python
+# 独立样本 t 检验
+def perform_independent_ttest(data1, data2, alpha=0.05):
+    t_stat, p_value = stats.ttest_ind(data1, data2, equal_var=False)  # 假设方差不等
+    print(f"t统计量: {t_stat:.4f}")
+    print(f"p值: {p_value:.4f}")
+    print(f"组1均值: {data1.mean():.4f}")
+    print(f"组2均值: {data2.mean():.4f}")
+    if p_value < alpha:
+        print(f"结论: 在{alpha}的显著性水平下，两组均值存在显著差异")
+    else:
+        print(f"结论: 在{alpha}的显著性水平下，两组均值无显著差异")
+
+# 假设我们想比较男性和女性客户的消费金额
+male_spend = df[df['gender'] == 'Male']['amount']
+female_spend = df[df['gender'] == 'Female']['amount']
+
+print("\n独立样本t检验 - 性别与消费金额")
+perform_independent_ttest(male_spend, female_spend)
+
+# 可视化比较
+plt.figure(figsize=(10, 6))
+sns.boxplot(x='gender', y='amount', data=df)
+plt.title('不同性别的消费金额分布')
+plt.tight_layout()
+plt.show()
+```
+
+### 方差分析(ANOVA)
+
+```python
+# 单因素方差分析
+def perform_anova(df, category_col, value_col, alpha=0.05):
+    groups = []
+    for category in df[category_col].unique():
+        groups.append(df[df[category_col] == category][value_col])
+    
+    f_stat, p_value = stats.f_oneway(*groups)
+    print(f"F统计量: {f_stat:.4f}")
+    print(f"p值: {p_value:.4f}")
+    
+    if p_value < alpha:
+        print(f"结论: 在{alpha}的显著性水平下，各组均值存在显著差异")
+    else:
+        print(f"结论: 在{alpha}的显著性水平下，各组均值无显著差异")
+    
+    # 如果ANOVA显著，进行事后比较
+    if p_value < alpha:
+        from statsmodels.stats.multicomp import pairwise_tukeyhsd
+        tukey = pairwise_tukeyhsd(df[value_col], df[category_col], alpha=alpha)
+        print("\n事后比较结果:")
+        print(tukey)
+
+# 假设我们想比较不同地区的销售额
+print("\n单因素方差分析 - 地区与销售额")
+perform_anova(df, 'region', 'sales_amount')
+
+# 可视化比较
+plt.figure(figsize=(12, 6))
+sns.boxplot(x='region', y='sales_amount', data=df)
+plt.title('不同地区的销售额分布')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+## 相关性分析
+
+相关性分析用于测量变量之间的关联程度和方向。
+
+### Pearson相关系数
+
+```python
+# 计算相关系数矩阵
+correlation_matrix = df[numeric_cols].corr(method='pearson')
+
+# 可视化相关矩阵
+plt.figure(figsize=(12, 10))
+mask = np.triu(np.ones_like(correlation_matrix, dtype=bool))  # 创建上三角掩码
+sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm', 
+            mask=mask, cbar_kws={'shrink': .8}, vmin=-1, vmax=1)
+plt.title('Pearson相关系数矩阵')
+plt.tight_layout()
+plt.show()
+
+# 检验相关性显著性
+from scipy.stats import pearsonr
+
+print("\n相关系数及显著性:")
+for i, col1 in enumerate(numeric_cols):
+    for col2 in numeric_cols[i+1:]:
+        r, p = pearsonr(df[col1], df[col2])
+        stars = '***' if p < 0.001 else '**' if p < 0.01 else '*' if p < 0.05 else 'ns'
+        print(f"{col1} 与 {col2}: r = {r:.3f} (p = {p:.4f}) {stars}")
+```
+
+### Spearman等级相关系数
+
+```python
+# 计算Spearman相关系数
+spearman_corr = df[numeric_cols].corr(method='spearman')
+
+# 可视化Spearman相关矩阵
+plt.figure(figsize=(12, 10))
+mask = np.triu(np.ones_like(spearman_corr, dtype=bool))
+sns.heatmap(spearman_corr, annot=True, fmt='.2f', cmap='coolwarm', 
+            mask=mask, cbar_kws={'shrink': .8}, vmin=-1, vmax=1)
+plt.title('Spearman等级相关系数矩阵')
+plt.tight_layout()
+plt.show()
+
+# 对比Pearson与Spearman相关系数
+diff = correlation_matrix - spearman_corr
+large_diff_pairs = []
+
+print("\nPearson与Spearman相关系数差异大的变量对:")
+for i, col1 in enumerate(numeric_cols):
+    for j, col2 in enumerate(numeric_cols):
+        if i < j and abs(diff.iloc[i, j]) > 0.1:  # 差异超过0.1
+            large_diff_pairs.append((col1, col2, correlation_matrix.iloc[i, j], spearman_corr.iloc[i, j]))
+
+for pair in large_diff_pairs:
+    print(f"{pair[0]} 与 {pair[1]}: Pearson = {pair[2]:.3f}, Spearman = {pair[3]:.3f}, 差异 = {abs(pair[2] - pair[3]):.3f}")
+    
+    # 可视化这些变量对的散点图
+    plt.figure(figsize=(10, 6))
+    sns.scatterplot(x=df[pair[0]], y=df[pair[1]])
+    plt.title(f"{pair[0]} vs {pair[1]}\nPearson={pair[2]:.3f}, Spearman={pair[3]:.3f}")
+    plt.tight_layout()
+    plt.show()
+```
+
+## 分类变量的统计分析
+
+### 频率分析
+
+```python
+categorical_cols = df.select_dtypes(include=['object', 'category']).columns
+
+for col in categorical_cols:
+    # 计算频率和百分比
+    freq = df[col].value_counts()
+    percentage = df[col].value_counts(normalize=True) * 100
+    
+    freq_df = pd.DataFrame({'频数': freq, '百分比(%)': percentage})
+    print(f"\n{col}的频率分布:")
+    print(freq_df)
+    
+    # 可视化
+    plt.figure(figsize=(12, 6))
+    ax = sns.countplot(y=col, data=df, order=freq.index)
+    
+    # 添加百分比标签
+    total = len(df[col])
+    for i, p in enumerate(percentage):
+        ax.text(ax.get_xlim()[1] * 0.02, i, f'{p:.1f}%', va='center')
+    
+    plt.title(f"{col}的分布")
+    plt.tight_layout()
+    plt.show()
+```
+
+### 卡方检验
+
+```python
+# 卡方独立性检验
+def perform_chi2_test(df, var1, var2, alpha=0.05):
+    contingency_table = pd.crosstab(df[var1], df[var2])
+    chi2, p, dof, expected = stats.chi2_contingency(contingency_table)
+    
+    print(f"\n{var1} 与 {var2} 的卡方独立性检验:")
+    print(f"卡方统计量: {chi2:.4f}")
+    print(f"p值: {p:.4f}")
+    print(f"自由度: {dof}")
+    
+    if p < alpha:
+        print(f"结论: 在{alpha}的显著性水平下，拒绝独立性假设，两变量存在关联")
+    else:
+        print(f"结论: 在{alpha}的显著性水平下，不能拒绝独立性假设，未发现显著关联")
+    
+    # 打印列联表
+    print("\n列联表 (观测频数):")
+    print(contingency_table)
+    
+    # 打印期望频数
+    print("\n期望频数:")
+    expected_table = pd.DataFrame(expected, index=contingency_table.index, columns=contingency_table.columns)
+    print(expected_table.round(2))
+    
+    # 可视化列联表
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(contingency_table, annot=True, fmt='d', cmap='Blues')
+    plt.title(f"{var1} 与 {var2} 的列联表")
+    plt.tight_layout()
+    plt.show()
+
+# 假设我们想检验性别和购买类别之间的关联
+perform_chi2_test(df, 'gender', 'product_category')
+```
+
+## 实践任务：销售数据统计分析
+
+:::{.task}
+你是某零售公司的数据分析师，公司管理层希望了解最近一年的销售情况。
+
+**任务**：
+1. 对销售数据进行全面的描述性统计分析
+2. 比较不同客户群体的购买行为
+3. 检验促销活动对销售的影响
+4. 分析产品类别与客户特征之间的关系
+5. 基于分析结果提出商业建议
+
+**数据**：`retail_sales_analysis.csv` 包含以下字段：
+- `sales_amount`: 销售金额
+- `units_sold`: 销售数量
+- `customer_age`: 客户年龄
+- `customer_id`: 客户ID
+- `gender`: 性别(Male/Female)
+- `customer_segment`: 客户群体(Regular/Premium/VIP)
+- `product_category`: 产品类别
+- `promotion`: 是否使用促销(0/1)
+- `store_location`: 商店位置
+- `day_of_week`: 星期几(Mon-Sun)
+- `month`: 月份(Jan-Dec)
+
+**分析思路**：
+1. 先进行描述性统计，了解数据整体情况
+2. 使用t检验/ANOVA比较不同客户群体的消费额
+3. 使用卡方检验分析类别变量之间的关联
+4. 使用相关分析检验数值变量之间的关系
+5. 结合各项分析形成综合性的商业建议
+:::
+
+## 高级统计工具
+
+除了基本统计分析外，以下工具也非常有用：
+
+### statsmodels库
+
+```python
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+
+# 多因素方差分析(ANOVA)
+model = smf.ols('sales_amount ~ C(customer_segment) + C(store_location) + C(promotion)', data=df).fit()
+anova_table = sm.stats.anova_lm(model, typ=2)
+print("\n多因素方差分析:")
+print(anova_table)
+
+# 线性回归
+model = smf.ols('sales_amount ~ customer_age + units_sold + C(promotion)', data=df).fit()
+print("\n线性回归结果:")
+print(model.summary())
+```
+
+### scikit-learn库
+
+```python
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+
+# 客户分群分析
+features = ['customer_age', 'sales_amount', 'units_sold']
+X = df[features]
+
+# 标准化数据
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# K均值聚类
+kmeans = KMeans(n_clusters=3, random_state=42)
+df['cluster'] = kmeans.fit_predict(X_scaled)
+
+# 分析聚类结果
+cluster_stats = df.groupby('cluster')[features].agg(['mean', 'std'])
+print("\n客户分群分析:")
+print(cluster_stats)
+
+# 可视化分群结果
+plt.figure(figsize=(12, 8))
+scatter = plt.scatter(df['customer_age'], df['sales_amount'], c=df['cluster'], cmap='viridis', alpha=0.7)
+plt.xlabel('客户年龄')
+plt.ylabel('销售金额')
+plt.colorbar(scatter, label='分群')
+plt.title('基于年龄和销售金额的客户分群')
+plt.tight_layout()
+plt.show()
+```
+
+## 总结
+
+统计分析是商业智能的核心组成部分，它将原始数据转化为可操作的见解。本章介绍了描述性统计和推断统计的基本方法，以及如何利用Python的统计工具进行数据分析。掌握这些统计分析方法，将帮助你更好地理解数据，做出基于证据的商业决策。
+
+在下一章中，我们将深入探讨数据分布分析，学习如何识别并处理各种类型的数据分布。 

@@ -1,0 +1,163 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "商务智能",
+    "section": "",
+    "text": "欢迎\n欢迎来到《Python与AI驱动的现代商务智能》课程！",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python与AI驱动的现代商务智能</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#课程概述",
+    "href": "index.html#课程概述",
+    "title": "商务智能",
+    "section": "课程概述",
+    "text": "课程概述\n本课程旨在帮助经济管理类研究生掌握Python数据科学工具栈和现代AI技术，以解决实际商业问题。我们将从数据采集、预处理、探索分析、建模到应用部署，全面学习现代商务智能的数据流程。\n课程融合了计量经济学模型和机器学习方法，并引入深度学习和大语言模型技术，使学生了解并能够应用当前最前沿的AI工具。\n\n\n\n课程内容概览",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python与AI驱动的现代商务智能</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#适合人群",
+    "href": "index.html#适合人群",
+    "title": "商务智能",
+    "section": "适合人群",
+    "text": "适合人群\n\nMBA、金融硕士、管理科学硕士等经济管理类研究生\n对数据分析、商务智能、AI技术感兴趣的学生\n希望掌握Python和AI工具解决实际商业问题的学习者",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python与AI驱动的现代商务智能</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#如何使用本课件",
+    "href": "index.html#如何使用本课件",
+    "title": "商务智能",
+    "section": "如何使用本课件",
+    "text": "如何使用本课件\n本课件按照课程模块组织，每个模块包含多个章节，涵盖理论知识、代码示例和实践项目。建议按照模块顺序学习，完成每个模块末尾的项目任务来巩固所学知识。\n\n课件中的代码示例可以直接复制运行，推荐使用Jupyter Notebook或Google Colab进行实践。",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Python与AI驱动的现代商务智能</span>"
+    ]
+  },
+  {
+    "objectID": "module1/index.html",
+    "href": "module1/index.html",
+    "title": "数据采集与预处理",
+    "section": "",
+    "text": "学习目标\n完成本模块学习后，你将能够：",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
+    ]
+  },
+  {
+    "objectID": "module1/index.html#学习目标",
+    "href": "module1/index.html#学习目标",
+    "title": "数据采集与预处理",
+    "section": "",
+    "text": "理解和使用不同类型的数据源\n使用Requests库进行基础网络爬虫开发\n掌握Scrapy框架进行高级爬虫开发\n使用Playwright库抓取动态网页内容\n使用Pandas进行数据清洗和转换\n应用文本处理技术处理非结构化数据",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
+    ]
+  },
+  {
+    "objectID": "module1/index.html#模块内容",
+    "href": "module1/index.html#模块内容",
+    "title": "数据采集与预处理",
+    "section": "模块内容",
+    "text": "模块内容\n本模块包含以下主题：\n\n\n数据源多样性：Web APIs, 数据库, 文件 (CSV, JSON, Excel), 非结构化数据 (文本, 图片等), 动态网页\n网络爬虫基础：Requests 库\n高级爬虫框架：Scrapy 框架\n动态网页抓取：Playwright 库\n数据清洗与转换：Pandas 库\n文本数据处理：BeautifulSoup, 正则表达式",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
+    ]
+  },
+  {
+    "objectID": "module1/index.html#核心python工具",
+    "href": "module1/index.html#核心python工具",
+    "title": "数据采集与预处理",
+    "section": "核心Python工具",
+    "text": "核心Python工具\n\nRequests: 简单的HTTP库，用于发送HTTP请求\nScrapy: 强大的爬虫框架，用于大规模抓取网页\nPlaywright: 自动化浏览器工具，用于抓取动态网页\nPandas: 数据分析和处理库\nBeautifulSoup: HTML和XML解析库\n正则表达式 (re模块): 用于文本处理和模式匹配",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
+    ]
+  },
+  {
+    "objectID": "module1/index.html#实践项目",
+    "href": "module1/index.html#实践项目",
+    "title": "数据采集与预处理",
+    "section": "实践项目",
+    "text": "实践项目\n本模块的最终项目是电商网站商品信息抓取与预处理项目，你将：\n\n使用Requests抓取基础网页内容\n使用Scrapy构建复杂爬虫\n使用Playwright抓取动态加载的内容\n使用Pandas清洗和整理收集到的数据\n进行数据质量检查和数据预处理\n\n\n在开始爬虫项目前，请确保了解目标网站的robots.txt文件，尊重网站的访问规则，并在合理的速度范围内进行爬取，避免对目标网站造成负担。",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
+    ]
+  },
+  {
+    "objectID": "module1/data_sources.html",
+    "href": "module1/data_sources.html",
+    "title": "数据源多样性",
+    "section": "",
+    "text": "常见数据源类型",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
+    ]
+  },
+  {
+    "objectID": "module1/data_sources.html#常见数据源类型",
+    "href": "module1/data_sources.html#常见数据源类型",
+    "title": "数据源多样性",
+    "section": "",
+    "text": "结构化数据\n\n关系型数据库 (MySQL, PostgreSQL, SQLite等)\n表格文件 (CSV, Excel)\nJSON文件\nWeb APIs (REST, GraphQL)\n\n半结构化数据\n\nXML文件\nHTML网页\n日志文件\nJSON嵌套结构\n\n非结构化数据\n\n文本文档\n图像\n音频\n视频",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
+    ]
+  },
+  {
+    "objectID": "module1/data_sources.html#数据获取方法",
+    "href": "module1/data_sources.html#数据获取方法",
+    "title": "数据源多样性",
+    "section": "数据获取方法",
+    "text": "数据获取方法\n\n1. 文件数据读取\nPython提供了丰富的库用于读取不同格式的文件：\n# 读取CSV文件\nimport pandas as pd\ndf = pd.read_csv('data.csv')\n\n# 读取Excel文件\ndf = pd.read_excel('data.xlsx', sheet_name='Sheet1')\n\n# 读取JSON文件\ndf = pd.read_json('data.json')\n\n# 读取文本文件\nwith open('data.txt', 'r', encoding='utf-8') as f:\n    text = f.read()\n\n\n2. 数据库连接\nPython可以连接各种数据库：\n# 连接MySQL数据库\nimport mysql.connector\nconn = mysql.connector.connect(\n    host=\"localhost\",\n    user=\"username\",\n    password=\"password\",\n    database=\"database_name\"\n)\ncursor = conn.cursor()\ncursor.execute(\"SELECT * FROM table_name\")\ndata = cursor.fetchall()\nconn.close()\n\n# 使用SQLAlchemy连接数据库\nfrom sqlalchemy import create_engine\nimport pandas as pd\nengine = create_engine('mysql+pymysql://username:password@localhost/database_name')\ndf = pd.read_sql(\"SELECT * FROM table_name\", engine)\n\n\n3. Web API调用\n使用Python调用Web API是获取在线数据的常用方法：\n# 调用REST API\nimport requests\nresponse = requests.get('https://api.example.com/data')\ndata = response.json()\n\n# 处理API返回的数据\ndf = pd.DataFrame(data)\n\nAPI调用示例：获取股票数据\n以下是使用Yahoo Finance API获取股票数据的示例：\nimport yfinance as yf\nimport pandas as pd\n\n# 获取特斯拉股票数据\ntsla = yf.Ticker(\"TSLA\")\n\n# 获取历史价格数据\nhist = tsla.history(period=\"1y\")\nprint(hist.head())\n\n# 获取公司信息\ninfo = tsla.info\nprint(f\"公司名称: {info['shortName']}\")\nprint(f\"行业: {info['industry']}\")\nprint(f\"市值: {info['marketCap']}\")\n\n\n\n4. 网页爬虫\n当数据没有提供API接口时，网页爬虫是获取网站数据的重要方法：\n# 简单的网页爬虫示例\nimport requests\nfrom bs4 import BeautifulSoup\n\nurl = 'https://example.com'\nresponse = requests.get(url)\nsoup = BeautifulSoup(response.text, 'html.parser')\n\n# 提取所有链接\nlinks = soup.find_all('a')\nfor link in links:\n    print(link.get('href'))",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
+    ]
+  },
+  {
+    "objectID": "module1/data_sources.html#数据源选择考虑因素",
+    "href": "module1/data_sources.html#数据源选择考虑因素",
+    "title": "数据源多样性",
+    "section": "数据源选择考虑因素",
+    "text": "数据源选择考虑因素\n在选择数据源时，需要考虑以下因素：\n\n数据质量：数据的准确性、完整性和一致性\n数据时效性：数据的更新频率和实时性\n数据规模：数据量大小及处理能力要求\n访问限制：API访问限制、IP限制、认证要求等\n法律与合规：数据获取和使用的法律限制\n成本：数据获取的费用和资源消耗\n格式兼容性：数据格式与分析工具的兼容性\n\n\n实践任务\n\n尝试从至少3种不同类型的数据源获取数据：\n\n下载一个CSV数据集并用Pandas读取\n调用一个免费的REST API并获取数据\n使用requests和BeautifulSoup从一个网站爬取基本信息\n\n对于每种数据源，回答以下问题：\n\n数据获取过程中遇到了哪些挑战？\n数据质量如何？有没有缺失值、异常值或格式问题？\n如何将获取的数据转换为pandas DataFrame格式？",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
+    ]
+  },
+  {
+    "objectID": "module1/data_sources.html#数据源案例分析",
+    "href": "module1/data_sources.html#数据源案例分析",
+    "title": "数据源多样性",
+    "section": "数据源案例分析",
+    "text": "数据源案例分析\n\n案例1：电子商务数据\n电子商务分析可能涉及的数据源： - 产品数据库（结构化） - 客户评论（半结构化/非结构化） - 用户浏览行为日志（半结构化） - 竞争对手产品信息（需要网页爬虫获取）\n\n\n案例2：金融市场分析\n金融分析可能涉及的数据源： - 股票价格数据（API或数据库） - 财务报表（结构化文件或PDF需提取） - 新闻情感数据（非结构化文本需分析） - 宏观经济指标（公开API或数据库）",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
+    ]
+  },
+  {
+    "objectID": "module1/data_sources.html#总结",
+    "href": "module1/data_sources.html#总结",
+    "title": "数据源多样性",
+    "section": "总结",
+    "text": "总结\n在现代商务智能中，数据来源呈现多样化趋势。掌握从不同类型数据源获取数据的能力是数据分析的第一步，也是至关重要的技能。随着技术的发展，我们需要灵活运用各种工具和方法，确保能够获取高质量、多维度的数据。",
+    "crumbs": [
+      "模块一：数据采集与预处理",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
+    ]
+  }
+]

@@ -1,0 +1,186 @@
+# 网络爬虫基础
+
+网络爬虫是从互联网上自动获取数据的程序。在商业智能领域，爬虫是获取竞争对手信息、市场数据和行业趋势的重要工具。本章将介绍使用Python的Requests库进行基础网络爬虫开发。
+
+## 什么是网络爬虫
+
+网络爬虫（Web Crawler）是一种模拟人类浏览网页的程序，能够自动访问网站并提取有价值的信息。爬虫通常包含以下步骤：
+
+1. 发送HTTP请求获取网页内容
+2. 解析网页内容（HTML、JSON等）
+3. 提取所需数据
+4. 存储数据
+5. （可选）根据提取的链接继续爬取更多页面
+
+## HTTP基础知识
+
+在使用爬虫之前，了解HTTP协议的基础知识非常重要：
+
+:::{.important}
+- **HTTP方法**：GET（获取资源）、POST（提交数据）、PUT（更新资源）、DELETE（删除资源）等
+- **状态码**：2xx（成功）、3xx（重定向）、4xx（客户端错误）、5xx（服务器错误）
+- **请求头**：包含User-Agent、Referer、Cookie等信息
+- **响应头**：包含Content-Type、Content-Length、Set-Cookie等信息
+:::
+
+## Python Requests库介绍
+
+Requests是Python最流行的HTTP客户端库，它使HTTP请求变得简单而直观。它的设计理念是"人性化的HTTP"。
+
+### 安装Requests
+
+```python
+pip install requests
+```
+
+### 基本使用
+
+#### 发送GET请求
+
+```python
+import requests
+
+# 发送GET请求
+response = requests.get('https://api.github.com/events')
+
+# 查看响应状态码
+print(response.status_code)  # 200表示成功
+
+# 查看响应内容
+print(response.text)
+
+# 如果响应是JSON格式，可以直接转换为Python字典
+data = response.json()
+print(data)
+```
+
+#### 添加URL参数
+
+```python
+# 使用params参数添加URL参数
+params = {'key1': 'value1', 'key2': 'value2'}
+response = requests.get('https://httpbin.org/get', params=params)
+
+# 查看实际请求的URL
+print(response.url)  # https://httpbin.org/get?key1=value1&key2=value2
+```
+
+#### 自定义请求头
+
+```python
+# 自定义请求头，常用于模拟浏览器行为
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Referer': 'https://www.example.com',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8'
+}
+response = requests.get('https://httpbin.org/headers', headers=headers)
+print(response.json())
+```
+
+## 解析HTML内容
+
+获取网页内容后，通常需要解析HTML提取数据。Python中常用的HTML解析库有BeautifulSoup和lxml。
+
+```python
+import requests
+from bs4 import BeautifulSoup
+
+# 获取网页内容
+response = requests.get('https://news.ycombinator.com/')
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# 提取所有新闻标题
+titles = soup.select('.titleline > a')
+for title in titles:
+    print(title.text)
+```
+
+## 处理Cookie和会话
+
+对于需要登录的网站，我们需要处理Cookie和会话：
+
+```python
+# 创建会话对象，可以在多个请求之间保持Cookie
+session = requests.Session()
+
+# 登录
+login_data = {'username': 'your_username', 'password': 'your_password'}
+session.post('https://example.com/login', data=login_data)
+
+# 访问需要登录的页面
+response = session.get('https://example.com/profile')
+print(response.text)
+```
+
+## 实践任务：获取网站信息
+
+:::{.task}
+编写一个Python脚本，使用Requests库完成以下任务：
+
+1. 获取一个新闻网站的首页内容
+2. 提取所有新闻标题和链接
+3. 将结果保存到CSV文件中
+
+```python
+import requests
+import csv
+from bs4 import BeautifulSoup
+import time
+
+# 设置请求头，模拟浏览器
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+
+# 目标网站（以一个示例新闻网站为例）
+url = 'https://news.ycombinator.com/'
+
+# 发送请求
+response = requests.get(url, headers=headers)
+
+# 检查请求是否成功
+if response.status_code == 200:
+    # 解析HTML
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # 提取新闻标题和链接
+    news_items = []
+    titles = soup.select('.titleline > a')
+    
+    for title in titles:
+        news_items.append({
+            'title': title.text,
+            'link': title.get('href')
+        })
+    
+    # 保存到CSV文件
+    with open('news.csv', 'w', newline='', encoding='utf-8') as csvfile:
+        fieldnames = ['title', 'link']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+        writer.writeheader()
+        for item in news_items:
+            writer.writerow(item)
+    
+    print(f"成功抓取 {len(news_items)} 条新闻并保存到news.csv")
+else:
+    print(f"请求失败，状态码: {response.status_code}")
+```
+:::
+
+## 注意事项与最佳实践
+
+:::{.tip}
+1. **尊重robots.txt**：网站的robots.txt文件指定了爬虫应该遵守的规则
+2. **控制请求频率**：使用`time.sleep()`设置请求间隔，避免对服务器造成过大压力
+3. **友好的User-Agent**：使用真实的浏览器UA，并在UA中包含联系方式
+4. **处理异常**：使用try-except捕获网络异常，增强脚本健壮性
+5. **检查网站条款**：确保您的爬虫活动不违反网站的使用条款
+:::
+
+## 总结
+
+本章介绍了使用Python Requests库进行基础网络爬虫开发的方法。Requests库简单易用，但功能强大，足以应对大多数基础爬虫需求。对于更复杂的爬虫需求，如大规模抓取、处理动态网页等，我们将在后续章节中介绍更高级的工具和框架。
+
+下一章将介绍Scrapy框架，这是一个功能更强大、适合大规模爬虫项目的工具。 

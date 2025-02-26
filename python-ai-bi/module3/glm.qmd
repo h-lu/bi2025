@@ -1,0 +1,452 @@
+---
+title: "广义线性模型"
+---
+
+# 广义线性模型
+
+广义线性模型(Generalized Linear Models, GLM)是对普通线性回归的扩展，可以处理因变量不服从正态分布的情况。本章将介绍GLM的理论基础、常见类型以及在Python中的实现方法。
+
+## 广义线性模型的基本概念
+
+普通线性回归模型(OLS)具有以下限制：
+- 假设因变量服从正态分布
+- 假设误差项具有恒定方差
+- 预测值可能超出合理范围(如二分类问题中预测值可能超出[0,1])
+
+广义线性模型通过以下三个组件克服了这些限制：
+
+:::{.important}
+1. **随机分量**：因变量Y服从指数族分布(如正态分布、二项分布、泊松分布等)
+2. **系统分量**：一组预测变量的线性组合（线性预测器）
+3. **连接函数**：将线性预测器映射到因变量的期望值
+:::
+
+其数学表示为：
+
+$$g(E(Y)) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p$$
+
+其中，$g(\cdot)$是连接函数，$E(Y)$是因变量的期望值。
+
+## 常见的广义线性模型
+
+### 1. 线性回归模型
+
+- **分布**：正态分布
+- **连接函数**：恒等函数 $g(\mu) = \mu$
+- **应用场景**：连续数值因变量
+
+### 2. 逻辑回归模型
+
+- **分布**：二项分布
+- **连接函数**：Logit函数 $g(\mu) = \log(\frac{\mu}{1-\mu})$
+- **应用场景**：二分类问题（如客户流失预测、欺诈检测）
+
+### 3. 泊松回归模型
+
+- **分布**：泊松分布
+- **连接函数**：对数函数 $g(\mu) = \log(\mu)$
+- **应用场景**：计数数据（如网站访问次数、产品销量）
+
+### 4. 负二项回归模型
+
+- **分布**：负二项分布
+- **连接函数**：对数函数 $g(\mu) = \log(\mu)$
+- **应用场景**：过度分散的计数数据
+
+## 在Python中实现广义线性模型
+
+### 逻辑回归(二项GLM)
+
+```python
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 加载数据
+data = pd.read_csv('credit_data.csv')
+
+# 查看数据
+print(data.head())
+
+# 构建逻辑回归模型
+X = sm.add_constant(data[['income', 'age', 'loan_amount']])
+y = data['default']  # 1表示违约，0表示正常还款
+
+# 拟合模型
+glm_binom = sm.GLM(y, X, family=sm.families.Binomial())
+result = glm_binom.fit()
+print(result.summary())
+
+# 计算预测概率
+data['default_prob'] = result.predict(X)
+
+# 可视化预测概率与贷款金额的关系
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='loan_amount', y='default_prob', data=data, hue='default')
+plt.title('违约概率与贷款金额关系')
+plt.xlabel('贷款金额')
+plt.ylabel('违约概率')
+plt.tight_layout()
+plt.show()
+
+# 计算不同阈值下的分类性能
+from sklearn.metrics import confusion_matrix, classification_report, roc_curve, auc
+
+# 在阈值0.5下的预测结果
+y_pred = (data['default_prob'] > 0.5).astype(int)
+
+# 打印混淆矩阵
+print("混淆矩阵:")
+print(confusion_matrix(y, y_pred))
+
+# 打印分类报告
+print("\n分类报告:")
+print(classification_report(y, y_pred))
+
+# 绘制ROC曲线
+fpr, tpr, thresholds = roc_curve(y, data['default_prob'])
+roc_auc = auc(fpr, tpr)
+
+plt.figure(figsize=(8, 6))
+plt.plot(fpr, tpr, color='blue', lw=2, label=f'ROC曲线 (AUC = {roc_auc:.2f})')
+plt.plot([0, 1], [0, 1], color='gray', linestyle='--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('假阳性率')
+plt.ylabel('真阳性率')
+plt.title('接收者操作特征曲线')
+plt.legend(loc="lower right")
+plt.show()
+```
+
+### 泊松回归(计数数据GLM)
+
+```python
+# 假设我们有一个零售店的数据集，包含每日顾客数和各种因素
+retail_data = pd.read_csv('retail_data.csv')
+
+# 查看数据
+print(retail_data.head())
+
+# 构建泊松回归模型预测顾客数
+poisson_model = smf.glm(
+    formula='customer_count ~ temperature + is_weekend + is_holiday + promotion',
+    data=retail_data,
+    family=sm.families.Poisson()
+).fit()
+
+print(poisson_model.summary())
+
+# 计算预测值
+retail_data['predicted_count'] = poisson_model.predict(retail_data)
+
+# 可视化实际值与预测值
+plt.figure(figsize=(12, 6))
+plt.plot(retail_data.index, retail_data['customer_count'], 'o', label='实际顾客数')
+plt.plot(retail_data.index, retail_data['predicted_count'], 'r-', label='预测顾客数')
+plt.legend()
+plt.xlabel('观测索引')
+plt.ylabel('顾客数')
+plt.title('泊松回归：实际顾客数与预测顾客数')
+plt.tight_layout()
+plt.show()
+
+# 检查过度分散性
+pearson_chi2 = poisson_model.pearson_chi2
+degree_freedom = poisson_model.df_resid
+dispersion = pearson_chi2 / degree_freedom
+print(f"分散度参数: {dispersion}")
+
+# 如果分散度参数明显大于1，考虑使用负二项回归
+if dispersion > 1.5:
+    nb_model = smf.glm(
+        formula='customer_count ~ temperature + is_weekend + is_holiday + promotion',
+        data=retail_data,
+        family=sm.families.NegativeBinomial(alpha=dispersion)
+    ).fit()
+    
+    print("\n负二项回归模型摘要:")
+    print(nb_model.summary())
+```
+
+## GLM模型评估与诊断
+
+评估GLM模型的方法与普通线性模型有所不同：
+
+### 1. 偏差(Deviance)
+
+偏差是衡量模型拟合优度的指标，类似于线性回归中的残差平方和：
+
+```python
+# 计算偏差
+null_deviance = result.null_deviance  # 零模型的偏差
+model_deviance = result.deviance  # 拟合模型的偏差
+print(f"零模型偏差: {null_deviance}")
+print(f"拟合模型偏差: {model_deviance}")
+print(f"偏差减少比例: {1 - model_deviance/null_deviance}")
+```
+
+### 2. AIC和BIC
+
+AIC(赤池信息准则)和BIC(贝叶斯信息准则)是用于模型选择的指标：
+
+```python
+print(f"AIC: {result.aic}")
+print(f"BIC: {result.bic}")
+```
+
+### 3. 似然比检验
+
+似然比检验用于比较嵌套模型：
+
+```python
+from scipy import stats
+
+# 假设我们有两个嵌套模型的偏差和自由度
+deviance1 = model1.deviance
+deviance2 = model2.deviance
+df1 = model1.df_resid
+df2 = model2.df_resid
+
+# 计算似然比统计量
+LR_statistic = deviance1 - deviance2
+df_diff = df1 - df2
+p_value = stats.chi2.sf(LR_statistic, df_diff)
+
+print(f"似然比统计量: {LR_statistic}")
+print(f"自由度差异: {df_diff}")
+print(f"p值: {p_value}")
+```
+
+### 4. 残差分析
+
+GLM模型常用的残差类型包括：
+
+```python
+# 计算各种残差
+pearson_residuals = result.resid_pearson
+deviance_residuals = result.resid_deviance
+
+plt.figure(figsize=(12, 10))
+
+# Pearson残差
+plt.subplot(2, 2, 1)
+plt.scatter(result.fittedvalues, pearson_residuals)
+plt.axhline(y=0, color='r', linestyle='-')
+plt.xlabel('拟合值')
+plt.ylabel('Pearson残差')
+plt.title('Pearson残差 vs 拟合值')
+
+# 偏差残差
+plt.subplot(2, 2, 2)
+plt.scatter(result.fittedvalues, deviance_residuals)
+plt.axhline(y=0, color='r', linestyle='-')
+plt.xlabel('拟合值')
+plt.ylabel('偏差残差')
+plt.title('偏差残差 vs 拟合值')
+
+# 偏差残差Q-Q图
+plt.subplot(2, 2, 3)
+sm.qqplot(deviance_residuals, line='45', fit=True, ax=plt.gca())
+plt.title('偏差残差Q-Q图')
+
+# 影响点分析
+from statsmodels.stats.outliers_influence import OLSInfluence
+influence = OLSInfluence(result)
+cooks_d = influence.cooks_distance[0]
+
+plt.subplot(2, 2, 4)
+plt.stem(cooks_d)
+plt.xlabel('观测索引')
+plt.ylabel('Cook距离')
+plt.title('Cook距离影响点分析')
+
+plt.tight_layout()
+plt.show()
+```
+
+## GLM在商业分析中的应用
+
+### 1. 客户流失预测(逻辑回归)
+
+```python
+# 构建客户流失预测模型
+churn_model = smf.glm(
+    formula='churn ~ tenure + monthly_charges + total_charges + contract_length + internet_service + payment_method',
+    data=telecom_data,
+    family=sm.families.Binomial()
+).fit()
+
+print(churn_model.summary())
+
+# 计算每个客户的流失概率
+telecom_data['churn_prob'] = churn_model.predict(telecom_data)
+
+# 识别高风险客户
+high_risk = telecom_data[telecom_data['churn_prob'] > 0.7]
+print(f"高流失风险客户数量: {len(high_risk)}")
+```
+
+### 2. 销售预测(泊松/负二项回归)
+
+```python
+# 预测每日销售量
+sales_model = smf.glm(
+    formula='daily_sales ~ price + promotion + weekend + season',
+    data=sales_data,
+    family=sm.families.Poisson()
+).fit()
+
+print(sales_model.summary())
+
+# 预测不同价格下的销售量
+price_range = np.linspace(sales_data['price'].min(), sales_data['price'].max(), 50)
+new_data = pd.DataFrame({
+    'price': price_range,
+    'promotion': 1,  # 假设有促销
+    'weekend': 0,    # 假设工作日
+    'season': 'summer'  # 假设夏季
+})
+
+predicted_sales = sales_model.predict(new_data)
+
+plt.figure(figsize=(10, 6))
+plt.plot(price_range, predicted_sales)
+plt.xlabel('价格')
+plt.ylabel('预测日销量')
+plt.title('价格与预测销量关系')
+plt.grid(True)
+plt.show()
+```
+
+### 3. 保险理赔频率(伽马回归)
+
+```python
+# 预测保险理赔金额
+claims_model = smf.glm(
+    formula='claim_amount ~ age + bmi + smoker + region',
+    data=insurance_data,
+    family=sm.families.Gamma(link=sm.families.links.log)
+).fit()
+
+print(claims_model.summary())
+
+# 比较不同特征对理赔金额的影响
+age_effect = np.exp(claims_model.params['age'] * 10)  # 年龄增加10岁的效应
+bmi_effect = np.exp(claims_model.params['bmi'] * 5)   # BMI增加5的效应
+smoker_effect = np.exp(claims_model.params['smoker[T.yes]'])  # 吸烟者vs非吸烟者
+
+print(f"年龄增加10岁，理赔金额平均变化: {(age_effect-1)*100:.2f}%")
+print(f"BMI增加5，理赔金额平均变化: {(bmi_effect-1)*100:.2f}%")
+print(f"吸烟者比非吸烟者的理赔金额平均高: {(smoker_effect-1)*100:.2f}%")
+```
+
+## 实践任务：电商客户购买行为分析
+
+:::{.task}
+某电子商务网站想分析影响客户购买决策的因素。它收集了用户的浏览行为数据，包括访问时长、查看的产品数量、搜索次数、用户属性以及是否完成购买。
+
+**任务**：
+1. 构建广义线性模型预测用户购买的概率
+2. 确定哪些因素对购买决策影响最大
+3. 设计策略提高转化率
+
+**数据**：`ecommerce_data.csv` 包含以下字段：
+- `purchase`: 是否完成购买(1表示是，0表示否)
+- `time_spent`: 网站停留时间(分钟)
+- `products_viewed`: 查看的产品数量
+- `search_count`: 搜索次数
+- `is_mobile`: 是否使用移动设备(1表示是，0表示否)
+- `previous_customer`: 是否为回头客(1表示是，0表示否)
+- `cart_additions`: 添加到购物车的产品数量
+
+**提示**：
+- 使用逻辑回归(二项GLM)预测购买概率
+- 关注系数的符号和大小来理解影响
+- 计算边际效应来量化各因素的影响
+- 考虑变量之间可能的交互作用
+:::
+
+## 将GLM与机器学习方法结合
+
+广义线性模型可以与机器学习方法结合，获得更好的预测性能和解释性：
+
+### 1. 正则化GLM
+
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+
+# 准备数据
+X = data[['feature1', 'feature2', 'feature3', 'feature4', 'feature5']]
+y = data['target']
+
+# 划分训练集和测试集
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 标准化特征
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# L1正则化逻辑回归(LASSO)
+lasso_log_reg = LogisticRegression(penalty='l1', solver='liblinear', C=0.1)
+lasso_log_reg.fit(X_train_scaled, y_train)
+
+# L2正则化逻辑回归(Ridge)
+ridge_log_reg = LogisticRegression(penalty='l2', solver='liblinear', C=0.1)
+ridge_log_reg.fit(X_train_scaled, y_train)
+
+# 弹性网络(Elastic Net)
+elastic_log_reg = LogisticRegression(penalty='elasticnet', solver='saga', 
+                                    C=0.1, l1_ratio=0.5, max_iter=10000)
+elastic_log_reg.fit(X_train_scaled, y_train)
+
+# 比较系数
+coef_df = pd.DataFrame({
+    'Feature': X.columns,
+    'LASSO': lasso_log_reg.coef_[0],
+    'Ridge': ridge_log_reg.coef_[0],
+    'Elastic Net': elastic_log_reg.coef_[0]
+})
+print(coef_df)
+```
+
+### 2. GLM与特征选择的结合
+
+```python
+from sklearn.feature_selection import RFE
+
+# 使用递归特征消除
+log_reg = LogisticRegression(penalty='l2', solver='liblinear')
+selector = RFE(log_reg, n_features_to_select=3)
+selector.fit(X_train_scaled, y_train)
+
+# 显示所选特征
+selected_features = [f for i, f in enumerate(X.columns) if selector.support_[i]]
+print("Selected features:", selected_features)
+
+# 使用所选特征构建GLM模型
+X_train_selected = X_train[selected_features]
+X_test_selected = X_test[selected_features]
+
+# 在statsmodels中使用所选特征
+X_train_selected_sm = sm.add_constant(X_train_selected)
+X_test_selected_sm = sm.add_constant(X_test_selected)
+
+glm_selected = sm.GLM(y_train, X_train_selected_sm, family=sm.families.Binomial())
+result_selected = glm_selected.fit()
+print(result_selected.summary())
+```
+
+## 总结
+
+广义线性模型(GLM)是对普通线性回归的强大扩展，能够处理各种类型的因变量分布。GLM在商业分析中有广泛的应用，从客户行为预测到风险评估，再到销售预测。通过选择适当的分布族和连接函数，GLM可以适应多种数据类型和分析需求。
+
+通过与机器学习方法的结合，如正则化和特征选择，GLM可以进一步提高其预测性能和解释性。掌握GLM对于全面理解计量经济学与机器学习的结合至关重要。
+
+在下一章中，我们将探讨工具变量法(Instrumental Variables)，这是一种处理内生性问题的重要计量经济学方法。 

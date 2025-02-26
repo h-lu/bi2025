@@ -1,0 +1,305 @@
+{
+  "status": "success",
+  "code": 200,
+  "message": "产品数据获取成功",
+  "data": {
+    "total": 48,
+    "page": 1,
+    "page_size": 10,
+    "products": [
+      {
+        "id": "P001",
+        "name": "Apple iPhone 14 Pro",
+        "description": "Apple iPhone 14 Pro 256GB 暗夜紫色 支持移动联通电信5G 双卡双待手机",
+        "category": "手机",
+        "brand": "Apple",
+        "price": 8999.00,
+        "original_price": 9499.00,
+        "discount": 0.95,
+        "stock": 256,
+        "rating": 4.8,
+        "reviews_count": 2547,
+        "is_hot": true,
+        "is_new": true,
+        "images": [
+          "https://example.com/images/iphone14pro_1.jpg",
+          "https://example.com/images/iphone14pro_2.jpg",
+          "https://example.com/images/iphone14pro_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "6.1英寸 OLED 超视网膜XDR显示屏",
+          "处理器": "A16仿生芯片",
+          "存储": "256GB",
+          "摄像头": "4800万像素主摄 + 1200万像素超广角 + 1200万像素长焦",
+          "电池": "3200mAh",
+          "系统": "iOS 16"
+        },
+        "tags": ["苹果", "旗舰", "拍照", "高端"]
+      },
+      {
+        "id": "P002",
+        "name": "华为 Mate 60 Pro",
+        "description": "华为 HUAWEI Mate 60 Pro 12GB+512GB 雅丹黑 华为手机",
+        "category": "手机",
+        "brand": "华为",
+        "price": 6999.00,
+        "original_price": 6999.00,
+        "discount": 1.0,
+        "stock": 124,
+        "rating": 4.9,
+        "reviews_count": 1876,
+        "is_hot": true,
+        "is_new": true,
+        "images": [
+          "https://example.com/images/mate60pro_1.jpg",
+          "https://example.com/images/mate60pro_2.jpg",
+          "https://example.com/images/mate60pro_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "6.8英寸 OLED 曲面屏",
+          "处理器": "麒麟9000S",
+          "存储": "12GB+512GB",
+          "摄像头": "5000万像素主摄 + 1300万像素超广角 + 1200万像素长焦",
+          "电池": "5000mAh",
+          "系统": "HarmonyOS 4.0"
+        },
+        "tags": ["华为", "旗舰", "国产", "卫星通信"]
+      },
+      {
+        "id": "P003",
+        "name": "小米 13",
+        "description": "小米13 徕卡光学镜头 骁龙8 Gen2 2K原色屏 120Hz高刷 67W快充",
+        "category": "手机",
+        "brand": "小米",
+        "price": 3999.00,
+        "original_price": 4599.00,
+        "discount": 0.87,
+        "stock": 532,
+        "rating": 4.7,
+        "reviews_count": 3218,
+        "is_hot": true,
+        "is_new": false,
+        "images": [
+          "https://example.com/images/xiaomi13_1.jpg",
+          "https://example.com/images/xiaomi13_2.jpg",
+          "https://example.com/images/xiaomi13_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "6.36英寸 AMOLED 平直屏",
+          "处理器": "骁龙8 Gen2",
+          "存储": "8GB+256GB",
+          "摄像头": "5000万像素主摄（徕卡认证）+ 1200万像素超广角 + 1000万像素长焦",
+          "电池": "4500mAh",
+          "系统": "MIUI 14"
+        },
+        "tags": ["小米", "徕卡", "性价比", "快充"]
+      },
+      {
+        "id": "P004",
+        "name": "OPPO Find X6 Pro",
+        "description": "OPPO Find X6 Pro 16GB+512GB 棕色素皮版 哈苏影像 超感知影像手机",
+        "category": "手机",
+        "brand": "OPPO",
+        "price": 5999.00,
+        "original_price": 6499.00,
+        "discount": 0.92,
+        "stock": 185,
+        "rating": 4.6,
+        "reviews_count": 1325,
+        "is_hot": false,
+        "is_new": true,
+        "images": [
+          "https://example.com/images/findx6pro_1.jpg",
+          "https://example.com/images/findx6pro_2.jpg",
+          "https://example.com/images/findx6pro_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "6.82英寸 2K+ AMOLED屏",
+          "处理器": "骁龙8 Gen2",
+          "存储": "16GB+512GB",
+          "摄像头": "5000万像素主摄（哈苏认证）+ 5000万像素超广角 + 5000万像素长焦",
+          "电池": "5000mAh",
+          "系统": "ColorOS 13"
+        },
+        "tags": ["OPPO", "哈苏", "拍照", "快充"]
+      },
+      {
+        "id": "P005",
+        "name": "vivo X90 Pro",
+        "description": "vivo X90 Pro 12GB+256GB 传奇版 蔡司光学镜头 专业影像旗舰",
+        "category": "手机",
+        "brand": "vivo",
+        "price": 5499.00,
+        "original_price": 5999.00,
+        "discount": 0.92,
+        "stock": 267,
+        "rating": 4.7,
+        "reviews_count": 1862,
+        "is_hot": false,
+        "is_new": false,
+        "images": [
+          "https://example.com/images/vivox90pro_1.jpg",
+          "https://example.com/images/vivox90pro_2.jpg",
+          "https://example.com/images/vivox90pro_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "6.78英寸 AMOLED 曲面屏",
+          "处理器": "天玑9200",
+          "存储": "12GB+256GB",
+          "摄像头": "5000万像素主摄（蔡司认证）+ 4800万像素超广角 + 5000万像素人像镜头",
+          "电池": "4870mAh",
+          "系统": "OriginOS 3"
+        },
+        "tags": ["vivo", "蔡司", "拍照", "曲面屏"]
+      },
+      {
+        "id": "P006",
+        "name": "索尼 WH-1000XM5 耳机",
+        "description": "索尼(SONY)WH-1000XM5 无线蓝牙降噪耳机 头戴式耳机 8麦克风精准降噪",
+        "category": "耳机",
+        "brand": "索尼",
+        "price": 2699.00,
+        "original_price": 3099.00,
+        "discount": 0.87,
+        "stock": 423,
+        "rating": 4.9,
+        "reviews_count": 2341,
+        "is_hot": true,
+        "is_new": true,
+        "images": [
+          "https://example.com/images/wh1000xm5_1.jpg",
+          "https://example.com/images/wh1000xm5_2.jpg",
+          "https://example.com/images/wh1000xm5_3.jpg"
+        ],
+        "specifications": {
+          "类型": "头戴式",
+          "蓝牙版本": "5.2",
+          "电池续航": "最长30小时",
+          "降噪": "主动降噪",
+          "重量": "约250g",
+          "特点": "高清通话，8麦克风系统"
+        },
+        "tags": ["索尼", "降噪", "头戴式", "高端"]
+      },
+      {
+        "id": "P007",
+        "name": "Apple iPad Pro 12.9",
+        "description": "2022款 Apple iPad Pro 12.9英寸平板电脑 M2芯片 256GB WLAN版",
+        "category": "平板电脑",
+        "brand": "Apple",
+        "price": 8799.00,
+        "original_price": 9299.00,
+        "discount": 0.95,
+        "stock": 189,
+        "rating": 4.8,
+        "reviews_count": 1256,
+        "is_hot": false,
+        "is_new": false,
+        "images": [
+          "https://example.com/images/ipadpro129_1.jpg",
+          "https://example.com/images/ipadpro129_2.jpg",
+          "https://example.com/images/ipadpro129_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "12.9英寸 Liquid Retina XDR显示屏",
+          "处理器": "M2芯片",
+          "存储": "256GB",
+          "摄像头": "1200万像素广角摄像头 + 1000万像素超广角摄像头",
+          "电池": "约10小时",
+          "系统": "iPadOS 16"
+        },
+        "tags": ["苹果", "平板", "M2芯片", "专业"]
+      },
+      {
+        "id": "P008",
+        "name": "三星 Galaxy Watch 5",
+        "description": "三星Galaxy Watch5 44mm 蓝牙版 智能手表 BioActive传感器 蓝牙通话",
+        "category": "智能手表",
+        "brand": "三星",
+        "price": 1799.00,
+        "original_price": 2099.00,
+        "discount": 0.86,
+        "stock": 317,
+        "rating": 4.5,
+        "reviews_count": 876,
+        "is_hot": false,
+        "is_new": false,
+        "images": [
+          "https://example.com/images/galaxywatch5_1.jpg",
+          "https://example.com/images/galaxywatch5_2.jpg",
+          "https://example.com/images/galaxywatch5_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "1.4英寸 Super AMOLED",
+          "处理器": "Exynos W920",
+          "存储": "16GB",
+          "电池": "410mAh",
+          "操作系统": "Wear OS Powered by Samsung",
+          "防水等级": "5ATM + IP68"
+        },
+        "tags": ["三星", "智能手表", "健康监测", "运动"]
+      },
+      {
+        "id": "P009",
+        "name": "联想小新Air 14",
+        "description": "联想小新Air14 2023锐龙版 14英寸轻薄笔记本电脑 Windows11 6核R5-7530U 16G 512G",
+        "category": "笔记本电脑",
+        "brand": "联想",
+        "price": 4199.00,
+        "original_price": 4799.00,
+        "discount": 0.88,
+        "stock": 246,
+        "rating": 4.6,
+        "reviews_count": 1534,
+        "is_hot": true,
+        "is_new": true,
+        "images": [
+          "https://example.com/images/xiaoxinair14_1.jpg",
+          "https://example.com/images/xiaoxinair14_2.jpg",
+          "https://example.com/images/xiaoxinair14_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "14英寸 IPS 2.2K 90Hz",
+          "处理器": "AMD Ryzen 5 7530U",
+          "显卡": "AMD Radeon Graphics",
+          "内存": "16GB DDR4",
+          "存储": "512GB SSD",
+          "系统": "Windows 11 家庭版",
+          "重量": "约1.37kg"
+        },
+        "tags": ["联想", "轻薄本", "学生", "办公"]
+      },
+      {
+        "id": "P010",
+        "name": "戴尔 XPS 13 Plus",
+        "description": "戴尔 DELL XPS 13 Plus 13.4英寸超轻薄笔记本电脑 12代酷睿i7 32G 1TB",
+        "category": "笔记本电脑",
+        "brand": "戴尔",
+        "price": 14999.00,
+        "original_price": 15999.00,
+        "discount": 0.94,
+        "stock": 86,
+        "rating": 4.7,
+        "reviews_count": 632,
+        "is_hot": false,
+        "is_new": true,
+        "images": [
+          "https://example.com/images/xps13plus_1.jpg",
+          "https://example.com/images/xps13plus_2.jpg",
+          "https://example.com/images/xps13plus_3.jpg"
+        ],
+        "specifications": {
+          "屏幕": "13.4英寸 4K UHD+ 触控屏",
+          "处理器": "第12代 Intel Core i7-1280P",
+          "显卡": "Intel Iris Xe Graphics",
+          "内存": "32GB LPDDR5",
+          "存储": "1TB SSD",
+          "系统": "Windows 11 专业版",
+          "重量": "约1.24kg"
+        },
+        "tags": ["戴尔", "XPS", "商务", "高端"]
+      }
+    ]
+  },
+  "timestamp": "2023-09-15T13:45:30Z"
+} 

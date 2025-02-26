@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="600" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-family="'Noto Sans SC', sans-serif" font-size="22" text-anchor="middle" fill="#0066cc" font-weight="bold">广义线性模型常用连接函数</text>
+  
+  <!-- 图例 -->
+  <rect x="600" y="100" width="180" height="150" fill="#ffffff" stroke="#cccccc" stroke-width="1" rx="5" ry="5"/>
+  <text x="620" y="125" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#333333" font-weight="bold">连接函数</text>
+  
+  <!-- Logit函数图例 -->
+  <line x1="620" y1="150" x2="650" y2="150" stroke="#ff6666" stroke-width="3"/>
+  <text x="660" y="155" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#333333">Logit (逻辑回归)</text>
+  
+  <!-- Log函数图例 -->
+  <line x1="620" y1="180" x2="650" y2="180" stroke="#00cc66" stroke-width="3"/>
+  <text x="660" y="185" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#333333">Log (泊松回归)</text>
+  
+  <!-- 恒等函数图例 -->
+  <line x1="620" y1="210" x2="650" y2="210" stroke="#0099ff" stroke-width="3"/>
+  <text x="660" y="215" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#333333">恒等 (线性回归)</text>
+  
+  <!-- 倒数函数图例 -->
+  <line x1="620" y1="240" x2="650" y2="240" stroke="#9966ff" stroke-width="3" stroke-dasharray="5,3"/>
+  <text x="660" y="245" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#333333">倒数 (伽马回归)</text>
+  
+  <!-- Logit函数图 -->
+  <g transform="translate(120, 350) scale(1, -1)">
+    <!-- 坐标轴 -->
+    <line x1="0" y1="0" x2="500" y2="0" stroke="#333333" stroke-width="2"/>
+    <line x1="250" y1="-200" x2="250" y2="200" stroke="#333333" stroke-width="2"/>
+    
+    <!-- 刻度 -->
+    <line x1="50" y1="-5" x2="50" y2="5" stroke="#333333" stroke-width="2"/>
+    <line x1="150" y1="-5" x2="150" y2="5" stroke="#333333" stroke-width="2"/>
+    <line x1="350" y1="-5" x2="350" y2="5" stroke="#333333" stroke-width="2"/>
+    <line x1="450" y1="-5" x2="450" y2="5" stroke="#333333" stroke-width="2"/>
+    
+    <line x1="245" y1="-100" x2="255" y2="-100" stroke="#333333" stroke-width="2"/>
+    <line x1="245" y1="100" x2="255" y2="100" stroke="#333333" stroke-width="2"/>
+    
+    <!-- 坐标轴标签 -->
+    <text x="250" y="-210" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#333333" transform="scale(1, -1)">0</text>
+    <text x="50" y="20" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#333333" transform="scale(1, -1)">-2</text>
+    <text x="150" y="20" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#333333" transform="scale(1, -1)">-1</text>
+    <text x="350" y="20" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#333333" transform="scale(1, -1)">1</text>
+    <text x="450" y="20" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="middle" fill="#333333" transform="scale(1, -1)">2</text>
+    
+    <text x="240" y="100" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="end" fill="#333333" transform="scale(1, -1)">1</text>
+    <text x="240" y="-100" font-family="'Noto Sans SC', sans-serif" font-size="14" text-anchor="end" fill="#333333" transform="scale(1, -1)">-1</text>
+    
+    <!-- Logit函数曲线 -->
+    <path d="M 50,-180 Q 100,-160 150,-130 T 200,-80 T 250,0 T 300,80 T 350,130 T 450,180" stroke="#ff6666" stroke-width="3" fill="none"/>
+    
+    <!-- Log函数曲线 -->
+    <path d="M 50,-150 Q 100,-120 150,-80 T 200,-40 T 250,0 T 300,30 T 350,50 T 450,80" stroke="#00cc66" stroke-width="3" fill="none"/>
+    
+    <!-- 恒等函数曲线 -->
+    <path d="M 50,-100 L 450,100" stroke="#0099ff" stroke-width="3" fill="none"/>
+    
+    <!-- 倒数函数曲线 -->
+    <path d="M 70,180 Q 100,120 150,80 T 200,50 T 250,0 T 300,-50 T 350,-80 T 430,-180" stroke="#9966ff" stroke-width="3" fill="none" stroke-dasharray="5,3"/>
+  </g>
+  
+  <!-- X轴标签 -->
+  <text x="370" y="380" font-family="'Noto Sans SC', sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold">线性预测器 (η)</text>
+  
+  <!-- Y轴标签 -->
+  <text x="80" y="200" font-family="'Noto Sans SC', sans-serif" font-size="16" text-anchor="middle" fill="#333333" font-weight="bold" transform="rotate(-90, 80, 200)">期望值变换 g(μ)</text>
+  
+  <!-- 描述与说明 -->
+  <rect x="100" y="480" width="600" height="100" fill="#e6f7ff" stroke="#0099ff" stroke-width="1" rx="5" ry="5" opacity="0.8"/>
+  <text x="120" y="510" font-family="'Noto Sans SC', sans-serif" font-size="14" fill="#333333">
+    <tspan x="120" dy="0">连接函数(Link Function)将线性预测器映射到响应变量的期望值。选择合适的连接函数</tspan>
+    <tspan x="120" dy="25">对应不同分布假设：逻辑回归使用Logit连接函数处理二项分布；泊松回归使用Log</tspan>
+    <tspan x="120" dy="25">连接函数处理计数数据；伽马回归常用倒数连接函数处理正偏斜数据。</tspan>
+  </text>
+</svg> 

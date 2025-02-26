@@ -1,0 +1,104 @@
+project:
+  type: book
+
+book:
+  title: "商务智能"
+  author: "陆海波"
+  date: "2025"
+  language: zh
+  repo-url: https://github.com/用户名/python-ai-bi
+  chapters:
+    - index.qmd
+    - part: "课程介绍"
+      chapters:
+        - intro.qmd
+        - course_objectives.qmd
+        - course_structure.qmd
+    - part: "模块一：数据采集与预处理"
+      chapters:
+        - module1/index.qmd
+        - module1/data_sources.qmd
+        - module1/web_scraping_basics.qmd
+        - module1/advanced_scraping.qmd
+        - module1/dynamic_web_scraping.qmd
+        - module1/data_cleaning.qmd
+        - module1/text_processing.qmd
+        - module1/project.qmd
+    # - part: "模块二：数据探索与可视化"
+    #   chapters:
+    #     - module2/index.qmd
+    #     - module2/eda_methodology.qmd
+    #     - module2/statistical_analysis.qmd
+    #     - module2/data_distribution.qmd
+    #     - module2/static_visualization.qmd
+    #     - module2/interactive_visualization.qmd
+    #     - module2/web_dashboard.qmd
+    #     - module2/project.qmd
+    #     - module2/project_part1.qmd
+    #     - module2/project_part2.qmd
+    #     - module2/project_part3.qmd
+    # - part: "模块三：计量经济学模型与传统机器学习融合应用"
+    #   chapters:
+    #     - module3/index.qmd
+    #     - module3/linear_regression.qmd
+    #     - module3/glm.qmd
+    #     - module3/iv_method.qmd
+    #     - module3/panel_data.qmd
+    #     - module3/time_series.qmd
+    #     - module3/ml_regression.qmd
+    #     - module3/ml_classification.qmd
+    #     - module3/clustering.qmd
+    #     - module3/model_evaluation.qmd
+    #     - module3/project.qmd
+    # - part: "模块四：简单深度学习入门与实践"
+    #   chapters:
+    #     - module4/index.qmd
+    #     - module4/neural_networks.qmd
+    #     - module4/dl_frameworks.qmd
+    #     - module4/cnn.qmd
+    #     - module4/rnn.qmd
+    #     - module4/transformer.qmd
+    #     - module4/training.qmd
+    #     - module4/project.qmd
+    # - part: "模块五：大模型API调用与智能应用"
+    #   chapters:
+    #     - module5/index.qmd
+    #     - module5/llm_principles.qmd
+    #     - module5/api_calling.qmd
+    #     - module5/langchain.qmd
+    #     - module5/application_scenarios.qmd
+    #     - module5/prompt_engineering.qmd
+    #     - module5/responsible_ai.qmd
+    #     - module5/project.qmd
+    # - part: "模块六：项目部署与工程实践"
+    #   chapters:
+    #     - module6/index.qmd
+    #     - module6/model_deployment.qmd
+    #     - module6/api_development.qmd
+    #     - module6/docker.qmd
+    #     - module6/cicd.qmd
+    #     - module6/project.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    number-sections: false
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    lang: zh
+    include-in-header:
+      text: <meta charset="utf-8">
+  pdf:
+    documentclass: ctexbook
+    classoption: [UTF8, a4paper]
+    latex-engine: xelatex
+    include-in-header:
+      text: |
+        \usepackage{ctex}
+
+
+

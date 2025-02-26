@@ -1,0 +1,179 @@
+# 数据源多样性
+
+在开始数据分析之前，我们首先需要获取数据。现代商务智能分析可以从多种数据源获取数据，本章将介绍常见的数据源类型及其获取方法。
+
+![数据源多样性](../images/data_sources.svg)
+
+## 常见数据源类型
+
+:::{.important}
+1. **结构化数据**
+   - 关系型数据库 (MySQL, PostgreSQL, SQLite等)
+   - 表格文件 (CSV, Excel)
+   - JSON文件
+   - Web APIs (REST, GraphQL)
+   
+2. **半结构化数据**
+   - XML文件
+   - HTML网页
+   - 日志文件
+   - JSON嵌套结构
+   
+3. **非结构化数据**
+   - 文本文档
+   - 图像
+   - 音频
+   - 视频
+:::
+
+## 数据获取方法
+
+### 1. 文件数据读取
+
+Python提供了丰富的库用于读取不同格式的文件：
+
+```python
+# 读取CSV文件
+import pandas as pd
+df = pd.read_csv('data.csv')
+
+# 读取Excel文件
+df = pd.read_excel('data.xlsx', sheet_name='Sheet1')
+
+# 读取JSON文件
+df = pd.read_json('data.json')
+
+# 读取文本文件
+with open('data.txt', 'r', encoding='utf-8') as f:
+    text = f.read()
+```
+
+### 2. 数据库连接
+
+Python可以连接各种数据库：
+
+```python
+# 连接MySQL数据库
+import mysql.connector
+conn = mysql.connector.connect(
+    host="localhost",
+    user="username",
+    password="password",
+    database="database_name"
+)
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM table_name")
+data = cursor.fetchall()
+conn.close()
+
+# 使用SQLAlchemy连接数据库
+from sqlalchemy import create_engine
+import pandas as pd
+engine = create_engine('mysql+pymysql://username:password@localhost/database_name')
+df = pd.read_sql("SELECT * FROM table_name", engine)
+```
+
+### 3. Web API调用
+
+使用Python调用Web API是获取在线数据的常用方法：
+
+```python
+# 调用REST API
+import requests
+response = requests.get('https://api.example.com/data')
+data = response.json()
+
+# 处理API返回的数据
+df = pd.DataFrame(data)
+```
+
+:::{.example}
+#### API调用示例：获取股票数据
+
+以下是使用Yahoo Finance API获取股票数据的示例：
+
+```python
+import yfinance as yf
+import pandas as pd
+
+# 获取特斯拉股票数据
+tsla = yf.Ticker("TSLA")
+
+# 获取历史价格数据
+hist = tsla.history(period="1y")
+print(hist.head())
+
+# 获取公司信息
+info = tsla.info
+print(f"公司名称: {info['shortName']}")
+print(f"行业: {info['industry']}")
+print(f"市值: {info['marketCap']}")
+```
+:::
+
+### 4. 网页爬虫
+
+当数据没有提供API接口时，网页爬虫是获取网站数据的重要方法：
+
+```python
+# 简单的网页爬虫示例
+import requests
+from bs4 import BeautifulSoup
+
+url = 'https://example.com'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# 提取所有链接
+links = soup.find_all('a')
+for link in links:
+    print(link.get('href'))
+```
+
+## 数据源选择考虑因素
+
+在选择数据源时，需要考虑以下因素：
+
+1. **数据质量**：数据的准确性、完整性和一致性
+2. **数据时效性**：数据的更新频率和实时性
+3. **数据规模**：数据量大小及处理能力要求
+4. **访问限制**：API访问限制、IP限制、认证要求等
+5. **法律与合规**：数据获取和使用的法律限制
+6. **成本**：数据获取的费用和资源消耗
+7. **格式兼容性**：数据格式与分析工具的兼容性
+
+:::{.task}
+### 实践任务
+
+1. 尝试从至少3种不同类型的数据源获取数据：
+   - 下载一个CSV数据集并用Pandas读取
+   - 调用一个免费的REST API并获取数据
+   - 使用requests和BeautifulSoup从一个网站爬取基本信息
+   
+2. 对于每种数据源，回答以下问题：
+   - 数据获取过程中遇到了哪些挑战？
+   - 数据质量如何？有没有缺失值、异常值或格式问题？
+   - 如何将获取的数据转换为pandas DataFrame格式？
+:::
+
+## 数据源案例分析
+
+### 案例1：电子商务数据
+
+电子商务分析可能涉及的数据源：
+- 产品数据库（结构化）
+- 客户评论（半结构化/非结构化）
+- 用户浏览行为日志（半结构化）
+- 竞争对手产品信息（需要网页爬虫获取）
+
+### 案例2：金融市场分析
+
+金融分析可能涉及的数据源：
+- 股票价格数据（API或数据库）
+- 财务报表（结构化文件或PDF需提取）
+- 新闻情感数据（非结构化文本需分析）
+- 宏观经济指标（公开API或数据库）
+
+## 总结
+
+在现代商务智能中，数据来源呈现多样化趋势。掌握从不同类型数据源获取数据的能力是数据分析的第一步，也是至关重要的技能。随着技术的发展，我们需要灵活运用各种工具和方法，确保能够获取高质量、多维度的数据。 

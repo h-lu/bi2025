@@ -1,0 +1,225 @@
+# 实践项目：电商网站商品信息抓取与预处理
+
+本项目将综合应用模块一所学的知识，完成一个完整的电商网站商品信息抓取与预处理项目。
+
+## 项目背景
+
+在商业分析中，竞争情报是非常重要的信息来源。通过抓取电商平台的商品信息，企业可以了解竞争对手的产品策略、价格策略以及市场定位，进而制定更有效的商业策略。
+
+## 项目目标
+
+1. 从某电商网站抓取特定类别的商品信息
+2. 处理和清洗抓取的数据
+3. 将数据保存为结构化格式供后续分析使用
+
+## 数据抓取要求
+
+需要抓取的信息包括：
+- 商品名称
+- 商品价格
+- 商品图片链接
+- 商品描述
+- 商品评分
+- 评论数量
+- 销售量（如有）
+- 商品详情页URL
+
+## 技术路线
+
+本项目将分为三个阶段，分别使用不同的技术实现：
+
+### 阶段一：基础爬虫（Requests + BeautifulSoup）
+
+使用Requests库获取网页内容，使用BeautifulSoup解析HTML，抓取基本的商品信息。
+
+```python
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+# 设置请求头
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+
+# 发送请求
+url = 'https://example.com/category/electronics'
+response = requests.get(url, headers=headers)
+
+# 解析HTML
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# 提取商品信息
+products = []
+for item in soup.select('.product-item'):
+    product = {
+        'name': item.select_one('.product-name').text.strip(),
+        'price': item.select_one('.product-price').text.strip(),
+        'url': item.select_one('a')['href'],
+        # 其他信息...
+    }
+    products.append(product)
+
+# 转换为DataFrame
+df = pd.DataFrame(products)
+print(df.head())
+```
+
+### 阶段二：Scrapy爬虫框架
+
+使用Scrapy框架构建更高效的爬虫，实现分页抓取和数据存储。
+
+```python
+# spider.py
+import scrapy
+from scrapy.loader import ItemLoader
+from myproject.items import ProductItem
+
+class ProductSpider(scrapy.Spider):
+    name = 'product_spider'
+    start_urls = ['https://example.com/category/electronics']
+    
+    def parse(self, response):
+        for product in response.css('.product-item'):
+            loader = ItemLoader(item=ProductItem(), selector=product)
+            loader.add_css('name', '.product-name::text')
+            loader.add_css('price', '.product-price::text')
+            loader.add_css('url', 'a::attr(href)')
+            # 其他字段...
+            yield loader.load_item()
+            
+        # 处理分页
+        next_page = response.css('.next-page::attr(href)').get()
+        if next_page:
+            yield response.follow(next_page, self.parse)
+```
+
+### 阶段三：动态内容抓取（Playwright）
+
+使用Playwright处理JavaScript渲染的动态内容，获取更多商品信息。
+
+```python
+from playwright.sync_api import sync_playwright
+import pandas as pd
+
+def run(playwright):
+    browser = playwright.chromium.launch(headless=True)
+    page = browser.new_page()
+    
+    # 访问页面
+    page.goto('https://example.com/category/electronics')
+    
+    # 等待内容加载
+    page.wait_for_selector('.product-item')
+    
+    # 提取商品信息
+    products = []
+    for item in page.query_selector_all('.product-item'):
+        product = {
+            'name': item.query_selector('.product-name').inner_text(),
+            'price': item.query_selector('.product-price').inner_text(),
+            'url': item.query_selector('a').get_attribute('href'),
+            # 其他信息...
+        }
+        products.append(product)
+    
+    browser.close()
+    return products
+
+with sync_playwright() as playwright:
+    products = run(playwright)
+    df = pd.DataFrame(products)
+    print(df.head())
+```
+
+## 数据预处理步骤
+
+抓取数据后，需要进行以下预处理步骤：
+
+1. **数据清洗**
+   - 去除无效字符和HTML标签
+   - 修正价格格式（去除货币符号，统一为数值）
+   - 处理缺失值
+   
+2. **数据转换**
+   - 将评分和评论数转换为数值类型
+   - 将价格转换为浮点数
+   - 将日期转换为标准格式
+   
+3. **数据标准化**
+   - 商品分类标准化
+   - 品牌名称规范化
+   
+4. **数据存储**
+   - 保存为CSV或JSON文件
+   - 可选：将数据导入数据库
+
+:::{.example}
+**数据清洗和转换示例**
+
+```python
+# 清洗和转换价格
+df['price'] = df['price'].str.replace('￥', '').str.replace(',', '').astype(float)
+
+# 处理缺失评分
+df['rating'].fillna(0, inplace=True)
+
+# 提取评论数量
+df['review_count'] = df['review_text'].str.extract(r'(\d+)评论').astype(int)
+
+# 规范化品牌名称
+df['brand'] = df['brand'].str.lower().str.strip()
+
+# 创建时间戳
+from datetime import datetime
+df['scrape_time'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# 保存结果
+df.to_csv('products.csv', index=False)
+```
+:::
+
+## 项目扩展方向
+
+1. **多电商平台对比**：抓取多个电商平台的同类商品信息进行对比
+2. **历史价格追踪**：定期抓取，构建商品价格变化趋势
+3. **情感分析**：抓取商品评论进行情感分析
+4. **商品推荐系统**：基于抓取的商品数据构建简单的推荐系统
+
+## 注意事项
+
+:::{.important}
+1. **尊重网站规则**：
+   - 阅读并遵守目标网站的robots.txt文件
+   - 使用合理的爬取频率，避免对服务器造成压力
+   - 使用rotate_useragent和IP代理池避免被封
+   
+2. **数据使用伦理**：
+   - 仅用于学习和研究目的
+   - 不抓取敏感或私人信息
+   - 不将抓取的数据用于商业目的
+
+3. **法律合规性**：
+   - 了解并遵守相关法律法规
+   - 避免侵犯著作权和知识产权
+:::
+
+## 评分标准
+
+| 评分项目 | 权重 | 说明 |
+|---------|------|------|
+| 数据完整性 | 30% | 是否成功抓取了所有要求的字段，数据是否完整 |
+| 代码质量 | 25% | 代码结构、可读性、注释、错误处理等 |
+| 数据清洗效果 | 25% | 数据清洗和预处理的质量和有效性 |
+| 技术多样性 | 20% | 是否灵活运用了多种抓取技术 |
+
+## 提交要求
+
+请提交以下内容：
+1. 完整的项目代码（包含所有抓取脚本和数据处理脚本）
+2. 处理后的数据集（CSV或JSON格式）
+3. 项目说明文档（包含项目背景、实现方法、遇到的问题及解决方案）
+
+## 截止日期
+
+项目截止日期为第三周周五，请按时提交。 

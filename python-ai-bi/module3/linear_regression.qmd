@@ -1,0 +1,286 @@
+---
+title: "线性回归分析"
+---
+
+# 线性回归分析
+
+线性回归是计量经济学中最基础也最重要的模型之一，是许多高级模型的基础。本章将深入探讨线性回归的原理、假设、实现方法以及在商业决策中的应用。
+
+## 线性回归的基本原理
+
+线性回归模型假设因变量(Y)与一组自变量(X)之间存在线性关系：
+
+$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + ... + \beta_p X_p + \varepsilon$$
+
+其中：
+- $\beta_0$ 是截距
+- $\beta_1, \beta_2, ..., \beta_p$ 是回归系数
+- $\varepsilon$ 是误差项
+
+### 线性回归的主要假设
+
+:::{.important}
+线性回归模型的有效性基于以下几个重要假设：
+
+1. **线性关系**：自变量与因变量之间存在线性关系
+2. **独立性**：观测值之间相互独立
+3. **同方差性**：误差项的方差在所有自变量水平上保持恒定
+4. **正态性**：误差项服从正态分布
+5. **无多重共线性**：自变量之间不存在完全线性相关
+:::
+
+## 使用Python实现线性回归
+
+在Python中，我们可以使用多个库来实现线性回归模型：
+
+1. **statsmodels**：提供详细的统计结果，适合计量经济学分析
+2. **scikit-learn**：更专注于预测，适合机器学习应用
+
+### 使用statsmodels实现OLS回归
+
+```python
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# 加载示例数据
+data = pd.read_csv('advertising.csv')
+print(data.head())
+
+# 添加常数项（截距）
+X = sm.add_constant(data[['TV', 'Radio', 'Newspaper']])
+y = data['Sales']
+
+# 拟合OLS模型
+model = sm.OLS(y, X).fit()
+
+# 查看模型摘要
+print(model.summary())
+
+# 可视化预测结果
+plt.figure(figsize=(10, 6))
+plt.scatter(data['TV'], y, alpha=0.5)
+plt.plot(data['TV'], model.predict(sm.add_constant(data[['TV', 'Radio', 'Newspaper']])), 'r')
+plt.xlabel('TV Advertising Budget')
+plt.ylabel('Sales')
+plt.title('Linear Regression: TV Advertising vs Sales')
+plt.tight_layout()
+plt.show()
+```
+
+### 使用scikit-learn实现线性回归
+
+```python
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+
+# 准备数据
+X = data[['TV', 'Radio', 'Newspaper']]
+y = data['Sales']
+
+# 划分训练集和测试集
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# 拟合模型
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+
+# 预测
+y_pred = lr.predict(X_test)
+
+# 评估模型
+print(f'系数: {lr.coef_}')
+print(f'截距: {lr.intercept_}')
+print(f'R^2: {r2_score(y_test, y_pred)}')
+print(f'MSE: {mean_squared_error(y_test, y_pred)}')
+```
+
+## 线性回归模型诊断
+
+为确保线性回归模型的有效性，我们需要进行详细的模型诊断：
+
+### 残差分析
+
+```python
+# 计算残差
+residuals = model.resid
+
+# 残差图
+plt.figure(figsize=(12, 8))
+
+# 残差与拟合值的关系
+plt.subplot(2, 2, 1)
+plt.scatter(model.fittedvalues, residuals)
+plt.axhline(y=0, color='r', linestyle='-')
+plt.xlabel('Fitted values')
+plt.ylabel('Residuals')
+plt.title('Residuals vs Fitted')
+
+# 残差Q-Q图
+plt.subplot(2, 2, 2)
+sm.qqplot(residuals, line='45', fit=True, ax=plt.gca())
+plt.title('Q-Q Plot')
+
+# 残差直方图
+plt.subplot(2, 2, 3)
+plt.hist(residuals, bins=20)
+plt.xlabel('Residuals')
+plt.ylabel('Frequency')
+plt.title('Residuals Histogram')
+
+# 残差序列图
+plt.subplot(2, 2, 4)
+plt.plot(residuals)
+plt.axhline(y=0, color='r', linestyle='-')
+plt.xlabel('Observation')
+plt.ylabel('Residuals')
+plt.title('Residuals over Time')
+
+plt.tight_layout()
+plt.show()
+```
+
+### 多重共线性检验
+
+```python
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+# 计算VIF
+vif_data = pd.DataFrame()
+vif_data["Variable"] = X.columns
+vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
+print(vif_data)
+```
+
+## 线性回归的商业应用
+
+线性回归在商业领域有广泛的应用，以下是一些常见案例：
+
+1. **销售预测**：分析广告支出对销售额的影响
+2. **价格弹性**：研究价格变动对需求的影响
+3. **员工绩效**：分析工作经验、培训时长等因素对员工绩效的影响
+4. **房地产估价**：基于位置、面积、房龄等预测房价
+5. **成本分析**：理解不同因素对成本的贡献
+
+### 案例分析：销售预测模型
+
+```python
+# 基于历史数据建立销售预测模型
+# 假设数据包含销售量、价格、促销支出、季节等因素
+
+import pandas as pd
+import statsmodels.api as sm
+
+# 加载数据
+sales_data = pd.read_csv('sales_data.csv')
+
+# 特征工程
+sales_data['Season_Summer'] = (sales_data['Season'] == 'Summer').astype(int)
+sales_data['Season_Winter'] = (sales_data['Season'] == 'Winter').astype(int)
+sales_data['Season_Spring'] = (sales_data['Season'] == 'Spring').astype(int)
+# 秋季作为基准类别
+
+# 构建模型
+X = sm.add_constant(sales_data[['Price', 'Promotion_Expense', 
+                               'Season_Summer', 'Season_Winter', 'Season_Spring']])
+y = sales_data['Sales_Volume']
+
+# 拟合模型
+model = sm.OLS(y, X).fit()
+print(model.summary())
+
+# 解释系数
+print("价格每上升1单位，销售量平均变化：", model.params['Price'])
+print("促销支出每增加1单位，销售量平均增加：", model.params['Promotion_Expense'])
+
+# 预测未来销售
+new_data = pd.DataFrame({
+    'Price': [10.5],
+    'Promotion_Expense': [1000],
+    'Season_Summer': [0],
+    'Season_Winter': [1],
+    'Season_Spring': [0]
+})
+new_data = sm.add_constant(new_data)
+prediction = model.predict(new_data)
+print("预测销售量：", prediction[0])
+```
+
+## 线性回归的局限性
+
+尽管线性回归是一个强大的工具，但它也有一些局限性：
+
+1. **只能捕捉线性关系**：无法直接建模非线性关系
+2. **对异常值敏感**：极端值可能对模型产生显著影响
+3. **假设可能被违反**：实际数据可能不满足模型假设
+4. **相关不意味着因果**：线性关系不一定表示因果关系
+5. **无法处理高度复杂的关系**：对于复杂系统可能过于简化
+
+## 结合机器学习的线性回归扩展
+
+为了克服传统线性回归的一些局限性，我们可以考虑结合机器学习技术：
+
+1. **特征选择**：使用Lasso和Ridge等正则化方法
+2. **非线性转换**：引入多项式特征或样条函数
+3. **交叉验证**：评估模型在不同数据子集上的表现
+4. **集成方法**：结合多个线性模型提高预测性能
+
+```python
+from sklearn.linear_model import Lasso, Ridge, ElasticNet
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.model_selection import cross_val_score
+
+# 多项式特征
+poly = PolynomialFeatures(degree=2)
+X_poly = poly.fit_transform(X_train)
+
+# Ridge回归
+ridge = Ridge(alpha=1.0)
+ridge.fit(X_poly, y_train)
+ridge_cv_scores = cross_val_score(ridge, X_poly, y_train, cv=5)
+print(f"Ridge CV Score: {ridge_cv_scores.mean()}")
+
+# Lasso回归
+lasso = Lasso(alpha=0.1)
+lasso.fit(X_poly, y_train)
+lasso_cv_scores = cross_val_score(lasso, X_poly, y_train, cv=5)
+print(f"Lasso CV Score: {lasso_cv_scores.mean()}")
+
+# ElasticNet
+elastic = ElasticNet(alpha=0.1, l1_ratio=0.5)
+elastic.fit(X_poly, y_train)
+elastic_cv_scores = cross_val_score(elastic, X_poly, y_train, cv=5)
+print(f"ElasticNet CV Score: {elastic_cv_scores.mean()}")
+```
+
+## 实践任务：广告效果分析
+
+:::{.task}
+你是某公司的数据分析师，公司想了解不同广告渠道（电视、广播、报纸）对销售的影响。
+
+**任务**：
+1. 加载并分析广告数据集（含广告支出和销售额）
+2. 构建线性回归模型分析各渠道对销售的影响
+3. 评估模型质量并进行诊断
+4. 基于分析结果提供广告预算分配建议
+
+**数据**：`advertising.csv` 包含以下字段：
+- TV：电视广告支出（千美元）
+- Radio：广播广告支出（千美元）
+- Newspaper：报纸广告支出（千美元）
+- Sales：销售额（千件）
+
+**提示**：
+- 使用statsmodels进行详细的统计分析
+- 注意解释系数的经济学含义
+- 考虑不同广告渠道之间可能存在的交互作用
+:::
+
+## 总结
+
+线性回归是连接传统计量经济学和现代机器学习的基础技术，掌握它对于理解更复杂的模型至关重要。本章介绍了线性回归的基本原理、假设、实现方法以及在商业领域的应用。我们还探讨了如何通过结合机器学习技术来扩展传统线性回归模型，以处理更复杂的数据关系。
+
+在下一章中，我们将学习广义线性模型（GLM），它是线性回归的扩展，可以处理非正态分布的因变量。 

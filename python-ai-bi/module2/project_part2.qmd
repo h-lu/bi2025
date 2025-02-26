@@ -1,0 +1,159 @@
+---
+title: "实践项目（二）：用户行为数据探索与可视化分析 - 分析任务"
+---
+
+# 分析任务
+
+## 1. 数据探索与预处理
+
+- 数据概览和基本统计
+- 缺失值和异常值处理
+- 特征工程（如会话时长、转化率等派生指标）
+
+## 2. 用户画像分析
+
+- 用户人口统计特征分析
+- 用户分群（基于行为和消费模式）
+- 高价值用户特征识别
+
+## 3. 用户行为路径分析
+
+- 页面流量和转化漏斗分析
+- 用户浏览路径可视化
+- 关键转化点和流失点识别
+
+## 4. 产品与类别分析
+
+- 产品受欢迎度分析
+- 类别间关联性分析
+- 产品推荐模式探索
+
+## 5. 时间模式分析
+
+- 日/周/月趋势分析
+- 季节性和特殊事件影响
+- 用户活跃时间分布
+
+# 可视化要求
+
+项目需要包含以下类型的可视化：
+
+:::{.example}
+## 静态可视化（使用Matplotlib和Seaborn）
+
+```python
+# 示例：用户年龄分布
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+plt.figure(figsize=(10, 6))
+sns.histplot(data=user_df, x='age', bins=30, kde=True)
+plt.title('用户年龄分布')
+plt.xlabel('年龄')
+plt.ylabel('用户数量')
+plt.savefig('user_age_distribution.png', dpi=300)
+plt.show()
+
+# 示例：不同类别的产品浏览量对比
+plt.figure(figsize=(12, 8))
+category_views = product_views.groupby('category').count().reset_index()
+sns.barplot(data=category_views, x='category', y='views', palette='viridis')
+plt.title('各产品类别浏览量')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+## 交互式可视化（使用Plotly）
+
+```python
+# 示例：用户购买金额与频率的散点图
+import plotly.express as px
+
+fig = px.scatter(
+    customer_data, 
+    x='purchase_frequency', 
+    y='average_order_value',
+    size='total_spent',
+    color='customer_segment',
+    hover_name='customer_id',
+    log_x=True,
+    size_max=60
+)
+fig.update_layout(
+    title='用户购买频率与订单金额分析',
+    xaxis_title='购买频率（对数比例）',
+    yaxis_title='平均订单金额（元）'
+)
+fig.show()
+
+# 示例：用户转化漏斗
+from plotly.subplots import make_subplots
+
+funnel_data = [
+    {'stage': '网站访问', 'count': 100000},
+    {'stage': '浏览产品', 'count': 65000},
+    {'stage': '加入购物车', 'count': 32000},
+    {'stage': '开始结账', 'count': 18000},
+    {'stage': '完成购买', 'count': 8500}
+]
+
+fig = px.funnel(
+    funnel_data, 
+    x='count', 
+    y='stage'
+)
+fig.update_layout(title='用户转化漏斗')
+fig.show()
+```
+:::
+
+## 交互式仪表盘（使用Streamlit）
+
+创建一个包含以下组件的Streamlit仪表盘：
+
+1. 关键绩效指标(KPI)面板
+2. 用户分群过滤器（按年龄、地区、购买行为等）
+3. 时间范围选择器
+4. 交互式转化漏斗
+5. 用户行为热图
+6. 产品类别分析图表
+
+```python
+# Streamlit仪表盘示例框架
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+
+st.title('电商用户行为分析仪表盘')
+
+# 侧边栏 - 过滤器
+st.sidebar.header('数据过滤')
+date_range = st.sidebar.date_input('选择日期范围', [])
+user_segment = st.sidebar.multiselect('用户群体', ['新用户', '回头客', 'VIP用户'])
+product_category = st.sidebar.selectbox('产品类别', ['所有类别', '电子产品', '服装', '家居'])
+
+# 主页面 - KPI指标
+st.header('关键绩效指标')
+col1, col2, col3, col4 = st.columns(4)
+col1.metric(label="活跃用户数", value="12,493", delta="15%")
+col2.metric(label="平均订单金额", value="¥285", delta="-5%")
+col3.metric(label="转化率", value="8.5%", delta="2.1%")
+col4.metric(label="客单价", value="¥325", delta="12%")
+
+# 图表部分
+st.header('用户行为分析')
+tab1, tab2, tab3 = st.tabs(["转化漏斗", "用户分群", "产品分析"])
+
+with tab1:
+    # 转化漏斗图示例
+    pass
+
+with tab2:
+    # 用户分群分析
+    pass
+
+with tab3:
+    # 产品分析
+    pass
+``` 
