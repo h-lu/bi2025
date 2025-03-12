@@ -40,6 +40,160 @@
     ]
   },
   {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "课程介绍",
+    "section": "",
+    "text": "课程概述\nPython与AI驱动的现代商务智能是一门面向未来的实用型课程，旨在为经济管理类研究生提供全面的数据分析和AI应用能力培训。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>课程介绍</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#课程背景",
+    "href": "intro.html#课程背景",
+    "title": "课程介绍",
+    "section": "课程背景",
+    "text": "课程背景\n随着人工智能技术的快速发展，特别是大语言模型等生成式AI的出现，商务智能领域正在经历前所未有的变革。传统的商务智能工具和方法已难以满足数据驱动决策的需求，掌握Python和现代AI工具成为商业分析人才的核心竞争力。\n本课程融合了计量经济学、机器学习、深度学习和大模型应用等多个领域的知识和技术，打破学科界限，为学生提供全面的技术栈训练。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>课程介绍</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#课程特色",
+    "href": "intro.html#课程特色",
+    "title": "课程介绍",
+    "section": "课程特色",
+    "text": "课程特色\n\n\n前沿技术驱动: 紧跟AI技术发展趋势，融入大模型等最新技术\n实战项目导向: 强调动手实践，项目驱动，培养解决实际问题的能力\n现代工具链: 完全采用Python生态和现代AI工具链，摒弃传统BI工具\n跨学科融合: 融合计量经济学模型和机器学习方法，拓展应用领域\n创新性培养: 鼓励学生在项目实践中进行创新尝试",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>课程介绍</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html#学习路径",
+    "href": "intro.html#学习路径",
+    "title": "课程介绍",
+    "section": "学习路径",
+    "text": "学习路径\n本课程采用模块化设计，从基础的数据采集和预处理开始，逐步过渡到高级的深度学习和大模型应用，最后涵盖项目部署与工程实践，形成完整的学习路径：\n\n数据采集与预处理 - 掌握多种数据源的获取方法和数据清洗技能\n数据探索与可视化 - 学习数据分析和可视化的方法和工具\n计量经济学模型与机器学习 - 融合传统统计模型和现代机器学习算法\n深度学习入门 - 了解神经网络基础及应用\n大模型API调用与应用 - 学习利用大语言模型构建智能应用\n项目部署与工程实践 - 掌握模型部署和应用开发技能\n\n这一学习路径将帮助学生从数据获取到应用部署，形成完整的技能体系。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>课程介绍</span>"
+    ]
+  },
+  {
+    "objectID": "course_objectives.html",
+    "href": "course_objectives.html",
+    "title": "课程目标",
+    "section": "",
+    "text": "课程目标\n本课程旨在培养学生在现代商务智能领域的全面能力，包括技术应用、分析思维和实践能力。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程目标</span>"
+    ]
+  },
+  {
+    "objectID": "course_objectives.html#知识与技能目标",
+    "href": "course_objectives.html#知识与技能目标",
+    "title": "课程目标",
+    "section": "知识与技能目标",
+    "text": "知识与技能目标\n\n通过本课程的学习，你将能够：\n\n掌握Python数据科学工具栈: 熟练使用Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly, Requests, Scrapy, Playwright, PyTorch(或TensorFlow), Statsmodels, linearmodels, OpenAI Python库, LangChain等Python库。\n理解现代商务智能的数据流程: 掌握从数据采集、预处理、探索、建模到应用部署的完整数据项目生命周期。\n掌握传统机器学习和计量经济学模型: 理解并应用线性回归、逻辑回归、决策树、随机森林、支持向量机、聚类算法等传统机器学习算法，以及线性回归模型、GLM、工具变量法、面板数据模型等计量经济学模型。\n入门深度学习和Transformer模型: 了解神经网络基础、CNN、RNN、Transformer基础知识，并能使用PyTorch或TensorFlow构建简单的深度学习模型。\n掌握大模型API调用和智能应用开发: 理解大语言模型原理，掌握Prompt Engineering技巧，能够调用大模型API构建智能应用。\n具备项目实践能力和创新思维: 通过项目实战，培养运用Python和AI工具解决实际商业问题的能力，并鼓励创新性思维。\n了解前沿技术和行业趋势: 跟踪商务智能和AI领域的最新技术发展，了解行业应用趋势。\n培养负责任的AI应用意识: 理解AI伦理和安全问题，树立负责任的AI应用价值观。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程目标</span>"
+    ]
+  },
+  {
+    "objectID": "course_objectives.html#能力培养目标",
+    "href": "course_objectives.html#能力培养目标",
+    "title": "课程目标",
+    "section": "能力培养目标",
+    "text": "能力培养目标\n本课程注重培养以下核心能力：\n\n数据处理能力 - 从原始数据到有用信息的转化能力\n分析思维能力 - 系统性思考和解决问题的能力\n技术应用能力 - 将理论知识转化为实际应用的能力\n项目管理能力 - 规划和执行数据项目的能力\n沟通协作能力 - 团队合作和结果展示的能力\n创新思维能力 - 在现有框架下创新解决方案的能力\n自主学习能力 - 持续学习新知识和技能的能力",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程目标</span>"
+    ]
+  },
+  {
+    "objectID": "course_objectives.html#课程产出",
+    "href": "course_objectives.html#课程产出",
+    "title": "课程目标",
+    "section": "课程产出",
+    "text": "课程产出\n完成本课程后，你将获得：\n\n技术技能组合 - 掌握从数据获取到模型部署的全栈技能\n项目实践经验 - 通过实际项目积累实战经验\n项目作品集 - 可以展示给未来雇主的项目作品\n解决问题的方法论 - 系统化解决数据分析问题的思路",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>课程目标</span>"
+    ]
+  },
+  {
+    "objectID": "course_structure.html",
+    "href": "course_structure.html",
+    "title": "课程结构",
+    "section": "",
+    "text": "课程结构\n本课程采用模块化设计，围绕数据分析和AI应用的完整流程组织内容，共分为六个核心模块和课程评估部分。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>课程结构</span>"
+    ]
+  },
+  {
+    "objectID": "course_structure.html#模块化设计",
+    "href": "course_structure.html#模块化设计",
+    "title": "课程结构",
+    "section": "模块化设计",
+    "text": "模块化设计\n\n\n模块一：数据采集与预处理\n掌握从各种数据源获取数据的方法，以及数据清洗和预处理的技能。\n\n\n模块二：数据探索与可视化\n学习探索性数据分析方法和数据可视化技术，从数据中发现洞见。\n\n\n模块三：计量经济学模型与传统机器学习融合应用\n理解并应用计量经济学模型和传统机器学习算法，并学习如何融合这两种方法。\n\n\n模块四：简单深度学习入门与实践\n了解深度学习基础知识，并学习如何构建和训练简单的深度学习模型。\n\n\n模块五：大模型API调用与智能应用\n学习大语言模型的原理和API调用方法，以及如何构建基于大模型的智能应用。\n\n\n模块六：项目部署与工程实践（可选）\n掌握模型部署和应用开发的工程实践知识。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>课程结构</span>"
+    ]
+  },
+  {
+    "objectID": "course_structure.html#教学方式",
+    "href": "course_structure.html#教学方式",
+    "title": "课程结构",
+    "section": "教学方式",
+    "text": "教学方式\n本课程采用以下教学方式：\n\n理论讲解与案例分析结合：每个模块先进行理论知识讲解，然后结合实际案例进行分析\n实践操作为主：课程以实践操作为主，鼓励学生动手编写代码\n项目驱动学习：围绕项目展开教学，让学生在完成项目的过程中学习和掌握知识\n小组合作学习：鼓励学生进行小组合作，共同完成项目\n互动式教学：鼓励学生积极参与课堂讨论，提问，分享学习心得",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>课程结构</span>"
+    ]
+  },
+  {
+    "objectID": "course_structure.html#课程评估方式",
+    "href": "course_structure.html#课程评估方式",
+    "title": "课程结构",
+    "section": "课程评估方式",
+    "text": "课程评估方式\n\n\n项目评分 (70%)：综合性项目（期末大项目），个人项目\n课堂参与 (30%)：积极参与课堂讨论和提问",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>课程结构</span>"
+    ]
+  },
+  {
+    "objectID": "course_structure.html#课程时间分配",
+    "href": "course_structure.html#课程时间分配",
+    "title": "课程结构",
+    "section": "课程时间分配",
+    "text": "课程时间分配\n\n\n\n模块\n内容\n课时分配\n\n\n\n\n模块一\n数据采集与预处理\n2-4课时\n\n\n模块二\n数据探索与可视化\n2-4课时\n\n\n模块三\n计量经济学模型与传统机器学习融合应用\n2-4课时\n\n\n模块四\n简单深度学习入门与实践\n2-4课时\n\n\n模块五\n大模型API调用与智能应用\n2-4课时\n\n\n模块六\n项目部署与工程实践（可选）\n2-4课时\n\n\n综合实践\n项目指导与展示\n2-4课时",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>课程结构</span>"
+    ]
+  },
+  {
+    "objectID": "course_structure.html#推荐工具与环境",
+    "href": "course_structure.html#推荐工具与环境",
+    "title": "课程结构",
+    "section": "推荐工具与环境",
+    "text": "推荐工具与环境\n\nPython版本：Python 3.9+（推荐最新稳定版本）\n核心库：Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Plotly, Requests, Scrapy, Playwright, PyTorch (或 TensorFlow), Statsmodels, linearmodels, OpenAI Python库, LangChain\nIDE/编辑器：VS Code, Cursor\n\n\n本课程推荐使用 VS Code 或 Cursor 作为集成开发环境，并安装 Python 和 AI 插件以便获得最佳的开发体验。VS Code 和 Cursor 都支持 Python 语言和 Jupyter Notebook，方便进行交互式编程和数据分析。",
+    "crumbs": [
+      "课程介绍",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>课程结构</span>"
+    ]
+  },
+  {
     "objectID": "module1/index.html",
     "href": "module1/index.html",
     "title": "模块一：数据采集与预处理",
@@ -51,121 +205,22 @@
     ]
   },
   {
-    "objectID": "module1/index.html#学习目标",
-    "href": "module1/index.html#学习目标",
+    "objectID": "module1/index.html#模块概述",
+    "href": "module1/index.html#模块概述",
     "title": "模块一：数据采集与预处理",
-    "section": "学习目标",
-    "text": "学习目标\n完成本模块学习后，您将能够：\n\n理解不同类型的数据源及其特点\n了解多种数据采集方法的基本原理\n掌握数据清洗和预处理的核心概念\n根据研究需求选择合适的工具和方法\n解决实际数据采集和预处理中的常见问题",
+    "section": "模块概述",
+    "text": "模块概述\n本模块旨在帮助学生掌握从各种数据源获取数据的方法，以及数据清洗和预处理的基本原理和技能。在数据科学和商业智能的完整工作流程中，数据采集与预处理是基础性环节，也是实际工作中最耗时的部分。\n\n\n\n数据采集与预处理在数据科学工作流程中的位置",
     "crumbs": [
       "模块一：数据采集与预处理",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>模块一：数据采集与预处理</span>"
     ]
   },
   {
-    "objectID": "module1/index.html#模块内容",
-    "href": "module1/index.html#模块内容",
-    "title": "数据采集与预处理",
-    "section": "模块内容",
-    "text": "模块内容\n本模块包含以下主题：\n\n\n数据源多样性：Web APIs, 数据库, 文件 (CSV, JSON, Excel), 非结构化数据 (文本, 图片等), 动态网页\n网络爬虫基础：Requests 库\n高级爬虫框架：Scrapy 框架\n动态网页抓取：Playwright 库\n数据清洗与转换：Pandas 库\n文本数据处理：BeautifulSoup, 正则表达式",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
-    ]
-  },
-  {
-    "objectID": "module1/index.html#核心python工具",
-    "href": "module1/index.html#核心python工具",
-    "title": "数据采集与预处理",
-    "section": "核心Python工具",
-    "text": "核心Python工具\n\nRequests: 简单的HTTP库，用于发送HTTP请求\nScrapy: 强大的爬虫框架，用于大规模抓取网页\nPlaywright: 自动化浏览器工具，用于抓取动态网页\nPandas: 数据分析和处理库\nBeautifulSoup: HTML和XML解析库\n正则表达式 (re模块): 用于文本处理和模式匹配",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
-    ]
-  },
-  {
-    "objectID": "module1/index.html#实践项目",
-    "href": "module1/index.html#实践项目",
-    "title": "数据采集与预处理",
-    "section": "实践项目",
-    "text": "实践项目\n本模块的最终项目是电商网站商品信息抓取与预处理项目，你将：\n\n使用Requests抓取基础网页内容\n使用Scrapy构建复杂爬虫\n使用Playwright抓取动态加载的内容\n使用Pandas清洗和整理收集到的数据\n进行数据质量检查和数据预处理\n\n\n在开始爬虫项目前，请确保了解目标网站的robots.txt文件，尊重网站的访问规则，并在合理的速度范围内进行爬取，避免对目标网站造成负担。",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>数据采集与预处理</span>"
-    ]
-  },
-  {
-    "objectID": "module1/data_sources.html",
-    "href": "module1/data_sources.html",
-    "title": "数据源多样性",
-    "section": "",
-    "text": "常见数据源类型",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
-    ]
-  },
-  {
-    "objectID": "module1/data_sources.html#常见数据源类型",
-    "href": "module1/data_sources.html#常见数据源类型",
-    "title": "数据源多样性",
-    "section": "",
-    "text": "结构化数据\n\n关系型数据库 (MySQL, PostgreSQL, SQLite等)\n表格文件 (CSV, Excel)\nJSON文件\nWeb APIs (REST, GraphQL)\n\n半结构化数据\n\nXML文件\nHTML网页\n日志文件\nJSON嵌套结构\n\n非结构化数据\n\n文本文档\n图像\n音频\n视频",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
-    ]
-  },
-  {
-    "objectID": "module1/data_sources.html#数据获取方法",
-    "href": "module1/data_sources.html#数据获取方法",
-    "title": "数据源多样性",
-    "section": "数据获取方法",
-    "text": "数据获取方法\n\n1. 文件数据读取\nPython提供了丰富的库用于读取不同格式的文件：\n# 读取CSV文件\nimport pandas as pd\ndf = pd.read_csv('data.csv')\n\n# 读取Excel文件\ndf = pd.read_excel('data.xlsx', sheet_name='Sheet1')\n\n# 读取JSON文件\ndf = pd.read_json('data.json')\n\n# 读取文本文件\nwith open('data.txt', 'r', encoding='utf-8') as f:\n    text = f.read()\n\n\n2. 数据库连接\nPython可以连接各种数据库：\n# 连接MySQL数据库\nimport mysql.connector\nconn = mysql.connector.connect(\n    host=\"localhost\",\n    user=\"username\",\n    password=\"password\",\n    database=\"database_name\"\n)\ncursor = conn.cursor()\ncursor.execute(\"SELECT * FROM table_name\")\ndata = cursor.fetchall()\nconn.close()\n\n# 使用SQLAlchemy连接数据库\nfrom sqlalchemy import create_engine\nimport pandas as pd\nengine = create_engine('mysql+pymysql://username:password@localhost/database_name')\ndf = pd.read_sql(\"SELECT * FROM table_name\", engine)\n\n\n3. Web API调用\n使用Python调用Web API是获取在线数据的常用方法：\n# 调用REST API\nimport requests\nresponse = requests.get('https://api.example.com/data')\ndata = response.json()\n\n# 处理API返回的数据\ndf = pd.DataFrame(data)\n\nAPI调用示例：获取股票数据\n以下是使用Yahoo Finance API获取股票数据的示例：\nimport yfinance as yf\nimport pandas as pd\n\n# 获取特斯拉股票数据\ntsla = yf.Ticker(\"TSLA\")\n\n# 获取历史价格数据\nhist = tsla.history(period=\"1y\")\nprint(hist.head())\n\n# 获取公司信息\ninfo = tsla.info\nprint(f\"公司名称: {info['shortName']}\")\nprint(f\"行业: {info['industry']}\")\nprint(f\"市值: {info['marketCap']}\")\n\n\n\n4. 网页爬虫\n当数据没有提供API接口时，网页爬虫是获取网站数据的重要方法：\n# 简单的网页爬虫示例\nimport requests\nfrom bs4 import BeautifulSoup\n\nurl = 'https://example.com'\nresponse = requests.get(url)\nsoup = BeautifulSoup(response.text, 'html.parser')\n\n# 提取所有链接\nlinks = soup.find_all('a')\nfor link in links:\n    print(link.get('href'))",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
-    ]
-  },
-  {
-    "objectID": "module1/data_sources.html#数据源选择考虑因素",
-    "href": "module1/data_sources.html#数据源选择考虑因素",
-    "title": "数据源多样性",
-    "section": "数据源选择考虑因素",
-    "text": "数据源选择考虑因素\n在选择数据源时，需要考虑以下因素：\n\n数据质量：数据的准确性、完整性和一致性\n数据时效性：数据的更新频率和实时性\n数据规模：数据量大小及处理能力要求\n访问限制：API访问限制、IP限制、认证要求等\n法律与合规：数据获取和使用的法律限制\n成本：数据获取的费用和资源消耗\n格式兼容性：数据格式与分析工具的兼容性\n\n\n实践任务\n\n尝试从至少3种不同类型的数据源获取数据：\n\n下载一个CSV数据集并用Pandas读取\n调用一个免费的REST API并获取数据\n使用requests和BeautifulSoup从一个网站爬取基本信息\n\n对于每种数据源，回答以下问题：\n\n数据获取过程中遇到了哪些挑战？\n数据质量如何？有没有缺失值、异常值或格式问题？\n如何将获取的数据转换为pandas DataFrame格式？",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
-    ]
-  },
-  {
-    "objectID": "module1/data_sources.html#数据源案例分析",
-    "href": "module1/data_sources.html#数据源案例分析",
-    "title": "数据源多样性",
-    "section": "数据源案例分析",
-    "text": "数据源案例分析\n\n案例1：电子商务数据\n电子商务分析可能涉及的数据源： - 产品数据库（结构化） - 客户评论（半结构化/非结构化） - 用户浏览行为日志（半结构化） - 竞争对手产品信息（需要网页爬虫获取）\n\n\n案例2：金融市场分析\n金融分析可能涉及的数据源： - 股票价格数据（API或数据库） - 财务报表（结构化文件或PDF需提取） - 新闻情感数据（非结构化文本需分析） - 宏观经济指标（公开API或数据库）",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
-    ]
-  },
-  {
-    "objectID": "module1/data_sources.html#总结",
-    "href": "module1/data_sources.html#总结",
-    "title": "数据源多样性",
-    "section": "总结",
-    "text": "总结\n在现代商务智能中，数据来源呈现多样化趋势。掌握从不同类型数据源获取数据的能力是数据分析的第一步，也是至关重要的技能。随着技术的发展，我们需要灵活运用各种工具和方法，确保能够获取高质量、多维度的数据。",
-    "crumbs": [
-      "模块一：数据采集与预处理",
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>数据源多样性</span>"
-    ]
-  },
-  {
-    "objectID": "module1/index.html#模块概述",
-    "href": "module1/index.html#模块概述",
+    "objectID": "module1/index.html#学习目标",
+    "href": "module1/index.html#学习目标",
     "title": "模块一：数据采集与预处理",
-    "section": "模块概述",
-    "text": "模块概述\n本模块旨在帮助学生掌握从各种数据源获取数据的方法，以及数据清洗和预处理的基本原理和技能。在数据科学和商业智能的完整工作流程中，数据采集与预处理是基础性环节，也是实际工作中最耗时的部分。\n\n\n\n数据采集与预处理在数据科学工作流程中的位置",
+    "section": "学习目标",
+    "text": "学习目标\n完成本模块学习后，您将能够：\n\n理解不同类型的数据源及其特点\n了解多种数据采集方法的基本原理\n掌握数据清洗和预处理的核心概念\n根据研究需求选择合适的工具和方法\n解决实际数据采集和预处理中的常见问题",
     "crumbs": [
       "模块一：数据采集与预处理",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>模块一：数据采集与预处理</span>"

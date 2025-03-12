@@ -52,13 +52,6 @@ format:
     lang: zh
     include-in-header:
       text: <meta charset="utf-8">
-  pdf:
-    documentclass: ctexbook
-    classoption: [UTF8, a4paper]
-    latex-engine: xelatex
-    include-in-header:
-      text: |
-        \usepackage{ctex}
 
 
 
