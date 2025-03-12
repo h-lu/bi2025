@@ -1,57 +1,275 @@
 ---
-title: "模块六：商业智能系统部署与维护"
+title: "模块六：项目部署与工程实践（可选）"
 ---
 
-# 商业智能系统部署与维护
+# 项目部署与工程实践
 
-本模块将系统地介绍如何将数据科学模型和商业智能解决方案从实验环境转移到生产环境，并建立长期维护和优化的最佳实践。
+## 模块概述
+
+本模块旨在帮助学生掌握将数据科学和AI项目从实验阶段转化为实际可用产品的工程实践知识。在数据科学工作流程中，部署是将模型和算法变为实际价值的关键环节，但也常常是许多学术项目的瓶颈。通过本模块学习，学生将了解现代软件工程在AI项目中的应用，掌握将模型部署为API服务、Web应用或集成到现有系统的方法，以及项目管理的最佳实践。
+
+![项目部署在数据科学工作流程中的位置](../images/data_science_workflow.svg)
 
 ## 学习目标
 
-完成本模块学习后，你将能够：
+完成本模块学习后，您将能够：
 
-1. 掌握Python商业智能应用的部署流程
-2. 设计和实现可扩展的数据处理流水线
-3. 构建自动化的模型训练和评估系统
-4. 实施有效的商业智能系统监控策略
-5. 应用DevOps和MLOps最佳实践
-6. 设计商业智能系统的迭代改进流程
+- 理解从实验到生产的工程转化流程
+- 掌握模型部署的主要方法和工具
+- 构建简单的Web应用以展示AI模型能力
+- 了解容器化和云服务在AI项目中的应用
+- 掌握项目文档、版本控制和协作的最佳实践
 
-## 模块内容
+## 从实验到生产
 
-本模块包含以下主题：
+:::{.callout-note}
+### 实验到生产的主要挑战
 
-:::{.important}
-- **商业智能系统架构**：从原型到生产的架构设计
-- **模型打包与部署**：将模型打包为API和应用
-- **数据流水线部署**：ETL流程自动化与监控
-- **系统性能优化**：提高系统吞吐量和响应速度
-- **监控与维护**：建立系统健康监控机制
-- **MLOps实践**：机器学习模型的持续交付与集成
-- **商业智能安全与合规**：数据安全与隐私保护
+1. **技术挑战**
+   - 代码质量与可维护性
+   - 系统性能与可扩展性
+   - 依赖管理与环境一致性
+   - 错误处理与监控
+
+2. **流程挑战**
+   - 实验-开发-测试-部署流水线
+   - 版本控制与变更管理
+   - 持续集成与持续部署
+   - 团队协作与知识管理
+
+3. **业务挑战**
+   - 用户需求与技术可行性平衡
+   - 产品迭代与反馈循环
+   - 成本管理与资源分配
+   - 可持续性与长期维护
 :::
 
-## 核心Python工具
+## 软件工程基础
 
-- **FastAPI/Flask**: API开发
-- **Docker**: 容器化
-- **Kubernetes**: 容器编排
-- **Airflow/Prefect**: 工作流管理
-- **MLflow**: 模型生命周期管理
-- **Prometheus/Grafana**: 监控与告警
-- **GitHub Actions/Jenkins**: CI/CD流程
+### 代码质量与结构
 
-## 实践项目
+编写生产级代码的实践：
 
-本模块的最终项目是**商业智能系统全栈部署项目**，你将：
+- 代码风格与PEP8规范
+- 代码组织与模块化
+- 单元测试与集成测试
+- 代码审查与质量控制
 
-- 设计完整的商业智能系统架构
-- 实现自动化数据处理流水线
-- 部署模型服务API和用户界面
-- 构建系统监控和告警机制
-- 实施CI/CD流程确保系统持续更新和改进
-- 编写全面的系统文档和维护手册
+### 版本控制与协作
 
-:::{.tip}
-构建商业智能系统不仅是技术挑战，也是一个持续的业务过程。确保你的系统具有足够的灵活性以适应不断变化的业务需求，并与业务利益相关者保持紧密协作，才能确保系统的长期价值。
-::: 
+使用Git进行项目管理：
+
+- Git基本工作流
+- 分支策略与合并管理
+- 协作最佳实践
+- GitHub/GitLab使用技巧
+
+### 依赖管理
+
+管理Python环境和依赖：
+
+- 虚拟环境(venv, conda)
+- 依赖规范(requirements.txt, setup.py)
+- 包管理最佳实践
+- 依赖冲突解决
+
+### 文档与可复现性
+
+创建清晰、有用的项目文档：
+
+- 代码文档与注释规范
+- README与项目文档结构
+- API文档自动生成
+- 可复现环境与实验记录
+
+## 模型部署方法
+
+### REST API开发
+
+将模型封装为Web服务：
+
+- API设计原则
+- Flask/FastAPI基础
+- 请求处理与验证
+- 异步处理与性能优化
+
+### Web应用构建
+
+创建用户友好的Web界面：
+
+- 前端基础(HTML/CSS/JavaScript)
+- Streamlit快速原型
+- Dash数据可视化应用
+- Gradio模型演示界面
+
+### 批处理系统
+
+处理大规模数据的批量预测：
+
+- 批处理架构设计
+- 调度系统(Airflow, Prefect)
+- 数据流与状态管理
+- 异常处理与恢复机制
+
+### 移动与边缘部署
+
+将AI应用延伸到移动设备和边缘设备：
+
+- 模型优化与轻量化
+- 移动框架集成
+- 边缘设备考量
+- 在线/离线模式设计
+
+## 容器化与云服务
+
+### Docker基础
+
+使用容器封装应用环境：
+
+- Docker概念与工作原理
+- Dockerfile编写
+- 容器管理与网络
+- Docker Compose多服务管理
+
+### 云平台部署
+
+利用云服务简化部署流程：
+
+- 主流云服务比较(AWS, Azure, GCP)
+- Serverless部署选项
+- 容器服务(Kubernetes基础)
+- 持续部署流水线
+
+### 数据库与存储
+
+管理模型数据和用户数据：
+
+- 数据库选择(SQL vs NoSQL)
+- 云存储服务
+- 数据访问层设计
+- 数据迁移与备份
+
+### 监控与日志
+
+确保系统健康和问题诊断：
+
+- 日志系统设计
+- 监控指标与告警
+- 性能分析与优化
+- 用户行为分析
+
+## 项目管理与协作
+
+### 敏捷开发实践
+
+在AI项目中应用敏捷方法：
+
+- Scrum/Kanban基础
+- 用户故事与任务分解
+- 迭代计划与回顾
+- 敏捷工具使用(Jira, Trello)
+
+### MLOps基础
+
+机器学习运维的关键概念：
+
+- 模型版本控制
+- 模型注册与管理
+- 持续训练与评估
+- A/B测试框架
+
+### 项目文档与知识管理
+
+建立项目知识库和文档：
+
+- 项目Wiki建设
+- 技术决策记录
+- 问题追踪与解决方案
+- 知识分享机制
+
+### 沟通与展示
+
+有效沟通项目进展和成果：
+
+- 技术与非技术沟通
+- 数据可视化与故事讲述
+- 演示文稿制作技巧
+- 项目价值传递
+
+## 安全与伦理考量
+
+### 数据安全与隐私
+
+保护敏感数据和用户隐私：
+
+- 数据加密与匿名化
+- 访问控制与认证
+- 隐私设计原则
+- 合规要求(GDPR等)
+
+### AI伦理实践
+
+负责任的AI开发与部署：
+
+- 算法偏见识别与缓解
+- 透明度与可解释性
+- 用户同意与控制
+- 伦理审查流程
+
+### 可持续性考量
+
+构建可持续维护的系统：
+
+- 技术债务管理
+- 资源使用优化
+- 文档与知识传承
+- 长期维护计划
+
+## 推荐工具
+
+项目部署与工程实践常用工具：
+
+1. **版本控制与协作**
+   - **Git/GitHub/GitLab**: 代码版本控制
+   - **DVC**: 数据版本控制
+   - **ML Flow/Weights & Biases**: 实验跟踪
+   - **Jira/Trello/Asana**: 项目管理
+
+2. **部署工具**
+   - **Flask/FastAPI**: API开发框架
+   - **Streamlit/Gradio**: 快速UI构建
+   - **Docker/Docker Compose**: 容器化
+   - **Kubernetes/ECS**: 容器编排
+
+3. **云服务与DevOps**
+   - **AWS/Azure/GCP**: 云平台服务
+   - **GitHub Actions/GitLab CI**: CI/CD工具
+   - **Terraform/Pulumi**: 基础设施即代码
+   - **Prometheus/Grafana**: 监控与可视化
+
+## 学习资源
+
+### 基础教程
+- [The Flask Mega-Tutorial](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
+- [FastAPI官方文档](https://fastapi.tiangolo.com/)
+- [Docker Get Started](https://docs.docker.com/get-started/)
+- [GitHub Flow指南](https://guides.github.com/introduction/flow/)
+
+### 进阶资源
+- [Full Stack Python](https://www.fullstackpython.com/)
+- [Designing Data-Intensive Applications](https://dataintensive.net/) by Martin Kleppmann
+- [Building Machine Learning Powered Applications](https://www.oreilly.com/library/view/building-machine-learning/9781492045106/) by Emmanuel Ameisen
+- [DevOps for Data Science](https://www.manning.com/books/devops-for-data-science)
+
+### 在线课程
+- [Coursera: DevOps, DataOps, MLOps](https://www.coursera.org/learn/devops-dataops-mlops)
+- [edX: Implementing MLOps on AWS](https://www.edx.org/course/implementing-mlops-on-aws)
+- [DataCamp: Building Web Applications with Flask](https://www.datacamp.com/courses/building-web-applications-with-flask)
+
+## 进阶探索方向
+
+- **MLOps高级实践**: 自动化ML流水线、模型监控、模型治理
+- **微服务架构**: 将AI系统分解为可独立部署的微服务
+- **边缘AI部署**: 将AI模型部署到边缘设备和IoT设备
+- **全栈数据科学**: 掌握从后端到前端的完整技术栈
+- **DevSecOps**: 将安全实践集成到开发和运维流程 
