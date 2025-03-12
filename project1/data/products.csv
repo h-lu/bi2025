@@ -1,0 +1,501 @@
+product_id,name,category,subcategory,base_price,discount_rate,current_price,stock_quantity,stock_status,rating,num_reviews,supplier,weight_kg,launch_date,is_bestseller
+PROD00001,Sports Apparel Item 1,Sports & Outdoors,Sports Apparel,184.84,0.2,147.87,395,In Stock,3.7,789,Fuller-Heath,14.14,2019-06-05,False
+PROD00002,Board Games Item 2,Toys & Games,Board Games,878.67,0.0,878.67,307,In Stock,2.2,946,Huff-Mathis,11.85,2021-07-27,False
+PROD00003,Decor Item 3,Home & Kitchen,Decor,448.35,0.35,291.43,226,In Stock,1.9,895,Johnson-Bailey,7.03,2021-03-21,False
+PROD00004,Jewelry Item 4,Fashion,Jewelry,694.65,0.48,361.22,361,In Stock,4.4,566,Davenport LLC,14.58,2019-05-26,False
+PROD00005,Jewelry Item 5,Fashion,Jewelry,452.31,0.0,452.31,807,In Stock,3.9,825,"Watson, Ellis and Rivera",0.53,2021-04-28,False
+PROD00006,Sports Apparel Item 6,Sports & Outdoors,Sports Apparel,346.87,0.0,346.87,61,In Stock,5.0,353,"Vance, Lewis and Brock",9.59,2021-05-16,False
+PROD00007,Non-fiction Item 7,Books & Media,Non-fiction,23.87,0.0,23.87,895,In Stock,3.2,617,"Lyons, Wright and Davis",10.11,2021-03-02,False
+PROD00008,Haircare Item 8,Beauty & Personal Care,Haircare,471.71,0.0,471.71,761,In Stock,2.1,255,"Parker, Adams and Murray",19.09,2020-12-08,False
+PROD00009,Audio Item 9,Electronics,Audio,641.64,0.0,641.64,859,In Stock,4.4,885,"Bridges, Williams and Lee",0.11,2021-07-09,False
+PROD00010,Footwear Item 10,Fashion,Footwear,804.82,0.0,804.82,914,In Stock,4.2,763,Miller PLC,17.85,2019-07-21,False
+PROD00011,Movies Item 11,Books & Media,Movies,186.16,0.0,186.16,0,Out of Stock,2.6,430,"Reilly, Hughes and Bradford",10.2,2019-10-20,False
+PROD00012,Sports Apparel Item 12,Sports & Outdoors,Sports Apparel,950.17,0.0,950.17,310,In Stock,2.0,434,"Martinez, Taylor and Henderson",3.49,2021-03-12,False
+PROD00013,Appliances Item 13,Home & Kitchen,Appliances,978.63,0.24,743.76,744,In Stock,1.6,417,Crawford-Blankenship,5.97,2021-05-21,False
+PROD00014,Accessories Item 14,Electronics,Accessories,669.09,0.0,669.09,853,In Stock,1.3,152,Lopez-Lowe,14.25,2021-06-21,False
+PROD00015,Audio Item 15,Electronics,Audio,74.31,0.0,74.31,547,In Stock,4.6,633,Jackson Inc,14.77,2021-04-30,False
+PROD00016,Accessories Item 16,Electronics,Accessories,987.67,0.21,780.26,790,In Stock,3.3,288,Li PLC,9.32,2020-10-13,False
+PROD00017,Movies Item 17,Books & Media,Movies,297.57,0.24,226.15,239,In Stock,,674,Anderson Ltd,9.26,2021-10-12,False
+PROD00018,Fiction Item 18,Books & Media,Fiction,735.83,0.18,603.38,297,In Stock,1.0,401,Gill-Anderson,6.02,2021-08-23,False
+PROD00019,Music Item 19,Books & Media,Music,487.54,0.0,487.54,27,In Stock,3.3,846,Cole-Braun,,2019-04-15,False
+PROD00020,Cameras Item 20,Electronics,Cameras,177.85,0.08,163.62,301,In Stock,1.7,31,"Rodriguez, Robinson and Chase",12.06,2021-12-16,False
+PROD00021,Haircare Item 21,Beauty & Personal Care,Haircare,66.03,0.11,58.77,0,Out of Stock,,867,Smith PLC,19.36,2021-10-17,True
+PROD00022,Kitchenware Item 22,Home & Kitchen,Kitchenware,787.99,0.21,622.51,467,In Stock,1.2,425,Davis LLC,,2020-10-18,False
+PROD00023,Video Games Item 23,Toys & Games,Video Games,651.01,0.17,540.34,960,In Stock,2.6,580,Good-Wright,5.39,2021-08-20,False
+PROD00024,Skincare Item 24,Beauty & Personal Care,Skincare,688.45,0.4,413.07,118,In Stock,2.3,120,"Morse, Pope and Clark",,2020-01-06,False
+PROD00025,Puzzles Item 25,Toys & Games,Puzzles,847.61,0.39,517.04,270,In Stock,2.6,662,Robinson-Gonzalez,19.27,2021-12-22,False
+PROD00026,Movies Item 26,Books & Media,Movies,194.91,0.0,194.91,870,In Stock,3.0,511,Robertson LLC,3.82,2021-12-25,False
+PROD00027,Furniture Item 27,Home & Kitchen,Furniture,550.28,0.0,550.28,742,In Stock,2.2,20,"Hernandez, Diaz and Flores",8.8,2019-10-14,True
+PROD00028,Camping Item 28,Sports & Outdoors,Camping,677.51,0.39,413.28,241,In Stock,1.4,15,"Long, Hodges and Johnson",11.69,2020-03-02,False
+PROD00029,Men's Clothing Item 29,Fashion,Men's Clothing,834.82,0.0,834.82,0,Out of Stock,4.3,791,"Mullen, Mora and Williams",,2019-09-24,False
+PROD00030,Music Item 30,Books & Media,Music,123.12,0.0,123.12,463,In Stock,1.4,810,Baldwin PLC,13.27,2019-08-20,False
+PROD00031,Jewelry Item 31,Fashion,Jewelry,525.58,0.0,525.58,79,In Stock,3.4,925,"Sandoval, Mccall and Lyons",3.09,2021-01-02,False
+PROD00032,Footwear Item 32,Fashion,Footwear,710.62,0.0,710.62,437,In Stock,1.7,248,Stephens LLC,14.23,2020-04-01,False
+PROD00033,Fragrance Item 33,Beauty & Personal Care,Fragrance,895.29,0.0,895.29,39,In Stock,4.8,175,Collier-Grimes,14.62,2020-01-17,False
+PROD00034,Footwear Item 34,Fashion,Footwear,197.14,0.0,197.14,510,In Stock,1.9,394,Durham LLC,10.2,2021-12-21,False
+PROD00035,Outdoor Gear Item 35,Sports & Outdoors,Outdoor Gear,258.93,0.32,176.07,368,In Stock,3.8,907,Walker-Stephens,14.87,2021-09-24,False
+PROD00036,Personal Hygiene Item 36,Beauty & Personal Care,Personal Hygiene,186.63,0.0,186.63,811,In Stock,1.3,727,"Francis, Stanton and Gibson",3.36,2021-10-09,False
+PROD00037,Jewelry Item 37,Fashion,Jewelry,813.43,0.0,813.43,144,In Stock,4.4,410,Castro Inc,,2020-02-03,False
+PROD00038,Puzzles Item 38,Toys & Games,Puzzles,951.59,0.0,951.59,90,In Stock,1.1,277,Gibson-Levy,,2021-05-01,False
+PROD00039,Music Item 39,Books & Media,Music,188.72,0.0,188.72,489,In Stock,2.9,775,"Mcbride, Harvey and Ramsey",15.51,2020-10-31,False
+PROD00040,Toys Item 40,Toys & Games,Toys,226.36,0.0,226.36,355,In Stock,,400,Lloyd PLC,12.89,2020-08-14,False
+PROD00041,Video Games Item 41,Toys & Games,Video Games,360.68,0.0,360.68,0,Out of Stock,,851,"Savage, Wilson and Santiago",13.61,2021-11-08,False
+PROD00042,Cameras Item 42,Electronics,Cameras,629.48,0.07,585.42,780,In Stock,1.1,999,"Mcgrath, Larsen and Friedman",17.83,2019-05-27,False
+PROD00043,Board Games Item 43,Toys & Games,Board Games,589.19,0.0,589.19,865,In Stock,1.8,67,Patterson-Davis,7.5,2020-01-17,False
+PROD00044,Music Item 44,Books & Media,Music,613.92,0.23,472.72,781,In Stock,1.4,919,"Barrett, Peterson and Rodriguez",12.26,2020-07-01,False
+PROD00045,Personal Hygiene Item 45,Beauty & Personal Care,Personal Hygiene,270.89,0.11,241.09,461,In Stock,3.3,978,Johnson Group,19.48,2019-11-08,False
+PROD00046,Haircare Item 46,Beauty & Personal Care,Haircare,377.64,0.0,377.64,810,In Stock,,192,Perry-Thomas,6.85,2019-07-25,False
+PROD00047,Board Games Item 47,Toys & Games,Board Games,339.08,0.0,339.08,681,In Stock,4.6,635,Myers-Herrera,14.35,2021-04-23,False
+PROD00048,Skincare Item 48,Beauty & Personal Care,Skincare,908.12,0.0,908.12,0,Out of Stock,2.2,439,Roberts-Bowers,7.27,2020-11-22,False
+PROD00049,Appliances Item 49,Home & Kitchen,Appliances,774.3,0.0,774.3,0,Out of Stock,2.0,715,"Cook, Waters and Schultz",9.93,2021-06-09,False
+50,Accessories Item 50,Fashion,Accessories,11.03,0.08,10.15,781,In Stock,1.1,504,Robinson-Velazquez,17.14,2021-09-05,True
+PROD00051,Non-fiction Item 51,Books & Media,Non-fiction,804.18,0.12,707.68,929,In Stock,4.1,9,Coleman-Ward,12.33,2020-05-21,False
+PROD00052,Personal Hygiene Item 52,Beauty & Personal Care,Personal Hygiene,539.42,0.0,539.42,411,In Stock,3.3,510,"Preston, Montgomery and Williams",5.29,2021-04-04,False
+PROD00053,Tablets Item 53,Electronics,Tablets,231.15,0.0,231.15,724,In Stock,2.6,76,"Perez, Campbell and Ayala",12.97,2021-08-26,False
+PROD00054,Fragrance Item 54,Beauty & Personal Care,Fragrance,140.91,0.2,112.73,811,In Stock,1.2,741,Hall PLC,14.94,2021-07-01,False
+PROD00055,Decor Item 55,Home & Kitchen,Decor,362.14,0.0,362.14,94,In Stock,3.4,392,Davenport and Sons,16.19,2019-06-22,False
+PROD00056,Water Sports Item 56,Sports & Outdoors,Water Sports,898.68,0.0,898.68,461,In Stock,2.4,897,James LLC,1.36,2021-11-19,False
+PROD00057,Sports Apparel Item 57,Sports & Outdoors,Sports Apparel,560.89,0.0,560.89,312,In Stock,1.9,733,"Mathis, Austin and Rodriguez",13.43,2019-11-07,False
+PROD00058,Accessories Item 58,Fashion,Accessories,773.43,0.0,773.43,866,In Stock,2.3,347,"Myers, Collins and Tanner",14.79,2020-04-24,False
+PROD00059,Makeup Item 59,Beauty & Personal Care,Makeup,113.64,0.0,113.64,185,In Stock,1.1,162,"Black, Powell and Joseph",11.91,2020-03-15,False
+PROD00060,Video Games Item 60,Toys & Games,Video Games,165.5,0.23,127.44,81,In Stock,4.2,919,"Shepard, Hopkins and Walton",2.32,2019-09-21,False
+PROD00061,Skincare Item 61,Beauty & Personal Care,Skincare,822.4,0.0,822.4,91,In Stock,,968,Miller LLC,17.49,2020-08-02,False
+PROD00062,Personal Hygiene Item 62,Beauty & Personal Care,Personal Hygiene,680.9,0.0,680.9,379,In Stock,2.4,133,Soto Inc,4.45,2019-09-17,False
+PROD00063,Fiction Item 63,Books & Media,Fiction,631.67,0.0,631.67,345,In Stock,,238,"Good, Reed and Wilson",11.06,2021-06-17,False
+PROD00064,Footwear Item 64,Fashion,Footwear,383.24,0.0,383.24,774,In Stock,,122,Shah Inc,5.95,2020-07-07,False
+PROD00065,Laptops Item 65,Electronics,Laptops,608.97,0.0,608.97,231,In Stock,3.2,913,Washington LLC,1.63,2020-02-23,False
+PROD00066,Cameras Item 66,Electronics,Cameras,26.49,0.0,26.49,107,In Stock,4.2,722,Lopez-Parker,9.97,2020-10-23,False
+PROD00067,Tablets Item 67,Electronics,Tablets,71.49,0.0,71.49,232,In Stock,2.0,283,"Kramer, Griffin and Goodman",1.5,2020-04-21,False
+PROD00068,Sports Apparel Item 68,Sports & Outdoors,Sports Apparel,353.59,0.0,353.59,205,In Stock,3.2,110,Carrillo Ltd,9.88,2019-06-19,False
+PROD00069,Footwear Item 69,Fashion,Footwear,33.4,0.0,33.4,539,In Stock,1.2,204,Olson Group,16.54,2021-11-02,False
+PROD00070,Board Games Item 70,Toys & Games,Board Games,448.85,0.0,448.85,341,In Stock,1.1,328,Bishop Group,15.02,2020-08-24,False
+PROD00071,Puzzles Item 71,Toys & Games,Puzzles,715.85,0.0,715.85,464,In Stock,5.0,69,"Martin, Jackson and Boyd",19.44,2020-09-05,False
+PROD00072,Furniture Item 72,Home & Kitchen,Furniture,832.67,0.0,832.67,324,In Stock,3.8,656,Wade-Mills,17.63,2019-10-11,False
+PROD00073,Footwear Item 73,Fashion,Footwear,656.06,0.0,656.06,77,In Stock,1.6,460,Stanley-Wilson,14.92,2020-09-03,False
+PROD00074,Puzzles Item 74,Toys & Games,Puzzles,77.63,0.0,77.63,82,In Stock,2.0,88,"Thornton, Edwards and Maldonado",6.2,2019-06-27,False
+PROD00075,Accessories Item 75,Electronics,Accessories,592.29,0.0,592.29,810,In Stock,4.4,337,Torres-Rose,13.13,2020-10-22,False
+PROD00076,Personal Hygiene Item 76,Beauty & Personal Care,Personal Hygiene,256.91,0.0,256.91,490,In Stock,2.3,0,Griffin-Johnson,6.02,2020-09-06,False
+PROD00077,Kitchenware Item 77,Home & Kitchen,Kitchenware,123.33,0.17,102.36,799,In Stock,3.6,167,Lee-Woods,7.19,2019-09-22,False
+PROD00078,Haircare Item 78,Beauty & Personal Care,Haircare,189.03,0.35,122.87,398,In Stock,2.5,257,"Fuller, Garcia and Freeman",16.52,2021-12-18,False
+PROD00079,Bedding Item 79,Home & Kitchen,Bedding,637.56,0.0,637.56,587,In Stock,2.8,635,Peterson-Washington,4.81,2020-02-29,False
+PROD00080,Women's Clothing Item 80,Fashion,Women's Clothing,688.98,0.0,688.98,35,In Stock,4.5,506,"Patrick, Brown and Martinez",7.23,2019-07-19,False
+PROD00081,Jewelry Item 81,Fashion,Jewelry,664.95,0.0,664.95,12,In Stock,3.2,670,Yang LLC,15.47,2019-07-22,False
+PROD00082,Puzzles Item 82,Toys & Games,Puzzles,71.81,0.0,71.81,340,In Stock,1.6,891,Murphy Inc,1.35,2019-07-19,False
+PROD00083,Music Item 83,Books & Media,Music,241.01,0.0,241.01,273,In Stock,1.5,596,"Johnson, Stewart and Cook",13.28,2019-06-26,False
+PROD00084,Sports Apparel Item 84,Sports & Outdoors,Sports Apparel,317.62,0.0,317.62,288,In Stock,3.5,787,Richards Ltd,17.76,2019-11-10,True
+PROD00085,Movies Item 85,Books & Media,Movies,520.41,0.0,520.41,643,In Stock,4.8,651,Roberts LLC,10.83,2020-09-26,False
+PROD00086,Video Games Item 86,Toys & Games,Video Games,938.71,0.12,826.06,477,In Stock,2.4,563,Palmer Group,9.66,2019-05-12,False
+PROD00087,Decor Item 87,Home & Kitchen,Decor,131.37,0.0,131.37,759,In Stock,2.5,485,Collins LLC,4.77,2020-07-10,False
+PROD00088,Men's Clothing Item 88,Fashion,Men's Clothing,298.85,0.0,298.85,928,In Stock,3.8,120,Jones Group,8.37,2019-10-31,False
+PROD00089,Makeup Item 89,Beauty & Personal Care,Makeup,317.61,0.0,317.61,742,In Stock,3.9,658,Lambert Inc,9.64,2019-06-02,False
+PROD00090,Fiction Item 90,Books & Media,Fiction,507.19,0.26,375.32,646,In Stock,2.0,414,"Contreras, King and Kent",17.81,2020-06-15,False
+PROD00091,Accessories Item 91,Electronics,Accessories,461.29,0.0,461.29,654,In Stock,3.7,367,Torres-Lewis,2.9,2020-09-21,False
+PROD00092,Non-fiction Item 92,Books & Media,Non-fiction,200.36,0.0,200.36,515,In Stock,5.0,803,Vasquez LLC,5.92,2021-10-22,False
+PROD00093,Makeup Item 93,Beauty & Personal Care,Makeup,258.62,0.5,129.31,893,In Stock,1.4,67,Smith LLC,6.36,2021-06-25,False
+PROD00094,Audio Item 94,Electronics,Audio,122.14,0.0,122.14,0,Out of Stock,3.4,1,Austin-Hill,0.62,2020-09-21,False
+PROD00095,Personal Hygiene Item 95,Beauty & Personal Care,Personal Hygiene,205.44,0.0,205.44,813,In Stock,4.6,304,"Rodriguez, Cohen and Evans",11.12,2021-06-18,False
+PROD00096,Appliances Item 96,Home & Kitchen,Appliances,355.29,0.0,355.29,985,In Stock,2.0,940,Bell Group,14.52,2021-07-06,False
+PROD00097,Smartphones Item 97,Electronics,Smartphones,109.23,0.0,109.23,414,In Stock,4.1,610,Lopez Group,,2020-05-18,False
+PROD00098,Sports Apparel Item 98,Sports & Outdoors,Sports Apparel,850.58,0.0,850.58,483,In Stock,,97,"Nelson, Cummings and Davis",9.65,2020-12-28,False
+PROD00099,Non-fiction Item 99,Books & Media,Non-fiction,375.99,0.07,349.67,821,In Stock,2.3,379,Jones-Henry,18.3,2021-06-18,False
+100,Puzzles Item 100,Toys & Games,Puzzles,619.92,0.0,619.92,997,In Stock,3.0,240,Smith Inc,17.05,2021-02-28,False
+PROD00101,Kitchenware Item 101,Home & Kitchen,Kitchenware,898.78,0.0,898.78,678,In Stock,4.8,769,Rodriguez-Brooks,8.31,2020-09-29,False
+PROD00102,Outdoor Gear Item 102,Sports & Outdoors,Outdoor Gear,637.42,0.0,637.42,24,In Stock,4.5,594,"Garcia, Krueger and Berger",12.36,2019-08-01,False
+PROD00103,Smartphones Item 103,Electronics,Smartphones,618.06,0.25,463.54,658,In Stock,3.5,51,Collins LLC,13.31,2020-06-26,False
+PROD00104,Audio Item 104,Electronics,Audio,583.24,0.27,425.77,97,In Stock,1.1,523,Ramirez Ltd,11.88,2020-08-02,False
+PROD00105,Collectibles Item 105,Toys & Games,Collectibles,881.51,0.0,881.51,911,In Stock,,682,"Howard, Patel and Lopez",13.58,2020-12-21,False
+PROD00106,Decor Item 106,Home & Kitchen,Decor,984.42,0.3,689.09,741,In Stock,2.6,35,Mathews-Reyes,0.86,2019-12-19,False
+PROD00107,Smartphones Item 107,Electronics,Smartphones,865.79,0.0,865.79,277,In Stock,3.1,81,Sosa Group,15.4,2021-09-02,False
+PROD00108,Appliances Item 108,Home & Kitchen,Appliances,918.48,0.0,918.48,506,In Stock,1.7,753,Larson Group,2.48,2021-01-14,False
+PROD00109,Bedding Item 109,Home & Kitchen,Bedding,635.04,0.0,635.04,592,In Stock,3.7,609,"Miller, Melton and Williams",2.24,2020-12-09,False
+PROD00110,Fitness Equipment Item 110,Sports & Outdoors,Fitness Equipment,606.24,0.22,472.87,0,Out of Stock,2.3,716,Allen-Meyer,0.46,2019-08-24,False
+PROD00111,Sports Apparel Item 111,Sports & Outdoors,Sports Apparel,546.61,0.23,420.89,28,In Stock,4.9,430,Reyes PLC,0.37,2019-11-19,True
+PROD00112,Toys Item 112,Toys & Games,Toys,990.13,0.0,990.13,299,In Stock,2.2,646,Moreno-Mathews,3.99,2021-04-03,False
+PROD00113,Makeup Item 113,Beauty & Personal Care,Makeup,134.84,0.31,93.04,0,Out of Stock,1.8,206,"Jackson, Gonzalez and Mcclure",19.69,2019-10-14,True
+PROD00114,Women's Clothing Item 114,Fashion,Women's Clothing,796.44,0.0,796.44,177,In Stock,3.7,574,"Munoz, Bryant and Smith",17.18,2020-03-10,False
+PROD00115,Collectibles Item 115,Toys & Games,Collectibles,27.27,0.0,27.27,508,In Stock,,421,Cummings-Cruz,17.68,2021-01-28,False
+PROD00116,Accessories Item 116,Electronics,Accessories,410.48,0.0,410.48,290,In Stock,,340,Peterson-Young,12.81,2020-09-27,False
+PROD00117,E-books Item 117,Books & Media,E-books,108.74,0.0,108.74,379,In Stock,1.4,1,"Smith, Powers and Green",12.91,2020-05-18,True
+PROD00118,Fragrance Item 118,Beauty & Personal Care,Fragrance,502.64,0.0,502.64,695,In Stock,1.6,519,"Cummings, Craig and Mendez",6.71,2020-08-03,False
+PROD00119,Personal Hygiene Item 119,Beauty & Personal Care,Personal Hygiene,876.57,0.36,561.0,267,In Stock,1.1,811,"Miller, Palmer and Hall",13.24,2020-05-10,False
+PROD00120,Bedding Item 120,Home & Kitchen,Bedding,830.16,0.0,830.16,205,In Stock,4.3,557,Johnson Group,,2020-08-30,True
+PROD00121,Fragrance Item 121,Beauty & Personal Care,Fragrance,214.09,0.07,199.1,810,In Stock,3.3,704,"Holloway, Allen and Vang",7.16,2020-01-24,True
+PROD00122,Bedding Item 122,Home & Kitchen,Bedding,464.17,0.0,464.17,263,In Stock,3.9,357,White-Clark,2.44,2021-03-27,True
+PROD00123,Accessories Item 123,Electronics,Accessories,81.18,0.37,51.14,77,In Stock,1.1,38,Walker-Simmons,10.34,2020-12-31,False
+PROD00124,Fiction Item 124,Books & Media,Fiction,726.5,0.0,726.5,699,In Stock,2.0,947,Brown-Guerra,17.51,2020-05-15,False
+PROD00125,Appliances Item 125,Home & Kitchen,Appliances,325.14,0.0,325.14,395,In Stock,4.4,441,Rangel Group,,2021-04-01,False
+PROD00126,Jewelry Item 126,Fashion,Jewelry,546.65,0.46,295.19,0,Out of Stock,1.5,341,Rivera Inc,5.19,2020-08-11,False
+PROD00127,Smartphones Item 127,Electronics,Smartphones,105.28,0.0,105.28,240,In Stock,4.0,38,Marshall-Kelly,15.01,2019-05-27,False
+PROD00128,Movies Item 128,Books & Media,Movies,815.23,0.22,635.88,732,In Stock,3.1,938,Bridges-Martin,12.78,2021-12-31,True
+PROD00129,Women's Clothing Item 129,Fashion,Women's Clothing,227.06,0.0,227.06,466,In Stock,2.5,377,"Bartlett, Green and Harris",7.86,2020-09-13,False
+PROD00130,Women's Clothing Item 130,Fashion,Women's Clothing,552.87,0.0,552.87,197,In Stock,2.2,300,Callahan-Ali,5.7,2019-07-04,False
+PROD00131,Collectibles Item 131,Toys & Games,Collectibles,32.4,0.0,32.4,659,In Stock,4.9,524,"Mcdonald, Lee and Torres",17.21,2020-05-26,False
+PROD00132,Tablets Item 132,Electronics,Tablets,732.82,0.0,732.82,926,In Stock,4.9,165,Davis-Rhodes,1.47,2020-06-24,False
+PROD00133,Footwear Item 133,Fashion,Footwear,953.1,0.0,953.1,0,Out of Stock,3.0,478,Pacheco-Matthews,18.49,2019-05-01,True
+PROD00134,Bedding Item 134,Home & Kitchen,Bedding,88.77,0.0,88.77,472,In Stock,3.3,765,Thomas-Brown,17.52,2020-12-15,False
+PROD00135,Audio Item 135,Electronics,Audio,318.87,0.0,318.87,377,In Stock,2.7,252,Holloway-Espinoza,2.9,2021-09-25,False
+PROD00136,Jewelry Item 136,Fashion,Jewelry,312.43,0.29,221.83,687,In Stock,3.1,679,"Hoffman, Mann and Moore",17.83,2020-04-09,True
+PROD00137,Makeup Item 137,Beauty & Personal Care,Makeup,390.12,0.0,390.12,250,In Stock,1.6,319,Khan-Haynes,16.84,2020-07-22,False
+PROD00138,Men's Clothing Item 138,Fashion,Men's Clothing,298.1,0.0,298.1,141,In Stock,1.9,223,Green Ltd,,2021-08-13,False
+PROD00139,Laptops Item 139,Electronics,Laptops,25.51,0.14,21.94,310,In Stock,1.7,288,Wilson Group,12.88,2020-08-05,False
+PROD00140,Fiction Item 140,Books & Media,Fiction,964.88,0.0,964.88,632,In Stock,1.5,489,Davis-Jones,0.57,2020-02-25,False
+PROD00141,Accessories Item 141,Electronics,Accessories,312.72,0.0,312.72,667,In Stock,3.3,989,"Bond, Haynes and Hamilton",9.05,2021-06-27,False
+PROD00142,Music Item 142,Books & Media,Music,441.67,0.0,441.67,0,Out of Stock,1.1,458,Collins-Williams,15.75,2020-04-09,False
+PROD00143,Makeup Item 143,Beauty & Personal Care,Makeup,703.57,0.0,703.57,579,In Stock,1.1,41,"Spence, Moore and Ward",18.22,2020-04-11,False
+PROD00144,Haircare Item 144,Beauty & Personal Care,Haircare,57.25,0.0,57.25,189,In Stock,1.4,147,Mcclure-Thompson,15.79,2020-08-24,False
+PROD00145,Accessories Item 145,Electronics,Accessories,289.13,0.36,185.04,743,In Stock,3.6,931,Williams and Sons,15.3,2021-10-06,False
+PROD00146,Women's Clothing Item 146,Fashion,Women's Clothing,120.59,0.0,120.59,442,In Stock,4.0,636,"Goodwin, Andrews and White",9.49,2020-02-07,False
+PROD00147,Personal Hygiene Item 147,Beauty & Personal Care,Personal Hygiene,491.7,0.0,491.7,540,In Stock,3.3,919,Meyer and Sons,,2021-09-11,False
+PROD00148,Personal Hygiene Item 148,Beauty & Personal Care,Personal Hygiene,903.59,0.31,623.48,507,In Stock,3.6,958,Rosales-Lynch,8.07,2021-06-29,False
+PROD00149,Women's Clothing Item 149,Fashion,Women's Clothing,409.17,0.43,233.23,522,In Stock,4.9,728,"Lopez, Lucas and Flores",11.66,2021-06-04,False
+150,Video Games Item 150,Toys & Games,Video Games,467.07,0.0,467.07,27,In Stock,1.1,661,"Turner, Liu and Hart",12.58,2021-10-24,False
+PROD00151,Puzzles Item 151,Toys & Games,Puzzles,533.33,0.0,533.33,62,In Stock,2.9,266,Moore Inc,12.09,2021-07-11,False
+PROD00152,Accessories Item 152,Fashion,Accessories,611.36,0.23,470.75,294,In Stock,4.0,804,"Olson, Camacho and Morris",9.22,2021-09-01,False
+PROD00153,Cameras Item 153,Electronics,Cameras,77.17,0.27,56.33,226,In Stock,2.8,295,"Nelson, Wallace and Kelly",8.82,2020-07-20,False
+PROD00154,Appliances Item 154,Home & Kitchen,Appliances,468.18,0.49,238.77,656,In Stock,3.1,822,Edwards-Martin,2.18,2020-11-02,False
+PROD00155,Video Games Item 155,Toys & Games,Video Games,129.7,0.2,103.76,896,In Stock,2.4,448,"Nunez, Williamson and Cook",12.77,2021-12-02,False
+PROD00156,Fitness Equipment Item 156,Sports & Outdoors,Fitness Equipment,481.42,0.0,481.42,0,Out of Stock,3.6,345,Harris-Lopez,0.63,2021-12-12,True
+PROD00157,Men's Clothing Item 157,Fashion,Men's Clothing,778.46,0.12,685.04,360,In Stock,1.4,187,Russell-Reed,11.13,2020-12-06,False
+PROD00158,Footwear Item 158,Fashion,Footwear,61.74,0.0,61.74,938,In Stock,2.3,858,Brown-Miller,9.44,2020-03-23,False
+PROD00159,Haircare Item 159,Beauty & Personal Care,Haircare,164.45,0.0,164.45,160,In Stock,4.0,221,Miller and Sons,3.17,2019-12-01,False
+PROD00160,Men's Clothing Item 160,Fashion,Men's Clothing,192.99,0.08,177.55,927,In Stock,1.2,165,"Jones, Walker and Wolf",3.21,2021-10-30,False
+PROD00161,Fiction Item 161,Books & Media,Fiction,726.94,0.0,726.94,638,In Stock,4.8,449,"Sheppard, Snyder and Hartman",0.77,2020-05-24,False
+PROD00162,Men's Clothing Item 162,Fashion,Men's Clothing,737.41,0.0,737.41,638,In Stock,1.7,383,"Waters, Glover and White",8.51,2021-01-11,True
+PROD00163,Camping Item 163,Sports & Outdoors,Camping,911.3,0.37,574.12,938,In Stock,2.0,685,Mitchell-Dixon,4.43,2021-04-20,False
+PROD00164,Furniture Item 164,Home & Kitchen,Furniture,112.45,0.0,112.45,814,In Stock,1.7,550,Roberts-Rowe,9.88,2019-11-29,True
+PROD00165,Cameras Item 165,Electronics,Cameras,152.34,0.0,152.34,0,Out of Stock,3.8,850,Webster-Gibson,2.58,2020-12-12,False
+PROD00166,Toys Item 166,Toys & Games,Toys,891.67,0.0,891.67,441,In Stock,1.3,277,"Hunter, Joseph and Hall",4.31,2019-06-26,False
+PROD00167,Cameras Item 167,Electronics,Cameras,828.54,0.0,828.54,809,In Stock,4.7,468,Blackwell-Waller,2.95,2020-09-11,False
+PROD00168,Sports Apparel Item 168,Sports & Outdoors,Sports Apparel,913.41,0.0,913.41,499,In Stock,1.7,745,"Steele, Cox and Watson",1.73,2019-11-01,False
+PROD00169,Movies Item 169,Books & Media,Movies,671.0,0.0,671.0,928,In Stock,4.5,58,Lewis-Hanson,1.37,2021-06-04,True
+PROD00170,Appliances Item 170,Home & Kitchen,Appliances,690.17,0.0,690.17,543,In Stock,4.7,168,Hurley Ltd,9.36,2021-01-23,True
+PROD00171,Bedding Item 171,Home & Kitchen,Bedding,803.87,0.0,803.87,192,In Stock,3.2,624,Frederick LLC,5.08,2021-11-27,False
+PROD00172,Accessories Item 172,Electronics,Accessories,177.62,0.38,110.12,647,In Stock,2.9,253,Oconnell LLC,11.8,2020-09-08,True
+PROD00173,Tablets Item 173,Electronics,Tablets,673.64,0.22,525.44,777,In Stock,,484,Henry Ltd,1.55,2021-08-02,False
+PROD00174,Puzzles Item 174,Toys & Games,Puzzles,665.38,0.0,665.38,270,In Stock,3.3,45,Clarke-Fisher,5.38,2020-08-18,False
+PROD00175,Laptops Item 175,Electronics,Laptops,621.77,0.0,621.77,34,In Stock,1.8,423,Bentley Group,16.66,2021-05-03,False
+PROD00176,Toys Item 176,Toys & Games,Toys,980.56,0.35,637.36,828,In Stock,2.2,778,"Cummings, Bowman and Lamb",7.21,2021-10-05,True
+PROD00177,Fitness Equipment Item 177,Sports & Outdoors,Fitness Equipment,912.3,0.0,912.3,241,In Stock,1.7,413,"Haas, Stanton and Scott",1.52,2021-09-05,True
+PROD00178,Personal Hygiene Item 178,Beauty & Personal Care,Personal Hygiene,343.42,0.32,233.53,466,In Stock,4.9,79,Rivers Group,5.89,2021-08-12,False
+PROD00179,Jewelry Item 179,Fashion,Jewelry,150.61,0.0,150.61,73,In Stock,2.3,881,Perry-Garcia,18.58,2021-10-05,False
+PROD00180,Decor Item 180,Home & Kitchen,Decor,170.18,0.0,170.18,952,In Stock,3.1,837,"Williams, Kent and Williams",17.27,2021-05-05,False
+PROD00181,Cameras Item 181,Electronics,Cameras,589.45,0.5,294.73,527,In Stock,4.3,199,Fuentes and Sons,4.44,2019-08-15,False
+PROD00182,Bedding Item 182,Home & Kitchen,Bedding,190.68,0.0,190.68,392,In Stock,1.1,967,Wu Ltd,,2020-05-09,False
+PROD00183,Appliances Item 183,Home & Kitchen,Appliances,60.34,0.42,35.0,374,In Stock,,206,Clark LLC,13.21,2021-12-16,False
+PROD00184,Board Games Item 184,Toys & Games,Board Games,622.6,0.0,622.6,228,In Stock,1.3,145,Rodriguez-Davis,4.4,2020-09-05,False
+PROD00185,Toys Item 185,Toys & Games,Toys,503.83,0.0,503.83,647,In Stock,2.6,741,Carlson-Walker,12.48,2019-07-21,False
+PROD00186,Appliances Item 186,Home & Kitchen,Appliances,503.76,0.0,503.76,626,In Stock,3.9,252,Hernandez LLC,14.65,2019-07-23,False
+PROD00187,Women's Clothing Item 187,Fashion,Women's Clothing,754.48,0.26,558.32,528,In Stock,5.0,848,Garcia-Cherry,10.1,2020-03-27,False
+PROD00188,Skincare Item 188,Beauty & Personal Care,Skincare,668.15,0.41,394.21,32,In Stock,3.2,63,Ortiz and Sons,12.54,2021-05-10,False
+PROD00189,Accessories Item 189,Fashion,Accessories,155.13,0.19,125.66,191,In Stock,3.4,139,"Anderson, Manning and Francis",4.73,2021-08-17,False
+PROD00190,Movies Item 190,Books & Media,Movies,187.65,0.0,187.65,323,In Stock,2.0,327,Phillips LLC,,2021-09-25,False
+PROD00191,Collectibles Item 191,Toys & Games,Collectibles,195.72,0.0,195.72,930,In Stock,2.4,87,Kerr Inc,7.95,2019-09-20,False
+PROD00192,Board Games Item 192,Toys & Games,Board Games,427.86,0.0,427.86,983,In Stock,3.4,332,Brewer-Adams,4.57,2020-05-16,False
+PROD00193,Board Games Item 193,Toys & Games,Board Games,949.85,0.0,949.85,332,In Stock,3.6,415,Davenport Group,6.17,2019-04-25,False
+PROD00194,Fiction Item 194,Books & Media,Fiction,516.92,0.45,284.31,465,In Stock,3.9,121,Stephens-Alexander,1.84,2021-04-07,False
+PROD00195,Kitchenware Item 195,Home & Kitchen,Kitchenware,861.76,0.0,861.76,444,In Stock,3.7,520,"Porter, Johnson and Gallegos",18.12,2021-10-29,False
+PROD00196,Fragrance Item 196,Beauty & Personal Care,Fragrance,652.32,0.0,652.32,962,In Stock,1.3,980,Shelton Ltd,19.96,2020-11-05,False
+PROD00197,Skincare Item 197,Beauty & Personal Care,Skincare,743.23,0.22,579.72,586,In Stock,4.2,355,Juarez-Garcia,16.97,2021-05-06,False
+PROD00198,Accessories Item 198,Electronics,Accessories,276.24,0.0,276.24,159,In Stock,1.4,428,Henderson LLC,4.03,2020-08-10,False
+PROD00199,Video Games Item 199,Toys & Games,Video Games,711.12,0.13,618.67,0,Out of Stock,2.2,990,Gonzalez and Sons,16.22,2019-10-11,False
+200,Makeup Item 200,Beauty & Personal Care,Makeup,973.55,0.38,603.6,591,In Stock,,238,"Parks, Lee and Kelly",4.16,2020-09-24,False
+PROD00201,Accessories Item 201,Electronics,Accessories,184.89,0.0,184.89,747,In Stock,1.1,753,Perry-Becker,3.45,2021-09-20,True
+PROD00202,Appliances Item 202,Home & Kitchen,Appliances,738.69,0.0,738.69,326,In Stock,3.9,688,Lee Group,19.92,2021-10-26,False
+PROD00203,Audio Item 203,Electronics,Audio,676.97,0.0,676.97,0,Out of Stock,1.9,825,"Hart, Lopez and Johnson",7.03,2020-10-02,False
+PROD00204,E-books Item 204,Books & Media,E-books,872.92,0.0,872.92,960,In Stock,3.0,921,Wallace-Bradley,6.12,2020-08-23,False
+PROD00205,Water Sports Item 205,Sports & Outdoors,Water Sports,964.28,0.0,964.28,408,In Stock,1.5,969,Thompson Ltd,18.06,2021-04-16,False
+PROD00206,Fitness Equipment Item 206,Sports & Outdoors,Fitness Equipment,181.99,0.0,181.99,472,In Stock,3.2,586,"Garcia, Carter and Morgan",19.6,2019-11-19,False
+PROD00207,Music Item 207,Books & Media,Music,972.14,0.0,972.14,965,In Stock,3.4,109,Rasmussen-Crosby,6.51,2019-12-16,False
+PROD00208,Laptops Item 208,Electronics,Laptops,224.81,0.0,224.81,806,In Stock,2.9,297,"Harrison, Fowler and Martin",1.73,2021-09-21,False
+PROD00209,Tablets Item 209,Electronics,Tablets,279.98,0.36,179.19,685,In Stock,4.3,391,Smith-White,2.63,2020-01-15,False
+PROD00210,Cameras Item 210,Electronics,Cameras,609.42,0.0,609.42,246,In Stock,1.7,464,Rivera LLC,16.32,2020-05-02,False
+PROD00211,Accessories Item 211,Electronics,Accessories,690.59,0.0,690.59,609,In Stock,4.9,874,Archer PLC,,2021-10-02,False
+PROD00212,Jewelry Item 212,Fashion,Jewelry,203.42,0.0,203.42,661,In Stock,2.8,947,Smith PLC,9.1,2019-12-02,False
+PROD00213,Camping Item 213,Sports & Outdoors,Camping,693.35,0.0,693.35,910,In Stock,1.5,840,"Ferguson, Hicks and Spence",7.34,2021-04-24,False
+PROD00214,Haircare Item 214,Beauty & Personal Care,Haircare,332.94,0.23,256.36,115,In Stock,1.9,865,"Ramsey, Smith and Dominguez",18.62,2021-11-12,False
+PROD00215,Puzzles Item 215,Toys & Games,Puzzles,134.44,0.0,134.44,354,In Stock,4.3,647,Simpson-Carroll,,2021-03-06,True
+PROD00216,Footwear Item 216,Fashion,Footwear,934.41,0.0,934.41,402,In Stock,3.7,57,Hudson-Lawson,6.67,2021-02-06,False
+PROD00217,Collectibles Item 217,Toys & Games,Collectibles,194.18,0.14,166.99,438,In Stock,1.9,842,Contreras Inc,4.13,2020-12-30,False
+PROD00218,E-books Item 218,Books & Media,E-books,621.42,0.32,422.57,478,In Stock,3.0,524,"Bolton, Martinez and Kline",14.1,2020-02-28,False
+PROD00219,Footwear Item 219,Fashion,Footwear,715.5,0.0,715.5,500,In Stock,1.8,414,"Roberts, Cordova and Pruitt",10.0,2021-10-15,False
+PROD00220,Cameras Item 220,Electronics,Cameras,377.21,0.34,248.96,341,In Stock,1.8,275,Nelson-Wilson,16.16,2020-10-23,False
+PROD00221,Water Sports Item 221,Sports & Outdoors,Water Sports,343.52,0.0,343.52,270,In Stock,1.9,821,Richmond Inc,,2020-05-24,False
+PROD00222,Non-fiction Item 222,Books & Media,Non-fiction,525.3,0.0,525.3,125,In Stock,1.8,852,"Dominguez, Smith and Thomas",6.05,2021-05-22,True
+PROD00223,Fitness Equipment Item 223,Sports & Outdoors,Fitness Equipment,270.68,0.0,270.68,318,In Stock,4.9,33,Cox Inc,9.31,2020-11-29,False
+PROD00224,Jewelry Item 224,Fashion,Jewelry,954.43,0.0,954.43,317,In Stock,,796,Charles-Murphy,14.92,2020-01-24,False
+PROD00225,Movies Item 225,Books & Media,Movies,991.9,0.0,991.9,258,In Stock,2.7,956,Escobar-Roach,16.31,2021-11-11,False
+PROD00226,Puzzles Item 226,Toys & Games,Puzzles,574.64,0.0,574.64,684,In Stock,3.3,404,Clark-Harris,7.14,2019-09-18,False
+PROD00227,Audio Item 227,Electronics,Audio,852.32,0.13,741.52,234,In Stock,4.2,105,Suarez Inc,0.93,2021-09-02,False
+PROD00228,Cameras Item 228,Electronics,Cameras,59.37,0.12,52.25,0,Out of Stock,2.3,775,Wagner PLC,12.4,2021-12-28,False
+PROD00229,E-books Item 229,Books & Media,E-books,54.31,0.0,54.31,0,Out of Stock,4.6,848,"Morales, Estes and Mason",3.61,2020-05-26,True
+PROD00230,Kitchenware Item 230,Home & Kitchen,Kitchenware,328.78,0.28,236.72,29,In Stock,4.8,506,"Wood, Ryan and Reese",14.07,2021-03-08,False
+PROD00231,Sports Apparel Item 231,Sports & Outdoors,Sports Apparel,290.72,0.0,290.72,216,In Stock,2.0,920,Jones Group,11.21,2019-07-03,False
+PROD00232,Movies Item 232,Books & Media,Movies,349.22,0.0,349.22,0,Out of Stock,3.2,810,Mcintyre Inc,,2021-08-13,False
+PROD00233,Men's Clothing Item 233,Fashion,Men's Clothing,126.33,0.0,126.33,790,In Stock,3.6,757,"Lambert, Sullivan and Boyer",11.67,2021-06-09,False
+PROD00234,Music Item 234,Books & Media,Music,250.66,0.0,250.66,122,In Stock,3.7,757,Torres PLC,19.62,2021-06-07,False
+PROD00235,Non-fiction Item 235,Books & Media,Non-fiction,935.94,0.0,935.94,0,Out of Stock,4.3,938,Kirby-Clark,10.99,2019-09-17,False
+PROD00236,Accessories Item 236,Electronics,Accessories,852.14,0.41,502.76,906,In Stock,1.8,168,"Donovan, Gross and Cohen",1.43,2019-05-27,False
+PROD00237,Music Item 237,Books & Media,Music,122.36,0.41,72.19,0,Out of Stock,4.7,157,Curry-Miller,4.79,2020-06-26,False
+PROD00238,Personal Hygiene Item 238,Beauty & Personal Care,Personal Hygiene,683.13,0.0,683.13,144,In Stock,3.7,364,Gomez-Simpson,17.67,2021-05-01,False
+PROD00239,Haircare Item 239,Beauty & Personal Care,Haircare,277.73,0.08,255.51,194,In Stock,4.6,462,"Williams, Harris and Brown",10.52,2021-04-22,False
+PROD00240,Camping Item 240,Sports & Outdoors,Camping,170.92,0.0,170.92,238,In Stock,2.0,637,"Barton, Murray and Berry",4.59,2020-09-02,False
+PROD00241,Fitness Equipment Item 241,Sports & Outdoors,Fitness Equipment,268.73,0.07,249.92,671,In Stock,3.7,785,Grant Ltd,10.47,2020-12-12,False
+PROD00242,Sports Apparel Item 242,Sports & Outdoors,Sports Apparel,243.2,0.0,243.2,899,In Stock,1.1,870,"Fritz, Hines and Kelley",4.61,2021-05-28,False
+PROD00243,Accessories Item 243,Fashion,Accessories,390.16,0.0,390.16,971,In Stock,3.2,53,"Hayes, Lopez and Rivera",13.88,2020-05-21,False
+PROD00244,Water Sports Item 244,Sports & Outdoors,Water Sports,579.08,0.48,301.12,354,In Stock,4.0,27,"Evans, Scott and Martin",,2020-02-05,False
+PROD00245,E-books Item 245,Books & Media,E-books,681.77,0.0,681.77,870,In Stock,3.4,4,Green LLC,1.23,2021-09-16,False
+PROD00246,Collectibles Item 246,Toys & Games,Collectibles,856.92,0.0,856.92,695,In Stock,1.4,667,Jackson-Garcia,6.63,2020-04-15,True
+PROD00247,Kitchenware Item 247,Home & Kitchen,Kitchenware,750.73,0.0,750.73,543,In Stock,1.3,984,Mann-Sanford,3.6,2020-01-25,False
+PROD00248,Fiction Item 248,Books & Media,Fiction,237.26,0.0,237.26,70,In Stock,1.6,770,"Hamilton, Coleman and Day",9.13,2020-05-02,False
+PROD00249,Puzzles Item 249,Toys & Games,Puzzles,333.46,0.0,333.46,160,In Stock,2.9,659,Sherman PLC,,2019-11-13,False
+250,Toys Item 250,Toys & Games,Toys,215.77,0.13,187.72,479,In Stock,2.7,545,Arnold Ltd,3.57,2019-06-19,False
+PROD00251,Decor Item 251,Home & Kitchen,Decor,168.78,0.0,168.78,374,In Stock,3.9,575,Williams-Andrews,12.49,2020-12-21,False
+PROD00252,Decor Item 252,Home & Kitchen,Decor,168.02,0.0,168.02,958,In Stock,4.4,33,"Daniel, Clayton and Richards",14.71,2021-02-24,False
+PROD00253,Tablets Item 253,Electronics,Tablets,503.47,0.0,503.47,438,In Stock,4.0,779,Martinez-Maynard,14.23,2019-09-12,False
+PROD00254,Haircare Item 254,Beauty & Personal Care,Haircare,771.95,0.0,771.95,320,In Stock,2.7,597,"Garcia, Smith and Cobb",13.31,2020-02-08,False
+PROD00255,Fiction Item 255,Books & Media,Fiction,328.34,0.0,328.34,964,In Stock,2.6,613,"Bailey, Ortega and Padilla",11.66,2019-06-01,False
+PROD00256,Furniture Item 256,Home & Kitchen,Furniture,108.44,0.0,108.44,0,Out of Stock,4.5,863,"Adams, Soto and Espinoza",10.11,2021-12-30,False
+PROD00257,Accessories Item 257,Fashion,Accessories,269.72,0.0,269.72,366,In Stock,,746,"Watts, Stout and Bowers",15.72,2021-03-01,False
+PROD00258,Skincare Item 258,Beauty & Personal Care,Skincare,695.7,0.0,695.7,722,In Stock,4.3,516,Jones-White,14.35,2021-09-19,False
+PROD00259,Puzzles Item 259,Toys & Games,Puzzles,336.94,0.0,336.94,167,In Stock,,629,Turner-Taylor,6.76,2021-09-11,False
+PROD00260,Toys Item 260,Toys & Games,Toys,565.47,0.42,327.97,272,In Stock,2.5,899,"Adams, Robinson and Andrews",17.97,2020-12-10,False
+PROD00261,Fiction Item 261,Books & Media,Fiction,887.99,0.26,657.11,483,In Stock,2.3,99,Mitchell and Sons,11.99,2021-01-30,False
+PROD00262,Collectibles Item 262,Toys & Games,Collectibles,602.31,0.0,602.31,229,In Stock,5.0,232,"Hebert, Sanders and Boone",17.29,2021-03-07,False
+PROD00263,Music Item 263,Books & Media,Music,685.68,0.0,685.68,0,Out of Stock,1.9,356,King PLC,12.94,2020-04-27,False
+PROD00264,Women's Clothing Item 264,Fashion,Women's Clothing,554.62,0.0,554.62,82,In Stock,1.0,709,Chavez Ltd,,2020-06-19,True
+PROD00265,E-books Item 265,Books & Media,E-books,756.52,0.0,756.52,126,In Stock,4.6,433,"Hill, Richardson and Young",8.53,2021-12-06,False
+PROD00266,Fitness Equipment Item 266,Sports & Outdoors,Fitness Equipment,930.03,0.35,604.52,770,In Stock,4.0,650,"Lyons, Carson and Trujillo",12.41,2020-09-25,False
+PROD00267,Furniture Item 267,Home & Kitchen,Furniture,37.72,0.0,37.72,376,In Stock,1.8,932,Rice-Rogers,5.89,2020-04-27,False
+PROD00268,Men's Clothing Item 268,Fashion,Men's Clothing,26.31,0.06,24.73,302,In Stock,4.5,191,"Lopez, Leon and Valentine",18.53,2020-11-11,False
+PROD00269,Fitness Equipment Item 269,Sports & Outdoors,Fitness Equipment,834.83,0.0,834.83,337,In Stock,,382,Gordon-Thompson,6.76,2019-07-08,False
+PROD00270,Audio Item 270,Electronics,Audio,213.01,0.0,213.01,478,In Stock,4.9,875,"Garcia, Holland and Garcia",15.7,2020-12-09,False
+PROD00271,Accessories Item 271,Electronics,Accessories,407.9,0.0,407.9,283,In Stock,4.0,835,Parker Group,16.36,2021-04-08,False
+PROD00272,Outdoor Gear Item 272,Sports & Outdoors,Outdoor Gear,386.08,0.0,386.08,804,In Stock,4.3,551,Martinez-Green,9.74,2019-12-09,True
+PROD00273,Personal Hygiene Item 273,Beauty & Personal Care,Personal Hygiene,623.19,0.11,554.64,673,In Stock,2.5,576,Maxwell PLC,17.83,2020-04-29,True
+PROD00274,Audio Item 274,Electronics,Audio,648.55,0.0,648.55,12,In Stock,1.9,833,Jacobs Group,,2021-08-14,True
+PROD00275,Sports Apparel Item 275,Sports & Outdoors,Sports Apparel,371.79,0.0,371.79,598,In Stock,4.8,480,Martin PLC,5.29,2021-04-09,False
+PROD00276,Sports Apparel Item 276,Sports & Outdoors,Sports Apparel,928.02,0.0,928.02,489,In Stock,4.5,711,Matthews-Smith,11.89,2021-10-06,False
+PROD00277,Camping Item 277,Sports & Outdoors,Camping,891.69,0.0,891.69,116,In Stock,1.4,802,Craig-Howard,17.12,2020-02-04,True
+PROD00278,Non-fiction Item 278,Books & Media,Non-fiction,241.31,0.0,241.31,685,In Stock,1.8,96,Guerra Ltd,3.41,2021-10-10,False
+PROD00279,Skincare Item 279,Beauty & Personal Care,Skincare,672.47,0.0,672.47,149,In Stock,2.9,616,Dean-Jones,4.99,2020-07-28,False
+PROD00280,Collectibles Item 280,Toys & Games,Collectibles,649.42,0.0,649.42,197,In Stock,1.7,754,Banks-Young,,2020-07-31,False
+PROD00281,Men's Clothing Item 281,Fashion,Men's Clothing,312.18,0.0,312.18,734,In Stock,2.3,618,Brown-Lambert,15.55,2019-10-28,False
+PROD00282,Haircare Item 282,Beauty & Personal Care,Haircare,590.27,0.0,590.27,36,In Stock,4.9,684,Woodard-Allen,19.83,2020-05-06,True
+PROD00283,Non-fiction Item 283,Books & Media,Non-fiction,516.1,0.17,428.36,0,Out of Stock,,127,"Wells, Schmidt and Williams",15.65,2019-09-05,False
+PROD00284,Men's Clothing Item 284,Fashion,Men's Clothing,246.17,0.0,246.17,264,In Stock,,911,"Young, Hines and Mccall",16.81,2019-12-07,False
+PROD00285,Outdoor Gear Item 285,Sports & Outdoors,Outdoor Gear,338.77,0.0,338.77,0,Out of Stock,2.0,355,"Murray, Mack and Gonzalez",4.73,2020-08-07,False
+PROD00286,Men's Clothing Item 286,Fashion,Men's Clothing,90.88,0.0,90.88,628,In Stock,3.8,631,Vasquez Inc,7.42,2021-03-13,False
+PROD00287,Smartphones Item 287,Electronics,Smartphones,391.52,0.0,391.52,428,In Stock,3.1,967,"Wilson, Hall and Perez",2.74,2021-12-22,False
+PROD00288,Puzzles Item 288,Toys & Games,Puzzles,438.38,0.0,438.38,684,In Stock,2.6,848,Gonzalez and Sons,2.41,2020-01-20,False
+PROD00289,E-books Item 289,Books & Media,E-books,53.39,0.0,53.39,278,In Stock,3.4,554,Tapia-Johnston,19.58,2019-07-13,False
+PROD00290,Furniture Item 290,Home & Kitchen,Furniture,594.0,0.0,594.0,0,Out of Stock,2.1,963,Nelson-Gallagher,11.91,2021-01-02,False
+PROD00291,Music Item 291,Books & Media,Music,285.23,0.0,285.23,302,In Stock,1.6,920,Lee and Sons,5.85,2021-04-20,False
+PROD00292,Appliances Item 292,Home & Kitchen,Appliances,682.1,0.0,682.1,237,In Stock,3.3,963,Leblanc LLC,7.75,2021-09-20,False
+PROD00293,Kitchenware Item 293,Home & Kitchen,Kitchenware,312.11,0.0,312.11,317,In Stock,4.2,756,Larson PLC,6.41,2020-01-12,False
+PROD00294,Collectibles Item 294,Toys & Games,Collectibles,538.8,0.0,538.8,326,In Stock,4.5,625,Bishop PLC,0.6,2021-05-03,False
+PROD00295,Personal Hygiene Item 295,Beauty & Personal Care,Personal Hygiene,300.81,0.47,159.43,0,Out of Stock,3.8,632,"Turner, Thomas and Douglas",6.87,2020-07-11,False
+PROD00296,Accessories Item 296,Fashion,Accessories,490.04,0.0,490.04,796,In Stock,4.0,370,Miller LLC,3.12,2021-04-13,False
+PROD00297,Furniture Item 297,Home & Kitchen,Furniture,719.41,0.0,719.41,282,In Stock,1.7,486,Smith PLC,4.67,2019-07-31,False
+PROD00298,Men's Clothing Item 298,Fashion,Men's Clothing,450.1,0.0,450.1,354,In Stock,2.9,965,Shea Ltd,17.13,2021-05-05,False
+PROD00299,Water Sports Item 299,Sports & Outdoors,Water Sports,561.48,0.0,561.48,961,In Stock,1.9,381,"Acevedo, Holt and Wilson",19.85,2020-07-07,False
+300,Outdoor Gear Item 300,Sports & Outdoors,Outdoor Gear,967.99,0.0,967.99,952,In Stock,4.1,183,Kelly Group,18.89,2021-07-23,False
+PROD00301,Water Sports Item 301,Sports & Outdoors,Water Sports,288.34,0.0,288.34,901,In Stock,1.2,535,"Cooper, Trevino and Mckinney",10.2,2020-01-10,False
+PROD00302,Fitness Equipment Item 302,Sports & Outdoors,Fitness Equipment,532.49,0.0,532.49,617,In Stock,1.7,122,Crawford-Clark,17.79,2020-06-07,False
+PROD00303,Men's Clothing Item 303,Fashion,Men's Clothing,417.62,0.35,271.45,672,In Stock,2.3,192,Barnes-Meadows,3.99,2021-03-17,False
+PROD00304,Skincare Item 304,Beauty & Personal Care,Skincare,770.97,0.0,770.97,277,In Stock,4.7,578,Murphy Ltd,4.39,2021-03-09,False
+PROD00305,Toys Item 305,Toys & Games,Toys,829.68,0.0,829.68,33,In Stock,3.5,82,Nguyen-White,19.32,2020-09-18,False
+PROD00306,Makeup Item 306,Beauty & Personal Care,Makeup,229.33,0.15,194.93,672,In Stock,3.0,983,"Taylor, Taylor and Nguyen",5.16,2020-08-05,False
+PROD00307,Fitness Equipment Item 307,Sports & Outdoors,Fitness Equipment,923.56,0.11,821.97,172,In Stock,3.5,552,Rivas PLC,8.69,2020-04-27,False
+PROD00308,Laptops Item 308,Electronics,Laptops,310.26,0.5,155.13,675,In Stock,4.1,287,"Morris, Lopez and Moran",12.51,2021-07-05,False
+PROD00309,Fragrance Item 309,Beauty & Personal Care,Fragrance,574.83,0.0,574.83,0,Out of Stock,4.6,215,Farmer-Carroll,,2019-05-21,False
+PROD00310,Fragrance Item 310,Beauty & Personal Care,Fragrance,511.66,0.0,511.66,367,In Stock,1.2,109,"Scott, Allison and Kelly",1.06,2020-12-16,False
+PROD00311,Laptops Item 311,Electronics,Laptops,472.1,0.0,472.1,887,In Stock,1.4,140,Bryant-Pierce,9.48,2021-09-29,True
+PROD00312,Smartphones Item 312,Electronics,Smartphones,223.45,0.0,223.45,358,In Stock,2.2,599,"Walker, Thompson and Caldwell",19.72,2020-03-14,False
+PROD00313,Decor Item 313,Home & Kitchen,Decor,971.82,0.0,971.82,0,Out of Stock,2.1,931,Smith-Vega,1.58,2020-11-30,False
+PROD00314,Laptops Item 314,Electronics,Laptops,116.08,0.0,116.08,0,Out of Stock,2.6,873,Smith-Hamilton,2.77,2019-09-09,False
+PROD00315,Jewelry Item 315,Fashion,Jewelry,667.13,0.0,667.13,211,In Stock,3.9,53,Thomas Ltd,3.14,2020-10-07,True
+PROD00316,Cameras Item 316,Electronics,Cameras,784.51,0.0,784.51,956,In Stock,2.4,884,"Davidson, Morris and Williams",11.56,2021-02-02,False
+PROD00317,Puzzles Item 317,Toys & Games,Puzzles,343.3,0.0,343.3,286,In Stock,1.9,78,Green-Stevens,1.94,2020-12-18,False
+PROD00318,Fitness Equipment Item 318,Sports & Outdoors,Fitness Equipment,214.24,0.0,214.24,766,In Stock,4.6,162,Smith Group,4.16,2021-07-22,False
+PROD00319,Decor Item 319,Home & Kitchen,Decor,429.9,0.0,429.9,129,In Stock,4.6,493,Smith-Ross,9.91,2020-03-13,False
+PROD00320,Tablets Item 320,Electronics,Tablets,806.7,0.0,806.7,171,In Stock,2.2,774,Jimenez Inc,0.96,2020-04-30,False
+PROD00321,Appliances Item 321,Home & Kitchen,Appliances,372.56,0.0,372.56,385,In Stock,2.9,632,Curtis PLC,19.2,2019-05-28,False
+PROD00322,Non-fiction Item 322,Books & Media,Non-fiction,297.15,0.0,297.15,498,In Stock,1.9,111,King Inc,2.54,2020-12-08,False
+PROD00323,Jewelry Item 323,Fashion,Jewelry,606.95,0.09,552.32,655,In Stock,3.7,286,"Reed, James and Jacobs",5.18,2021-09-28,False
+PROD00324,E-books Item 324,Books & Media,E-books,221.54,0.0,221.54,808,In Stock,3.1,857,Harris-Mcfarland,10.67,2020-07-26,False
+PROD00325,Sports Apparel Item 325,Sports & Outdoors,Sports Apparel,893.49,0.0,893.49,973,In Stock,2.0,269,Jackson-Cantu,9.02,2019-11-10,False
+PROD00326,Water Sports Item 326,Sports & Outdoors,Water Sports,774.23,0.0,774.23,358,In Stock,4.7,647,"Jones, Pruitt and Sullivan",19.67,2019-12-15,False
+PROD00327,Appliances Item 327,Home & Kitchen,Appliances,390.75,0.26,289.15,262,In Stock,3.0,688,Sutton-Pugh,1.33,2020-01-23,False
+PROD00328,Personal Hygiene Item 328,Beauty & Personal Care,Personal Hygiene,863.23,0.0,863.23,493,In Stock,4.1,238,Hughes Group,,2020-07-27,False
+PROD00329,Fitness Equipment Item 329,Sports & Outdoors,Fitness Equipment,547.9,0.0,547.9,691,In Stock,4.5,267,"Wong, Saunders and Carr",2.24,2019-04-30,False
+PROD00330,Women's Clothing Item 330,Fashion,Women's Clothing,805.43,0.0,805.43,0,Out of Stock,3.3,607,Mendoza-Torres,6.79,2021-05-25,False
+PROD00331,Smartphones Item 331,Electronics,Smartphones,878.24,0.0,878.24,638,In Stock,2.5,627,Soto-Mcintosh,3.89,2021-10-18,False
+PROD00332,Camping Item 332,Sports & Outdoors,Camping,357.36,0.14,307.33,577,In Stock,2.5,226,Carlson-Ortiz,0.5,2021-03-12,False
+PROD00333,Haircare Item 333,Beauty & Personal Care,Haircare,792.49,0.48,412.09,578,In Stock,3.6,72,Smith Inc,4.31,2020-08-15,False
+PROD00334,Cameras Item 334,Electronics,Cameras,572.61,0.0,572.61,748,In Stock,3.9,913,"Hall, Walker and Freeman",0.89,2019-04-24,True
+PROD00335,Laptops Item 335,Electronics,Laptops,885.8,0.0,885.8,497,In Stock,,470,"Doyle, Raymond and Pierce",5.36,2019-09-01,False
+PROD00336,Audio Item 336,Electronics,Audio,470.61,0.0,470.61,222,In Stock,1.4,426,Cain Group,15.91,2020-09-30,False
+PROD00337,Accessories Item 337,Fashion,Accessories,316.43,0.0,316.43,0,Out of Stock,,409,Jackson Group,18.25,2019-09-20,False
+PROD00338,Furniture Item 338,Home & Kitchen,Furniture,11.6,0.0,11.6,0,Out of Stock,1.5,644,"Callahan, Martinez and Knight",15.67,2020-12-07,False
+PROD00339,Audio Item 339,Electronics,Audio,18.6,0.29,13.21,250,In Stock,1.2,511,Phillips PLC,,2021-12-11,False
+PROD00340,Women's Clothing Item 340,Fashion,Women's Clothing,141.08,0.37,88.88,224,In Stock,4.8,42,Dean-Vincent,16.91,2021-11-26,False
+PROD00341,Board Games Item 341,Toys & Games,Board Games,763.76,0.0,763.76,752,In Stock,1.8,275,Wilson-Navarro,2.33,2019-10-23,False
+PROD00342,Fragrance Item 342,Beauty & Personal Care,Fragrance,619.84,0.0,619.84,41,In Stock,1.4,628,Henderson-Martinez,1.72,2019-10-02,False
+PROD00343,Makeup Item 343,Beauty & Personal Care,Makeup,837.59,0.0,837.59,372,In Stock,2.5,791,Stevenson-Hogan,19.4,2020-05-07,False
+PROD00344,Camping Item 344,Sports & Outdoors,Camping,130.33,0.0,130.33,920,In Stock,1.1,801,"Campbell, Fry and Villegas",6.6,2019-08-11,False
+PROD00345,Collectibles Item 345,Toys & Games,Collectibles,396.57,0.0,396.57,724,In Stock,4.0,922,Sanders Group,16.91,2020-02-22,False
+PROD00346,Footwear Item 346,Fashion,Footwear,835.49,0.29,593.2,478,In Stock,3.5,994,"Gilmore, Pittman and Arellano",19.66,2021-07-11,False
+PROD00347,Appliances Item 347,Home & Kitchen,Appliances,424.74,0.22,331.3,676,In Stock,2.3,515,Knight-Page,18.87,2019-08-21,False
+PROD00348,Women's Clothing Item 348,Fashion,Women's Clothing,12.36,0.09,11.25,822,In Stock,1.1,108,Parker Inc,8.36,2020-10-23,False
+PROD00349,Puzzles Item 349,Toys & Games,Puzzles,287.27,0.0,287.27,523,In Stock,3.2,510,Cunningham Group,12.34,2021-11-18,False
+350,Bedding Item 350,Home & Kitchen,Bedding,438.07,0.31,302.27,401,In Stock,4.0,447,Jones-Walls,7.63,2020-03-25,False
+PROD00351,Collectibles Item 351,Toys & Games,Collectibles,850.51,0.0,850.51,625,In Stock,4.6,652,"Jackson, Beard and Moore",,2019-10-13,False
+PROD00352,Cameras Item 352,Electronics,Cameras,304.83,0.0,304.83,264,In Stock,4.9,653,Ashley-Hayes,5.37,2021-02-24,False
+PROD00353,Decor Item 353,Home & Kitchen,Decor,467.2,0.0,467.2,835,In Stock,2.8,352,"Williams, Payne and Rogers",3.43,2020-08-05,False
+PROD00354,Women's Clothing Item 354,Fashion,Women's Clothing,525.91,0.0,525.91,150,In Stock,4.1,825,Henderson Inc,7.61,2019-04-24,False
+PROD00355,Collectibles Item 355,Toys & Games,Collectibles,635.26,0.44,355.75,789,In Stock,4.9,705,Brown Ltd,12.6,2020-03-09,True
+PROD00356,Fiction Item 356,Books & Media,Fiction,722.88,0.1,650.59,394,In Stock,4.0,913,Mitchell Ltd,5.95,2019-06-26,False
+PROD00357,Water Sports Item 357,Sports & Outdoors,Water Sports,180.48,0.0,180.48,255,In Stock,4.8,740,Doyle-Meyers,7.05,2020-10-31,False
+PROD00358,Women's Clothing Item 358,Fashion,Women's Clothing,776.45,0.0,776.45,784,In Stock,2.5,495,"Jones, White and Taylor",6.13,2019-06-23,False
+PROD00359,Fiction Item 359,Books & Media,Fiction,973.46,0.0,973.46,630,In Stock,1.5,238,Johnson Ltd,9.39,2020-11-21,True
+PROD00360,Fitness Equipment Item 360,Sports & Outdoors,Fitness Equipment,901.19,0.0,901.19,9,In Stock,2.2,91,Mckee PLC,1.67,2019-11-27,False
+PROD00361,Accessories Item 361,Electronics,Accessories,386.64,0.08,355.71,280,In Stock,1.3,366,"Ochoa, Cox and Berry",17.52,2019-06-05,False
+PROD00362,Audio Item 362,Electronics,Audio,778.02,0.0,778.02,460,In Stock,2.5,377,Park-Hoover,16.42,2020-04-21,False
+PROD00363,Toys Item 363,Toys & Games,Toys,129.56,0.0,129.56,0,Out of Stock,3.4,849,"Mcdaniel, Watkins and Moore",,2021-12-01,False
+PROD00364,Video Games Item 364,Toys & Games,Video Games,301.95,0.11,268.74,142,In Stock,3.7,343,Marshall and Sons,5.85,2020-10-01,False
+PROD00365,Non-fiction Item 365,Books & Media,Non-fiction,558.07,0.0,558.07,392,In Stock,4.7,892,Williams and Sons,8.96,2019-12-09,False
+PROD00366,Fiction Item 366,Books & Media,Fiction,96.84,0.39,59.07,235,In Stock,3.0,873,Watson PLC,9.57,2021-10-13,False
+PROD00367,Appliances Item 367,Home & Kitchen,Appliances,437.56,0.0,437.56,227,In Stock,,385,Walker PLC,16.04,2019-12-15,False
+PROD00368,Tablets Item 368,Electronics,Tablets,941.09,0.0,941.09,927,In Stock,4.5,64,"Williamson, Howard and Garcia",6.08,2019-12-22,False
+PROD00369,Water Sports Item 369,Sports & Outdoors,Water Sports,834.78,0.0,834.78,365,In Stock,3.6,265,Bernard Ltd,15.83,2021-03-08,False
+PROD00370,Appliances Item 370,Home & Kitchen,Appliances,798.5,0.0,798.5,844,In Stock,2.2,836,"Aguilar, Hines and Harrison",18.26,2020-06-11,False
+PROD00371,Outdoor Gear Item 371,Sports & Outdoors,Outdoor Gear,195.26,0.0,195.26,709,In Stock,3.9,960,Weaver Ltd,2.53,2021-12-23,False
+PROD00372,Music Item 372,Books & Media,Music,614.98,0.39,375.14,457,In Stock,4.2,380,Guzman-Gonzales,14.8,2020-03-08,True
+PROD00373,Decor Item 373,Home & Kitchen,Decor,706.43,0.0,706.43,132,In Stock,2.7,180,Price-Kim,4.38,2020-05-31,False
+PROD00374,Men's Clothing Item 374,Fashion,Men's Clothing,42.2,0.0,42.2,671,In Stock,2.4,200,"Underwood, Sanchez and Smith",17.23,2021-06-28,False
+PROD00375,Decor Item 375,Home & Kitchen,Decor,696.26,0.0,696.26,685,In Stock,1.4,836,"Klein, White and Watkins",6.3,2020-07-07,False
+PROD00376,Skincare Item 376,Beauty & Personal Care,Skincare,131.78,0.0,131.78,120,In Stock,2.4,502,Pacheco-Chang,4.2,2020-06-10,False
+PROD00377,Footwear Item 377,Fashion,Footwear,833.98,0.0,833.98,89,In Stock,3.3,318,Murphy-Torres,9.96,2020-06-20,False
+PROD00378,Skincare Item 378,Beauty & Personal Care,Skincare,238.67,0.0,238.67,221,In Stock,3.8,525,"Green, Hicks and Morgan",1.77,2021-11-05,False
+PROD00379,Video Games Item 379,Toys & Games,Video Games,543.13,0.0,543.13,339,In Stock,3.9,495,Gonzalez-Villanueva,8.55,2021-03-20,False
+PROD00380,Toys Item 380,Toys & Games,Toys,857.08,0.0,857.08,1,In Stock,3.5,955,Wilkins Group,13.25,2020-02-24,False
+PROD00381,Personal Hygiene Item 381,Beauty & Personal Care,Personal Hygiene,300.33,0.0,300.33,339,In Stock,1.9,673,"Brown, Lowe and Beltran",2.82,2020-01-23,False
+PROD00382,Video Games Item 382,Toys & Games,Video Games,45.77,0.0,45.77,107,In Stock,3.6,750,"Fields, Pacheco and Mendez",19.32,2019-12-08,False
+PROD00383,Bedding Item 383,Home & Kitchen,Bedding,862.6,0.24,655.58,243,In Stock,4.1,85,Matthews Ltd,,2020-12-07,False
+PROD00384,Music Item 384,Books & Media,Music,324.53,0.0,324.53,767,In Stock,1.4,42,Thomas-Thompson,13.89,2019-10-21,True
+PROD00385,Accessories Item 385,Fashion,Accessories,257.32,0.22,200.71,334,In Stock,1.6,674,"Palmer, Brown and Smith",,2019-09-16,False
+PROD00386,Laptops Item 386,Electronics,Laptops,698.3,0.25,523.72,819,In Stock,4.8,80,Holmes and Sons,5.89,2021-03-11,False
+PROD00387,Kitchenware Item 387,Home & Kitchen,Kitchenware,924.51,0.05,878.28,802,In Stock,3.7,918,"Robinson, Wilson and Roberts",14.79,2020-09-08,False
+PROD00388,Accessories Item 388,Electronics,Accessories,889.76,0.0,889.76,767,In Stock,2.4,102,Riley PLC,2.03,2021-04-26,False
+PROD00389,Footwear Item 389,Fashion,Footwear,229.47,0.0,229.47,723,In Stock,1.2,467,Fischer Inc,9.32,2020-08-02,False
+PROD00390,Skincare Item 390,Beauty & Personal Care,Skincare,458.68,0.42,266.03,24,In Stock,5.0,437,"Choi, Kim and Ortiz",18.73,2020-05-22,False
+PROD00391,Furniture Item 391,Home & Kitchen,Furniture,520.45,0.0,520.45,84,In Stock,2.7,631,Smith LLC,6.99,2019-08-18,False
+PROD00392,Accessories Item 392,Fashion,Accessories,765.61,0.17,635.46,727,In Stock,1.7,278,Lutz LLC,,2019-11-23,False
+PROD00393,Jewelry Item 393,Fashion,Jewelry,441.59,0.43,251.71,807,In Stock,1.2,5,"Chung, Brown and Campbell",11.09,2020-01-30,False
+PROD00394,Camping Item 394,Sports & Outdoors,Camping,114.62,0.0,114.62,565,In Stock,1.9,693,Bradford and Sons,12.85,2020-08-31,True
+PROD00395,Audio Item 395,Electronics,Audio,596.49,0.0,596.49,877,In Stock,3.4,489,Davis-Pittman,2.66,2020-11-04,False
+PROD00396,Audio Item 396,Electronics,Audio,955.55,0.0,955.55,432,In Stock,1.4,32,Hudson Ltd,8.68,2020-10-08,False
+PROD00397,Appliances Item 397,Home & Kitchen,Appliances,134.88,0.32,91.72,0,Out of Stock,3.1,230,Thomas PLC,2.24,2019-10-09,False
+PROD00398,Fragrance Item 398,Beauty & Personal Care,Fragrance,343.63,0.0,343.63,501,In Stock,1.8,866,Bray-Santos,16.1,2019-06-24,False
+PROD00399,Men's Clothing Item 399,Fashion,Men's Clothing,246.9,0.49,125.92,693,In Stock,4.2,802,Hogan Group,6.92,2021-04-24,False
+400,Haircare Item 400,Beauty & Personal Care,Haircare,71.98,0.0,71.98,329,In Stock,4.5,641,Craig PLC,2.29,2021-05-27,False
+PROD00401,Makeup Item 401,Beauty & Personal Care,Makeup,474.11,0.0,474.11,710,In Stock,1.7,95,Werner Group,19.74,2021-06-16,False
+PROD00402,Footwear Item 402,Fashion,Footwear,33.26,0.23,25.61,319,In Stock,2.7,649,Nelson Inc,8.88,2020-10-02,False
+PROD00403,E-books Item 403,Books & Media,E-books,433.62,0.0,433.62,552,In Stock,3.1,910,"Figueroa, Wang and Holden",9.82,2020-04-12,False
+PROD00404,Non-fiction Item 404,Books & Media,Non-fiction,114.67,0.2,91.74,557,In Stock,4.8,286,Blackburn Ltd,18.01,2021-01-07,True
+PROD00405,Board Games Item 405,Toys & Games,Board Games,347.04,0.39,211.69,56,In Stock,3.7,330,"Patterson, Anderson and Hunter",12.43,2019-06-05,False
+PROD00406,Non-fiction Item 406,Books & Media,Non-fiction,550.06,0.0,550.06,906,In Stock,1.9,88,Burns Ltd,14.91,2020-03-16,False
+PROD00407,Toys Item 407,Toys & Games,Toys,270.99,0.0,270.99,0,Out of Stock,2.8,918,Webb-Ortega,14.63,2019-04-07,False
+PROD00408,Fragrance Item 408,Beauty & Personal Care,Fragrance,840.49,0.0,840.49,973,In Stock,1.2,431,Johnson Group,12.67,2019-07-29,False
+PROD00409,Outdoor Gear Item 409,Sports & Outdoors,Outdoor Gear,221.86,0.0,221.86,499,In Stock,2.2,97,Ho-Thompson,,2019-12-10,False
+PROD00410,Music Item 410,Books & Media,Music,259.41,0.0,259.41,768,In Stock,1.4,190,"Cook, Adams and Higgins",1.19,2021-12-20,False
+PROD00411,Furniture Item 411,Home & Kitchen,Furniture,626.05,0.38,388.15,489,In Stock,1.5,903,Ward PLC,13.78,2019-06-03,False
+PROD00412,Laptops Item 412,Electronics,Laptops,88.94,0.23,68.48,447,In Stock,1.4,968,Fox Inc,5.41,2020-07-30,False
+PROD00413,Personal Hygiene Item 413,Beauty & Personal Care,Personal Hygiene,472.33,0.0,472.33,359,In Stock,3.5,742,Young-Snyder,14.68,2021-01-02,False
+PROD00414,Camping Item 414,Sports & Outdoors,Camping,94.45,0.32,64.23,986,In Stock,2.2,68,Holder Inc,12.28,2019-05-24,False
+PROD00415,Non-fiction Item 415,Books & Media,Non-fiction,801.92,0.0,801.92,363,In Stock,3.2,664,Campbell-Frank,14.48,2019-12-10,False
+PROD00416,Accessories Item 416,Fashion,Accessories,673.9,0.0,673.9,878,In Stock,4.9,620,"Hamilton, Carson and Hill",6.1,2021-12-14,True
+PROD00417,Accessories Item 417,Fashion,Accessories,939.93,0.0,939.93,51,In Stock,4.7,267,Rodriguez-Lee,,2021-03-28,False
+PROD00418,Accessories Item 418,Electronics,Accessories,448.55,0.0,448.55,826,In Stock,2.3,859,"Lozano, Brown and Winters",12.04,2020-09-01,False
+PROD00419,Jewelry Item 419,Fashion,Jewelry,423.41,0.0,423.41,553,In Stock,4.9,647,Clay PLC,3.38,2019-12-28,False
+PROD00420,Tablets Item 420,Electronics,Tablets,775.04,0.48,403.02,408,In Stock,3.8,581,"Garcia, Morgan and Barton",9.87,2021-07-30,False
+PROD00421,Non-fiction Item 421,Books & Media,Non-fiction,341.92,0.0,341.92,70,In Stock,3.9,871,"Atkins, Jennings and Combs",14.85,2019-05-21,False
+PROD00422,Outdoor Gear Item 422,Sports & Outdoors,Outdoor Gear,687.12,0.0,687.12,657,In Stock,3.3,886,"Richardson, Miller and Martinez",19.6,2021-10-26,False
+PROD00423,Smartphones Item 423,Electronics,Smartphones,524.61,0.0,524.61,320,In Stock,,797,Davis Group,,2021-07-06,False
+PROD00424,Movies Item 424,Books & Media,Movies,41.69,0.0,41.69,906,In Stock,3.0,254,Anderson Ltd,4.17,2019-09-18,False
+PROD00425,Furniture Item 425,Home & Kitchen,Furniture,299.43,0.0,299.43,525,In Stock,2.9,846,Wright-Morgan,16.92,2019-11-16,False
+PROD00426,Personal Hygiene Item 426,Beauty & Personal Care,Personal Hygiene,855.02,0.0,855.02,971,In Stock,1.6,969,"Bonilla, Hicks and Dixon",3.64,2021-11-27,False
+PROD00427,Makeup Item 427,Beauty & Personal Care,Makeup,500.77,0.4,300.46,0,Out of Stock,1.3,491,Davis LLC,19.69,2019-12-14,False
+PROD00428,Music Item 428,Books & Media,Music,427.61,0.11,380.57,679,In Stock,4.7,600,Medina and Sons,1.7,2019-06-25,False
+PROD00429,E-books Item 429,Books & Media,E-books,101.14,0.0,101.14,95,In Stock,2.9,434,"Allen, Patterson and Burnett",13.83,2019-06-23,False
+PROD00430,Collectibles Item 430,Toys & Games,Collectibles,441.52,0.0,441.52,220,In Stock,2.5,768,Simpson-Reyes,2.02,2019-07-11,False
+PROD00431,Laptops Item 431,Electronics,Laptops,75.18,0.0,75.18,875,In Stock,4.5,806,Thomas Inc,,2020-12-09,False
+PROD00432,Skincare Item 432,Beauty & Personal Care,Skincare,669.2,0.0,669.2,12,In Stock,,175,Hoffman-White,11.59,2020-10-24,False
+PROD00433,E-books Item 433,Books & Media,E-books,313.02,0.28,225.37,972,In Stock,3.8,10,"Kemp, Peters and Hill",10.95,2020-08-07,False
+PROD00434,Cameras Item 434,Electronics,Cameras,987.73,0.0,987.73,975,In Stock,3.3,755,Hunt-Parks,13.21,2019-08-10,False
+PROD00435,Sports Apparel Item 435,Sports & Outdoors,Sports Apparel,605.04,0.0,605.04,617,In Stock,3.8,7,Mullen-Gardner,11.67,2021-07-15,False
+PROD00436,Puzzles Item 436,Toys & Games,Puzzles,506.2,0.36,323.97,382,In Stock,4.0,502,"Gonzalez, Best and Perez",15.74,2021-03-14,False
+PROD00437,Movies Item 437,Books & Media,Movies,887.96,0.31,612.69,977,In Stock,1.8,932,Caldwell-Wallace,4.53,2021-08-01,False
+PROD00438,Haircare Item 438,Beauty & Personal Care,Haircare,28.87,0.12,25.41,771,In Stock,4.2,748,Bailey Inc,11.48,2019-08-27,False
+PROD00439,Decor Item 439,Home & Kitchen,Decor,240.09,0.31,165.66,435,In Stock,1.6,673,Wong Ltd,8.82,2021-12-30,False
+PROD00440,Outdoor Gear Item 440,Sports & Outdoors,Outdoor Gear,807.41,0.0,807.41,0,Out of Stock,1.2,147,"Scott, Hall and Smith",10.56,2019-08-20,False
+PROD00441,Movies Item 441,Books & Media,Movies,280.11,0.0,280.11,246,In Stock,4.4,627,"Peters, Lopez and Holmes",4.97,2019-07-22,False
+PROD00442,Toys Item 442,Toys & Games,Toys,758.3,0.0,758.3,518,In Stock,1.8,456,Lewis Ltd,11.12,2021-05-31,False
+PROD00443,Puzzles Item 443,Toys & Games,Puzzles,526.78,0.0,526.78,526,In Stock,2.8,570,Terry PLC,8.73,2020-06-29,False
+PROD00444,Haircare Item 444,Beauty & Personal Care,Haircare,188.73,0.2,150.98,848,In Stock,4.3,646,Collins Inc,9.65,2019-04-09,False
+PROD00445,E-books Item 445,Books & Media,E-books,141.74,0.0,141.74,386,In Stock,2.0,936,"Turner, Young and Hill",0.71,2021-06-14,False
+PROD00446,Appliances Item 446,Home & Kitchen,Appliances,598.31,0.0,598.31,360,In Stock,2.6,157,Parker-Bradley,3.17,2020-02-23,False
+PROD00447,Jewelry Item 447,Fashion,Jewelry,97.29,0.23,74.91,455,In Stock,3.2,423,"Sims, Phillips and Hogan",13.45,2021-05-12,False
+PROD00448,Skincare Item 448,Beauty & Personal Care,Skincare,537.45,0.32,365.47,591,In Stock,4.6,513,"Gutierrez, Evans and Frederick",11.53,2020-05-29,False
+PROD00449,Tablets Item 449,Electronics,Tablets,223.38,0.0,223.38,0,Out of Stock,4.9,143,Hodges Inc,1.2,2021-05-05,False
+450,Bedding Item 450,Home & Kitchen,Bedding,695.99,0.0,695.99,112,In Stock,2.1,620,"Hayes, Fox and Cross",10.78,2020-11-09,False
+PROD00451,Laptops Item 451,Electronics,Laptops,149.82,0.0,149.82,968,In Stock,2.9,270,Wright LLC,16.98,2020-04-28,False
+PROD00452,Makeup Item 452,Beauty & Personal Care,Makeup,809.92,0.0,809.92,36,In Stock,,143,Brown Inc,13.57,2021-03-01,False
+PROD00453,Sports Apparel Item 453,Sports & Outdoors,Sports Apparel,529.42,0.0,529.42,0,Out of Stock,4.2,934,"Cox, Estrada and Gonzalez",8.73,2020-01-29,False
+PROD00454,Outdoor Gear Item 454,Sports & Outdoors,Outdoor Gear,786.29,0.0,786.29,898,In Stock,3.8,952,Lewis Group,17.44,2020-04-10,True
+PROD00455,Camping Item 455,Sports & Outdoors,Camping,750.16,0.0,750.16,384,In Stock,4.3,974,Trevino-Jones,4.77,2020-12-07,False
+PROD00456,Water Sports Item 456,Sports & Outdoors,Water Sports,397.83,0.0,397.83,739,In Stock,3.4,455,Hughes Inc,3.08,2021-08-10,False
+PROD00457,Decor Item 457,Home & Kitchen,Decor,733.16,0.5,366.58,243,In Stock,1.0,508,Jennings-Morales,,2020-09-17,False
+PROD00458,Fiction Item 458,Books & Media,Fiction,857.51,0.0,857.51,895,In Stock,3.4,782,"Adams, Gutierrez and Hogan",8.79,2020-06-04,False
+PROD00459,Fitness Equipment Item 459,Sports & Outdoors,Fitness Equipment,898.15,0.21,709.54,387,In Stock,3.7,119,"Craig, Taylor and Davidson",10.36,2019-07-23,True
+PROD00460,Board Games Item 460,Toys & Games,Board Games,502.98,0.0,502.98,0,Out of Stock,4.4,926,Velazquez PLC,1.71,2021-01-10,False
+PROD00461,Bedding Item 461,Home & Kitchen,Bedding,226.85,0.0,226.85,886,In Stock,2.0,326,Martinez-Collins,8.78,2021-06-28,False
+PROD00462,Men's Clothing Item 462,Fashion,Men's Clothing,310.67,0.0,310.67,317,In Stock,1.3,636,"Sellers, Mcclure and Hunt",11.48,2020-12-15,False
+PROD00463,Fragrance Item 463,Beauty & Personal Care,Fragrance,568.37,0.47,301.24,82,In Stock,3.3,601,"Price, Long and Taylor",9.68,2021-01-09,False
+PROD00464,Movies Item 464,Books & Media,Movies,601.76,0.0,601.76,0,Out of Stock,4.3,421,King-Scott,13.05,2021-10-28,False
+PROD00465,Camping Item 465,Sports & Outdoors,Camping,298.36,0.0,298.36,116,In Stock,4.3,25,Wood-Thomas,11.6,2020-04-26,False
+PROD00466,Outdoor Gear Item 466,Sports & Outdoors,Outdoor Gear,78.56,0.0,78.56,911,In Stock,3.1,616,Jimenez-Murray,17.79,2020-11-21,False
+PROD00467,Outdoor Gear Item 467,Sports & Outdoors,Outdoor Gear,17.37,0.0,17.37,58,In Stock,1.3,367,Gibbs PLC,,2020-12-05,False
+PROD00468,Outdoor Gear Item 468,Sports & Outdoors,Outdoor Gear,746.61,0.0,746.61,419,In Stock,3.8,559,Castaneda-Santos,19.98,2020-05-31,False
+PROD00469,Bedding Item 469,Home & Kitchen,Bedding,936.39,0.49,477.56,16,In Stock,2.0,966,Hernandez-Mann,8.61,2021-02-20,False
+PROD00470,Outdoor Gear Item 470,Sports & Outdoors,Outdoor Gear,905.43,0.0,905.43,704,In Stock,2.0,468,"Jones, Smith and Guerrero",9.49,2021-01-22,False
+PROD00471,Women's Clothing Item 471,Fashion,Women's Clothing,37.17,0.0,37.17,854,In Stock,5.0,598,Silva-Morse,6.24,2020-03-31,False
+PROD00472,Tablets Item 472,Electronics,Tablets,20.41,0.43,11.63,689,In Stock,1.9,342,Woods Ltd,,2020-11-23,False
+PROD00473,Puzzles Item 473,Toys & Games,Puzzles,438.44,0.49,223.6,358,In Stock,4.3,873,Lin Inc,7.51,2020-09-20,False
+PROD00474,Personal Hygiene Item 474,Beauty & Personal Care,Personal Hygiene,892.4,0.41,526.52,991,In Stock,1.4,616,"Johnson, Gonzales and Hale",5.4,2020-09-16,False
+PROD00475,Water Sports Item 475,Sports & Outdoors,Water Sports,51.25,0.44,28.7,0,Out of Stock,4.1,749,Henderson-Colon,7.81,2019-08-18,True
+PROD00476,Smartphones Item 476,Electronics,Smartphones,146.7,0.0,146.7,510,In Stock,4.1,890,Sanchez-Kim,5.1,2020-03-05,False
+PROD00477,Smartphones Item 477,Electronics,Smartphones,83.53,0.0,83.53,0,Out of Stock,2.7,689,Wolfe LLC,9.75,2021-06-19,False
+PROD00478,Fitness Equipment Item 478,Sports & Outdoors,Fitness Equipment,784.96,0.0,784.96,8,In Stock,4.9,249,"Johnston, Kirby and Palmer",,2021-04-07,False
+PROD00479,Women's Clothing Item 479,Fashion,Women's Clothing,495.86,0.0,495.86,213,In Stock,1.9,200,Barber-Livingston,3.7,2020-10-05,False
+PROD00480,Footwear Item 480,Fashion,Footwear,422.68,0.0,422.68,566,In Stock,4.0,34,"Williams, Brock and Olson",19.17,2019-06-04,False
+PROD00481,Smartphones Item 481,Electronics,Smartphones,718.37,0.0,718.37,359,In Stock,3.8,220,Benson-Davis,6.62,2019-09-02,False
+PROD00482,Smartphones Item 482,Electronics,Smartphones,854.71,0.36,547.01,765,In Stock,2.3,553,Decker LLC,12.75,2019-04-23,False
+PROD00483,Sports Apparel Item 483,Sports & Outdoors,Sports Apparel,623.03,0.0,623.03,289,In Stock,4.9,892,Ali-Cruz,7.02,2019-11-18,False
+PROD00484,Board Games Item 484,Toys & Games,Board Games,955.62,0.23,735.83,674,In Stock,2.0,465,"Ramirez, Becker and Stewart",,2021-12-29,False
+PROD00485,Haircare Item 485,Beauty & Personal Care,Haircare,420.88,0.23,324.08,567,In Stock,4.4,321,Barnes-Davis,4.78,2019-07-22,False
+PROD00486,Makeup Item 486,Beauty & Personal Care,Makeup,502.65,0.0,502.65,370,In Stock,4.6,633,Mejia-Blackburn,3.46,2021-05-12,False
+PROD00487,Toys Item 487,Toys & Games,Toys,240.66,0.0,240.66,439,In Stock,2.5,995,Short and Sons,16.94,2020-04-13,False
+PROD00488,Camping Item 488,Sports & Outdoors,Camping,105.73,0.0,105.73,530,In Stock,1.9,343,Pineda Inc,1.29,2020-12-14,False
+PROD00489,Men's Clothing Item 489,Fashion,Men's Clothing,661.68,0.14,569.04,202,In Stock,1.5,111,Boyd Ltd,17.94,2021-07-18,False
+PROD00490,Decor Item 490,Home & Kitchen,Decor,195.78,0.0,195.78,592,In Stock,2.8,766,Schwartz Ltd,15.42,2019-07-06,False
+PROD00491,Cameras Item 491,Electronics,Cameras,766.02,0.36,490.25,571,In Stock,1.7,534,"Tate, Lee and Richardson",13.36,2020-07-15,False
+PROD00492,Video Games Item 492,Toys & Games,Video Games,664.91,0.34,438.84,713,In Stock,3.0,15,Henry-Lawrence,6.22,2021-03-27,True
+PROD00493,Makeup Item 493,Beauty & Personal Care,Makeup,613.98,0.33,411.37,499,In Stock,2.4,496,Brock Group,16.22,2021-11-06,False
+PROD00494,Outdoor Gear Item 494,Sports & Outdoors,Outdoor Gear,743.37,0.2,594.7,0,Out of Stock,,323,Ward LLC,6.33,2020-05-12,False
+PROD00495,Non-fiction Item 495,Books & Media,Non-fiction,296.5,0.0,296.5,982,In Stock,2.2,257,Reed Group,,2019-04-22,False
+PROD00496,Board Games Item 496,Toys & Games,Board Games,674.13,0.42,391.0,258,In Stock,1.5,313,Bailey Ltd,19.99,2020-08-15,False
+PROD00497,Appliances Item 497,Home & Kitchen,Appliances,29.87,0.0,29.87,98,In Stock,4.8,111,"Sexton, Huerta and Young",18.91,2021-10-15,False
+PROD00498,Makeup Item 498,Beauty & Personal Care,Makeup,195.91,0.0,195.91,277,In Stock,,633,Wiggins-Lawson,,2021-04-03,True
+PROD00499,Personal Hygiene Item 499,Beauty & Personal Care,Personal Hygiene,78.11,0.0,78.11,588,In Stock,3.6,672,"Palmer, Scott and Williams",18.08,2021-09-19,False
+500,Furniture Item 500,Home & Kitchen,Furniture,286.98,0.0,286.98,335,In Stock,1.8,498,"Butler, Gordon and Chambers",7.73,2021-11-25,False

@@ -1,0 +1,720 @@
+---
+title: "交互式数据可视化"
+---
+
+## 交互式可视化的优势
+
+相比于静态可视化，交互式可视化允许用户直接与数据进行交互，从而能够：
+
+- 探索数据的多个维度和层次
+- 根据需要筛选和聚焦特定数据点
+- 动态调整分析视角和参数
+- 获取更丰富的数据上下文信息
+- 提供更具吸引力和沉浸感的用户体验
+
+本章将介绍Python中实现交互式可视化的主要工具和技术，包括Plotly、Bokeh和其他库。
+
+## Plotly基础入门
+
+Plotly是一个强大的交互式可视化库，它可以创建复杂的交互式图表，支持在网页浏览器中展示。
+
+### 安装与配置
+
+```{python}
+#| label: plotly-setup
+
+# 导入必要的库
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# 设置离线模式，使图表可以在Jupyter环境中展示
+from plotly.offline import init_notebook_mode
+init_notebook_mode(connected=True)
+
+print("Plotly版本:", px.__version__)
+```
+
+### 基础图表示例
+
+```{python}
+#| label: plotly-basic-charts
+
+# 创建基础散点图
+np.random.seed(42)
+df = pd.DataFrame({
+    'x': np.random.normal(0, 1, 100),
+    'y': np.random.normal(0, 1, 100),
+    'size': np.random.uniform(5, 15, 100),
+    'group': np.random.choice(['A', 'B', 'C', 'D'], 100)
+})
+
+# 使用Plotly Express创建交互式散点图
+fig = px.scatter(df, x='x', y='y', 
+                 size='size', color='group',
+                 hover_name='group',
+                 title='基本交互式散点图示例')
+
+# 添加自定义悬停信息
+fig.update_traces(hovertemplate='x: %{x:.2f}<br>y: %{y:.2f}<br>分组: %{hovertext}')
+
+# 自定义布局
+fig.update_layout(
+    width=800, height=500,
+    xaxis_title='X轴',
+    yaxis_title='Y轴',
+    legend_title='分组'
+)
+
+fig.show()
+```
+
+### 其他基本图表类型
+
+```{python}
+#| label: plotly-chart-types
+
+# 创建包含4个子图的画布
+fig = make_subplots(rows=2, cols=2, 
+                   subplot_titles=('折线图', '条形图', '饼图', '箱线图'),
+                   specs=[[{'type': 'xy'}, {'type': 'xy'}],
+                          [{'type': 'domain'}, {'type': 'xy'}]])
+
+# 1. 折线图
+x = np.arange(10)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+fig.add_trace(go.Scatter(x=x, y=y1, mode='lines+markers', name='sin(x)'),
+             row=1, col=1)
+fig.add_trace(go.Scatter(x=x, y=y2, mode='lines+markers', name='cos(x)'),
+             row=1, col=1)
+
+# 2. 条形图
+categories = ['产品A', '产品B', '产品C', '产品D']
+values = [25, 40, 30, 50]
+
+fig.add_trace(go.Bar(x=categories, y=values, name='销售量'),
+             row=1, col=2)
+
+# 3. 饼图
+fig.add_trace(go.Pie(labels=categories, values=values, hole=0.3, 
+                     textinfo='label+percent'),
+             row=2, col=1)
+
+# 4. 箱线图
+y_box = [np.random.normal(0, std, 100) for std in range(1, 5)]
+
+fig.add_trace(go.Box(y=y_box[0], name='A', boxmean=True),
+             row=2, col=2)
+fig.add_trace(go.Box(y=y_box[1], name='B', boxmean=True),
+             row=2, col=2)
+fig.add_trace(go.Box(y=y_box[2], name='C', boxmean=True),
+             row=2, col=2)
+fig.add_trace(go.Box(y=y_box[3], name='D', boxmean=True),
+             row=2, col=2)
+
+# 更新布局
+fig.update_layout(
+    height=800,
+    width=1000,
+    title_text='Plotly基本图表类型示例',
+    showlegend=False
+)
+
+fig.show()
+```
+
+## 实用交互式功能
+
+### 悬停信息与工具提示
+
+```{python}
+#| label: hover-tooltip
+
+# 使用真实数据集
+df_tips = px.data.tips()
+
+# 创建带有详细悬停提示的散点图
+fig = px.scatter(df_tips, x="total_bill", y="tip", 
+                color="sex", size="size", 
+                facet_col="time", facet_row="day",
+                category_orders={"day": ["Thur", "Fri", "Sat", "Sun"],
+                                "time": ["Lunch", "Dinner"]},
+                title="餐厅小费数据集 - 按日期和用餐时间分组")
+
+# 自定义悬停提示内容
+fig.update_traces(
+    hovertemplate='<b>账单总额</b>: $%{x:.2f}<br>' +
+                  '<b>小费</b>: $%{y:.2f}<br>' +
+                  '<b>小费占比</b>: %{customdata:.1%}<br>' +
+                  '<b>人数</b>: %{marker.size}<extra></extra>',
+    customdata=(df_tips['tip'] / df_tips['total_bill']).values.reshape(-1, 1)
+)
+
+# 更新布局
+fig.update_layout(height=800, width=1000)
+
+fig.show()
+```
+
+### 缩放、平移和选择功能
+
+```{python}
+#| label: zoom-pan-select
+
+# 创建更大的随机数据集
+np.random.seed(42)
+n = 1000
+df_large = pd.DataFrame({
+    'x': np.concatenate([np.random.normal(-3, 1, n//2), np.random.normal(3, 1, n//2)]),
+    'y': np.concatenate([np.random.normal(-3, 1, n//2), np.random.normal(3, 1, n//2)]),
+    'size': np.random.uniform(5, 15, n),
+    'group': np.concatenate([['A'] * (n//2), ['B'] * (n//2)])
+})
+
+# 创建具有增强交互功能的散点图
+fig = px.scatter(df_large, x='x', y='y', color='group', size='size',
+                title='交互功能示例: 缩放、平移和选择')
+
+# 设置模式栏选项，启用多种交互工具
+fig.update_layout(
+    dragmode='select',  # 默认选择模式
+    selectdirection='any',  # 允许任意方向选择
+    height=600, width=800,
+    hovermode='closest'
+)
+
+# 添加提示信息
+fig.add_annotation(
+    text="提示：尝试使用顶部工具栏中的工具进行缩放、平移和选择",
+    xref="paper", yref="paper",
+    x=0.5, y=1.07,
+    showarrow=False,
+    font=dict(size=12)
+)
+
+fig.show()
+```
+
+### 动画效果
+
+```{python}
+#| label: animation
+
+# 创建动态时间序列数据
+days = 100
+np.random.seed(42)
+dates = pd.date_range('2023-01-01', periods=days)
+stocks = pd.DataFrame({
+    'date': dates,
+    'stock_A': 100 + np.cumsum(np.random.normal(0.1, 1, days)),
+    'stock_B': 100 + np.cumsum(np.random.normal(0.05, 1.2, days)),
+    'stock_C': 100 + np.cumsum(np.random.normal(0.15, 0.8, days))
+})
+
+# 转换为长格式
+stocks_long = pd.melt(stocks, id_vars=['date'], value_vars=['stock_A', 'stock_B', 'stock_C'],
+                      var_name='stock', value_name='price')
+
+# 添加更多信息列，用于动画效果
+stocks_long['volume'] = np.random.randint(1000, 10000, size=len(stocks_long))
+stocks_long['volatility'] = stocks_long.groupby('stock')['price'].pct_change().abs() * 100
+stocks_long['volatility'] = stocks_long['volatility'].fillna(0).round(2)
+
+# 创建动画图表
+fig = px.scatter(stocks_long, x='price', y='volatility', color='stock',
+                size='volume', size_max=30, hover_name='stock',
+                animation_frame='date', animation_group='stock',
+                range_x=[90, 130], range_y=[0, 5],
+                title='股票价格与波动性随时间变化动画')
+
+# 自定义动画设置
+fig.update_layout(
+    height=600, width=800,
+    xaxis_title='股票价格',
+    yaxis_title='日波动率(%)',
+)
+
+# 设置播放按钮属性
+fig.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 100
+fig.layout.updatemenus[0].buttons[0].args[1]['transition']['duration'] = 50
+
+fig.show()
+```
+
+## Bokeh - 另一种交互式可视化选择
+
+Bokeh是另一个流行的交互式可视化库，特别适合创建交互性强的Web应用。
+
+```{python}
+#| label: bokeh-intro
+
+try:
+    from bokeh.plotting import figure, show, output_notebook
+    from bokeh.models import ColumnDataSource, HoverTool, ColorBar
+    from bokeh.transform import linear_cmap
+    from bokeh.layouts import row, column, gridplot
+    from bokeh.palettes import Viridis256
+    
+    # 在Jupyter中启用Bokeh输出
+    output_notebook()
+    
+    # 创建示例数据
+    np.random.seed(42)
+    x = np.random.random(100) * 10
+    y = np.random.random(100) * 10
+    size = np.random.random(100) * 20
+    color = np.random.random(100)
+    
+    # 创建数据源
+    source = ColumnDataSource(data=dict(
+        x=x,
+        y=y,
+        size=size,
+        color=color,
+    ))
+    
+    # 创建颜色映射
+    mapper = linear_cmap('color', Viridis256, 0, 1)
+    
+    # 创建图表
+    p = figure(width=600, height=400, 
+              title="Bokeh交互式散点图示例",
+              tools="pan,wheel_zoom,box_zoom,reset,save")
+    
+    # 添加悬停工具
+    hover = HoverTool(tooltips=[
+        ("索引", "$index"),
+        ("(x, y)", "($x, $y)"),
+        ("大小", "@size"),
+        ("值", "@color")
+    ])
+    p.add_tools(hover)
+    
+    # 添加散点图
+    circles = p.circle('x', 'y', size='size', source=source,
+                      fill_color=mapper, line_color='white', alpha=0.6)
+    
+    # 添加颜色条
+    color_bar = ColorBar(color_mapper=mapper['transform'], width=8)
+    p.add_layout(color_bar, 'right')
+    
+    # 显示图表
+    show(p)
+    
+    print("成功显示Bokeh图表")
+except ImportError:
+    print("需要安装Bokeh库: pip install bokeh")
+except Exception as e:
+    print(f"显示Bokeh图表时出错: {e}")
+    print("以下是一个Plotly替代图表:")
+    
+    # 替代方案：使用Plotly再次展示类似图表
+    fig = px.scatter(x=x, y=y, size=size, color=color,
+                    title="替代的Plotly散点图",
+                    labels={'color': '值'})
+    fig.update_layout(width=600, height=400)
+    fig.show()
+```
+
+## 使用Panel创建交互式应用
+
+Panel是一个开源Python库，可用于创建交互式控件和应用。
+
+```{python}
+#| label: panel-demo
+
+try:
+    import panel as pn
+    import holoviews as hv
+    from bokeh.sampledata.iris import flowers
+    
+    # 初始化Panel和HoloViews
+    pn.extension(sizing_mode='stretch_width')
+    hv.extension('bokeh')
+    
+    # 准备数据
+    iris = flowers.copy()
+    iris['species'] = iris['species'].astype('str')
+    
+    # 创建交互式散点图
+    scatter = hv.Scatter(iris, 'sepal_length', 'sepal_width', color='species').opts(
+        width=600, height=400, size=8, tools=['hover'], 
+        color_index='species', cmap=['#30a2da', '#e5ae38', '#fc4f30'], 
+        title='鸢尾花数据集 - 交互式散点图'
+    )
+    
+    # 创建直方图
+    hist = hv.Histogram(np.histogram(iris['petal_length'], bins=20), label='花瓣长度分布').opts(
+        width=300, height=300, tools=['hover']
+    )
+    
+    # 创建交互式控件
+    species_selection = pn.widgets.MultiSelect(
+        name='选择种类', 
+        options=list(iris['species'].unique()), 
+        value=list(iris['species'].unique())
+    )
+    
+    x_selection = pn.widgets.Select(
+        name='X轴特征', 
+        options=list(iris.columns)[:-1], 
+        value='sepal_length'
+    )
+    
+    y_selection = pn.widgets.Select(
+        name='Y轴特征', 
+        options=list(iris.columns)[:-1], 
+        value='sepal_width'
+    )
+    
+    # 定义交互式函数
+    @pn.depends(species=species_selection, x=x_selection, y=y_selection)
+    def update_plot(species, x, y):
+        filtered_data = iris[iris['species'].isin(species)]
+        scatter = hv.Scatter(filtered_data, x, y, color='species').opts(
+            width=600, height=400, size=8, tools=['hover'], 
+            color_index='species', cmap=['#30a2da', '#e5ae38', '#fc4f30'],
+            title=f'鸢尾花数据集: {x} vs {y}'
+        )
+        return scatter
+    
+    # 组装仪表板
+    dashboard = pn.Column(
+        pn.pane.Markdown('# 交互式鸢尾花数据探索'),
+        pn.Row(
+            pn.Column('## 控件', species_selection, x_selection, y_selection),
+            pn.Column('## 散点图', update_plot)
+        ),
+        pn.Row(
+            pn.Column('## 直方图', hist)
+        )
+    )
+    
+    # 显示仪表板
+    dashboard.servable()
+    
+    # 在Jupyter环境中展示
+    dashboard
+    
+except ImportError:
+    print("需要安装Panel和HoloViews库:")
+    print("pip install panel holoviews")
+    
+    # 显示替代内容
+    fig = px.scatter(flowers, x='sepal_length', y='sepal_width', 
+                    color='species', title='鸢尾花数据集可视化')
+    fig.show()
+    
+    print("\n上面是替代图表。要获得完整的交互式体验，请安装Panel和HoloViews。")
+```
+
+## 使用Altair创建声明式可视化
+
+Altair是一个声明式可视化库，基于Vega-Lite语法。
+
+```{python}
+#| label: altair-demo
+
+try:
+    import altair as alt
+    from vega_datasets import data
+    
+    # 加载数据
+    cars = data.cars()
+    
+    # 创建基本图表
+    scatter = alt.Chart(cars).mark_point().encode(
+        x='Horsepower',
+        y='Miles_per_Gallon',
+        color='Origin',
+        tooltip=['Name', 'Origin', 'Horsepower', 'Miles_per_Gallon']
+    ).properties(
+        width=600,
+        height=400,
+        title='汽车马力与油耗的关系'
+    ).interactive()
+    
+    # 创建联动选择器
+    brush = alt.selection_interval()
+    
+    # 添加主散点图
+    points = alt.Chart(cars).mark_point().encode(
+        x='Horsepower:Q',
+        y='Miles_per_Gallon:Q',
+        color=alt.condition(brush, 'Origin:N', alt.value('lightgray')),
+        tooltip=['Name:N', 'Origin:N', 'Horsepower:Q', 'Miles_per_Gallon:Q']
+    ).properties(
+        width=600,
+        height=400,
+        title='交互式联动选择示例'
+    ).add_selection(
+        brush
+    )
+    
+    # 创建联动直方图
+    hist = alt.Chart(cars).mark_bar().encode(
+        x='count()',
+        y='Origin:N',
+        color='Origin:N'
+    ).properties(
+        width=600,
+        height=100
+    ).transform_filter(
+        brush
+    )
+    
+    # 组合图表
+    final_chart = alt.vconcat(
+        points,
+        hist
+    ).resolve_legend(
+        color="independent"
+    )
+    
+    # 显示图表
+    final_chart
+    
+except ImportError:
+    print("需要安装Altair和vega_datasets库:")
+    print("pip install altair vega_datasets")
+    
+    # 替代方案：使用Plotly
+    fig = px.scatter(cars, x='Horsepower', y='Miles_per_Gallon', 
+                    color='Origin', hover_name='Name',
+                    title='汽车马力与油耗的关系')
+    fig.update_layout(width=700, height=500)
+    fig.show()
+```
+
+## 综合案例：交互式数据探索应用
+
+以下是一个更复杂的交互式数据探索应用示例，结合了多种交互技术。
+
+```{python}
+#| label: comprehensive-example
+#| eval: false
+
+# 注意：此示例较复杂，可能需要安装额外依赖，因此设置为不自动执行
+# 如需运行，请移除上面的 eval: false 选项
+
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# 加载示例数据集
+try:
+    df = px.data.gapminder()
+    print(f"数据加载成功: {df.shape[0]} 行, {df.shape[1]} 列")
+    
+    # 创建带有多个联动图表的复杂仪表板
+    
+    # 1. 主散点图
+    fig = make_subplots(
+        rows=2, cols=2,
+        specs=[[{"colspan": 2}, None],
+               [{"type": "choropleth"}, {"type": "bar"}]],
+        subplot_titles=("人均GDP与预期寿命的关系", "全球人均GDP分布", "2007年各大洲人口"),
+        vertical_spacing=0.1, horizontal_spacing=0.05
+    )
+    
+    # 过滤2007年数据用于地图和条形图
+    df_2007 = df[df['year'] == 2007]
+    
+    # 添加带有动画的散点图
+    scatter = px.scatter(df, x="gdpPercap", y="lifeExp", 
+                         animation_frame="year", animation_group="country",
+                         size="pop", color="continent", hover_name="country",
+                         log_x=True, size_max=55, range_x=[100, 100000], range_y=[25, 90])
+    
+    # 将散点图的轨迹添加到主图中
+    for trace in scatter.frames[0].data:
+        fig.add_trace(trace, row=1, col=1)
+    
+    # 2. 添加世界地图
+    choropleth = px.choropleth(df_2007, locations="iso_alpha", 
+                              color="gdpPercap", hover_name="country",
+                              color_continuous_scale=px.colors.sequential.Plasma)
+    
+    for trace in choropleth.data:
+        fig.add_trace(trace, row=2, col=1)
+    
+    # 3. 添加条形图
+    continent_pop = df_2007.groupby('continent')['pop'].sum().reset_index()
+    bar = px.bar(continent_pop, x='continent', y='pop', 
+                color='continent', text='pop')
+    
+    for trace in bar.data:
+        fig.add_trace(trace, row=2, col=2)
+    
+    # 更新布局
+    fig.update_layout(
+        height=800, width=1000,
+        title_text="全球人口、GDP和预期寿命交互式探索",
+        showlegend=False,
+        coloraxis={"colorbar": {"title": "人均GDP", "len": 0.5, "y": 0.25}},
+    )
+    
+    # 更新轴和颜色比例尺
+    fig.update_xaxes(title_text="人均GDP (对数刻度)", type="log", row=1, col=1)
+    fig.update_yaxes(title_text="预期寿命 (年)", row=1, col=1)
+    fig.update_xaxes(title_text="大洲", row=2, col=2)
+    fig.update_yaxes(title_text="人口", row=2, col=2)
+    
+    # 添加滑块控件
+    fig.layout.sliders = scatter.layout.sliders
+    
+    # 添加播放按钮
+    fig.layout.updatemenus = scatter.layout.updatemenus
+    fig.layout.updatemenus[0].buttons[0].args[1]['frame']['duration'] = 800
+    
+    # 添加帧
+    fig.frames = scatter.frames
+    
+    # 显示交互式仪表板
+    fig.show()
+    
+except Exception as e:
+    print(f"加载或处理数据时出错: {e}")
+    print("显示简化版示例...")
+    
+    # 创建简化版示例
+    np.random.seed(42)
+    data = pd.DataFrame({
+        '年份': np.repeat(range(2000, 2010), 3),
+        '产品': np.tile(['A', 'B', 'C'], 10),
+        '销量': np.random.randint(100, 1000, 30)
+    })
+    
+    fig = px.line(data, x='年份', y='销量', color='产品',
+                 title='产品销量随时间变化趋势')
+    fig.update_layout(width=800, height=500)
+    fig.show()
+```
+
+## 在Jupyter中显示交互式可视化
+
+如果你在Jupyter Notebook或JupyterLab中工作，以下是一些显示交互式可视化的提示：
+
+```{python}
+#| label: jupyter-tips
+#| eval: false
+
+# 1. 对于Plotly，确保正确配置并在单元格中渲染
+import plotly.io as pio
+pio.renderers.default = "notebook"  # 设置默认渲染器为notebook
+
+# 2. 对于Bokeh，使用输出笔记本
+from bokeh.plotting import output_notebook
+output_notebook()
+
+# 3. 对于Altair，设置notebook渲染器
+import altair as alt
+alt.renderers.enable('notebook')
+
+# 4. 使用IPython显示HTML内容
+from IPython.display import HTML, display
+display(HTML("<div style='color:blue'>这是一个HTML内容示例</div>"))
+
+# 5. 使用魔术命令启用自动可视化
+%matplotlib inline  # 用于matplotlib
+%matplotlib widget  # 用于交互式matplotlib小部件
+```
+
+## 交互式可视化的最佳实践
+
+开发交互式可视化时，请考虑以下最佳实践：
+
+1. **明确目标与受众**：确定可视化的主要目的和目标用户
+2. **保持简单**：避免过度添加交互元素，每个交互功能应有明确目的
+3. **指导用户**：提供清晰的交互提示和说明
+4. **响应式设计**：确保可视化在不同设备和屏幕尺寸上正常工作
+5. **性能优化**：特别是处理大型数据集时，注意优化性能
+6. **渐进增强**：提供基本功能，然后逐步添加更复杂的交互选项
+7. **一致性**：在整个应用中保持交互模式和视觉设计的一致性
+
+```{python}
+#| label: best-practices-demo
+
+# 演示一个遵循最佳实践的简单交互式仪表板
+np.random.seed(42)
+sales_data = pd.DataFrame({
+    '月份': ['1月', '2月', '3月', '4月', '5月', '6月', 
+            '7月', '8月', '9月', '10月', '11月', '12月'],
+    '北区': np.random.randint(100, 200, 12),
+    '南区': np.random.randint(80, 170, 12),
+    '东区': np.random.randint(110, 220, 12),
+    '西区': np.random.randint(90, 180, 12),
+})
+
+# 将数据转换为长格式
+sales_long = pd.melt(sales_data, id_vars=['月份'], 
+                     value_vars=['北区', '南区', '东区', '西区'],
+                     var_name='区域', value_name='销售额')
+
+# 创建交互式图表
+fig = px.line(sales_long, x='月份', y='销售额', color='区域',
+             title='各区域月度销售额对比',
+             labels={'sales': '销售额'},
+             line_shape='spline',  # 平滑曲线
+             render_mode='svg',    # 使用SVG渲染以提高质量
+             template='plotly_white')  # 使用白色模板
+
+# 添加散点标记，使数据点可交互
+fig.update_traces(mode='lines+markers', marker=dict(size=8))
+
+# 添加悬停和选择功能的提示
+fig.add_annotation(
+    text="提示：悬停查看详细信息，双击图例项可筛选区域",
+    xref="paper", yref="paper",
+    x=0.5, y=1.07,
+    showarrow=False,
+    font=dict(size=12)
+)
+
+# 允许筛选图例
+fig.update_layout(
+    legend_title='区域',
+    height=500, width=800,
+    hovermode='x unified',  # 同一x值的所有点都会显示
+    hoverlabel=dict(
+        bgcolor="white",
+        font_size=12,
+        font_family="Arial"
+    )
+)
+
+# 添加区域注释
+fig.add_vrect(
+    x0='6月', x1='8月', 
+    fillcolor="LightSalmon", opacity=0.2,
+    layer="below", line_width=0,
+    annotation_text="暑期促销",
+    annotation_position="top left"
+)
+
+# 允许下载为图片
+fig.update_layout(
+    modebar_add=["drawline", "drawopenpath", "eraseshape"],
+    modebar_remove=["autoScale2d", "toggleSpikelines"]
+)
+
+fig.show()
+```
+
+## 小结
+
+交互式数据可视化为数据分析添加了新的维度，使得用户能够更深入地探索和理解数据。本章介绍了：
+
+1. Plotly、Bokeh和Altair等主要交互式可视化库的基本用法
+2. 丰富的交互功能，包括悬停提示、缩放、选择和动画
+3. 使用Panel等工具创建交互式应用和仪表板
+4. 在Jupyter环境中展示交互式可视化的技巧
+5. 开发交互式可视化的最佳实践和原则
+
+在下一章中，我们将探讨如何将这些交互式可视化整合到Web仪表板中，形成功能完善的数据产品。 

@@ -24,19 +24,19 @@ book:
         - module1/data_cleaning.qmd
         - module1/text_processing.qmd
         - module1/project.qmd
-    # - part: "模块二：数据探索与可视化"
-    #   chapters:
-    #     - module2/index.qmd
-    #     - module2/eda_methodology.qmd
-    #     - module2/statistical_analysis.qmd
-    #     - module2/data_distribution.qmd
-    #     - module2/static_visualization.qmd
-    #     - module2/interactive_visualization.qmd
-    #     - module2/web_dashboard.qmd
-    #     - module2/project.qmd
-    #     - module2/project_part1.qmd
-    #     - module2/project_part2.qmd
-    #     - module2/project_part3.qmd
+    - part: "模块二：数据探索与可视化"
+      chapters:
+        - module2/index.qmd
+        - module2/eda_methodology.qmd
+        - module2/statistical_analysis.qmd
+        - module2/data_distribution.qmd
+        - module2/static_visualization.qmd
+        - module2/interactive_visualization.qmd
+        - module2/web_dashboard.qmd
+        - module2/project.qmd
+        - module2/project_part1.qmd
+        - module2/project_part2.qmd
+        - module2/project_part3.qmd
     # - part: "模块三：计量经济学模型与传统机器学习融合应用"
     #   chapters:
     #     - module3/index.qmd
