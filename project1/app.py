@@ -21,17 +21,6 @@ def main():
     st.sidebar.title("GlobalMart商务智能分析平台")
     st.sidebar.image("https://img.icons8.com/color/96/000000/store-front.png", width=100)
     
-    # 检查数据是否已生成
-    if not check_data_generated():
-        st.warning("数据文件不存在。请先运行 generate_ecommerce_data.py 生成数据。")
-        if st.button("生成示例数据"):
-            with st.spinner("正在生成数据，请稍候..."):
-                import subprocess
-                subprocess.run([sys.executable, "generate_ecommerce_data.py"])
-                st.success("数据生成完成！")
-                st.rerun()
-        return
-    
     # 导航菜单
     menu = st.sidebar.selectbox(
         "分析模块",
