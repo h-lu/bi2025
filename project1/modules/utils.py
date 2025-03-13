@@ -8,12 +8,15 @@ import plotly.graph_objects as go
 # 检查数据是否已生成
 def check_data_generated():
     """检查所需的数据文件是否已存在"""
+    # 获取当前脚本的绝对路径
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    
     required_files = [
-        "data/customers.csv",
-        "data/products.csv",
-        "data/transactions.csv",
-        "data/marketing_campaigns.csv",
-        "data/website_traffic.csv"
+        os.path.join(current_dir, "data", "customers.csv"),
+        os.path.join(current_dir, "data", "products.csv"),
+        os.path.join(current_dir, "data", "transactions.csv"),
+        os.path.join(current_dir, "data", "marketing_campaigns.csv"),
+        os.path.join(current_dir, "data", "website_traffic.csv")
     ]
     
     return all(os.path.exists(file) for file in required_files)

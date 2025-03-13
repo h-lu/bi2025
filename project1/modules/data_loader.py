@@ -11,12 +11,15 @@ def load_data():
         dict: 包含所有数据集的字典
     """
     try:
+        # 获取当前脚本的绝对路径
+        current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        
         # 数据文件路径
-        customers_path = "data/customers.csv"
-        products_path = "data/products.csv"
-        transactions_path = "data/transactions.csv"
-        marketing_path = "data/marketing_campaigns.csv"
-        traffic_path = "data/website_traffic.csv"
+        customers_path = os.path.join(current_dir, "data", "customers.csv")
+        products_path = os.path.join(current_dir, "data", "products.csv")
+        transactions_path = os.path.join(current_dir, "data", "transactions.csv")
+        marketing_path = os.path.join(current_dir, "data", "marketing_campaigns.csv")
+        traffic_path = os.path.join(current_dir, "data", "website_traffic.csv")
         
         # 加载数据
         with st.spinner("正在加载数据..."):
@@ -77,9 +80,14 @@ def load_single_dataset(dataset_name):
         pandas.DataFrame: 加载的数据集
     """
     try:
-        file_path = f"data/{dataset_name}.csv"
+        # 获取当前脚本的绝对路径
+        current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        
+        file_name = f"{dataset_name}.csv"
         if dataset_name == "marketing":
-            file_path = "data/marketing_campaigns.csv"
+            file_name = "marketing_campaigns.csv"
+            
+        file_path = os.path.join(current_dir, "data", file_name)
             
         if os.path.exists(file_path):
             return pd.read_csv(file_path)
