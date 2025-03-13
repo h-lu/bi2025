@@ -18,11 +18,6 @@ def load_data():
         marketing_path = "data/marketing_campaigns.csv"
         traffic_path = "data/website_traffic.csv"
         
-        # 检查文件是否存在
-        if not all(os.path.exists(path) for path in [customers_path, products_path, transactions_path, marketing_path, traffic_path]):
-            st.error("数据文件不存在，请先运行 generate_ecommerce_data.py 生成数据")
-            return None
-        
         # 加载数据
         with st.spinner("正在加载数据..."):
             # 客户数据

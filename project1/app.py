@@ -11,7 +11,7 @@ from modules.data_visualizer import create_dashboard
 from modules.customer_segmentation import perform_customer_segmentation
 from modules.marketing_analysis import analyze_marketing
 from modules.sales_forecasting import forecast_sales
-from modules.utils import display_dataset_info, check_data_generated
+from modules.utils import display_dataset_info
 
 # 页面配置已经在run_app.py中设置，此处不再重复设置
 
