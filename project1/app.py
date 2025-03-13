@@ -29,7 +29,7 @@ def main():
                 import subprocess
                 subprocess.run([sys.executable, "generate_ecommerce_data.py"])
                 st.success("数据生成完成！")
-                st.experimental_rerun()
+                st.rerun()
         return
     
     # 导航菜单
