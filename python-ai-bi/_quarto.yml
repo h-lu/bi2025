@@ -1,57 +1,33 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "商务智能"
-  author: "陆海波"
-  date: "2025"
-  language: zh
-  repo-url: https://github.com/用户名/python-ai-bi
+  subtitle: "理论与Python实践"
+  author: "商务智能课程"
+  date: "`r Sys.Date()`"
   chapters:
     - index.qmd
-    - part: "课程介绍"
+    - part: "数据分析案例"
       chapters:
-        - intro.qmd
-        - course_objectives.qmd
-        - course_structure.qmd
-    - part: "模块一：数据采集与预处理"
-      chapters:
-        - module1/index.qmd
-        - module1/practice_guide.qmd
-    - part: "模块二：数据探索与可视化"
-      chapters:
-        - module2/index.qmd
-        - module2/practice_guide.qmd
-    - part: "模块三：计量经济学模型与传统机器学习融合应用"
-      chapters:
-        - module3/index.qmd
-        - module3/practice_guide.qmd
-    - part: "模块四：简单深度学习入门与实践"
-      chapters:
-        - module4/index.qmd
-        - module4/practice_guide.qmd
-    - part: "模块五：大模型API调用与智能应用"
-      chapters:
-        - module5/index.qmd
-        - module5/practice_guide.qmd
-    - part: "模块六：项目部署与工程实践"
-      chapters:
-        - module6/index.qmd
-        - module6/practice_guide.qmd
-    - references.qmd
-
-bibliography: references.bib
-
+        - 泰坦尼克生存预测.qmd
+        - 房价预测分析.qmd
+  downloads: [pdf, epub]
+  
 format:
   html:
-    number-sections: false
     theme: cosmo
-    css: styles.css
-    toc: true
-    toc-depth: 3
-    lang: zh
-    include-in-header:
-      text: <meta charset="utf-8">
+    code-copy: true
+    code-tools: true
+  pdf:
+    documentclass: scrreprt
+    include-in-header: 
+      text: |
+        \usepackage{ctex}
+    
+lang: zh
 
-
-
+execute:
+  echo: true
+  warning: false 
